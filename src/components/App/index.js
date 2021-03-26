@@ -1,17 +1,20 @@
 import React from 'react';
+import Button from '../common/Button';
 
 import './style.scss';
-import ReactLogo from '../../assets/logo.svg';
 
 const App = () => {
   return (
     <div className="App">
-      <ReactLogo className="logo" />
-      <p className="desc">
-        Create Your React App with React Starter Kit <br />
-        React 17+, Webpack 5, Babel, ESLint, Prettier Full Setup
-      </p>
-      <p className="sub-desc">By Dang Minh Ngo | ndminhdev@gmail.com </p>
+      <Button variant="cyan">Button cyan</Button>
+      <Button variant="gold">Button gold</Button>
+      <Button variant="neutral">Button neutral</Button>
+      <Button variant="ink">Button ink</Button>
+      <Button variant="none">Button none</Button>
+      <Button size="sm">Button small</Button>
+      <Button size="md">Button medium</Button>
+      <Button size="lg">Button large</Button>
+      <Button block={true}>Button block</Button>
     </div>
   );
 };

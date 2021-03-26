@@ -5,7 +5,8 @@ module.exports = {
     es6: true
   },
   rules: {
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'react/prop-types': [2, { ignore: ['children'] }]
   },
   extends: [
     'plugin:react/recommended',
@@ -28,4 +29,4 @@ module.exports = {
       version: 'detect'
     }
   }
-}
+};

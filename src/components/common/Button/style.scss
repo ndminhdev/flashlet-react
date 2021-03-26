@@ -1,0 +1,74 @@
+.btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-weight: var(--weight-medium);
+  transition: all var(--duration-base) ease-out;
+
+  &--cyan {
+    background-color: var(--cyan-300);
+    color: var(--neutral-100);
+  }
+
+  &--cyan:hover {
+    background-color: var(--cyan-400);
+  }
+
+  &--gold {
+    background-color: var(--gold-300);
+    color: var(--neutral-100);
+  }
+
+  &--gold:hover {
+    background-color: var(--gold-400);
+  }
+
+  &--neutral {
+    background-color: var(--neutral-300);
+    color: var(--ink-300);
+  }
+
+  &--neutral:hover {
+    background-color: var(--neutral-400);
+  }
+
+  &--ink {
+    background-color: var(--ink-300);
+    color: var(--neutral-100);
+  }
+
+  &--ink:hover {
+    background-color: var(--ink-400);
+  }
+
+  &--none {
+    background-color: transparent;
+    color: var(--neutral-100);
+  }
+
+  &--none:hover {
+    color: var(--neutral-200);
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  &--sm {
+    font-size: var(--size-sm);
+    border-radius: var(--button-radius-sm);
+    padding: var(--button-padding-v-sm) var(--button-padding-h-sm);
+  }
+
+  &--md {
+    font-size: var(--size-md);
+    border-radius: var(--button-radius-md);
+    padding: var(--button-padding-v-md) var(--button-padding-h-md);
+  }
+
+  &--lg {
+    font-size: var(--size-lg);
+    border-radius: var(--button-radius-lg);
+    padding: var(--button-padding-v-lg) var(--button-padding-h-lg);
+  }
+}
