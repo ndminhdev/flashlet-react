@@ -1,0 +1,41 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+}
+
+.logo {
+  fill:#61DAFB;
+  width: 50rem;
+  height: 50rem;
+  animation-name: rotate;
+  animation-timing-function: linear;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.desc {
+  margin-top: 5rem;
+  color: #fff;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.sub-desc {
+  margin-top: 1rem;
+  color: #61DAFB;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
