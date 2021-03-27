@@ -5,7 +5,7 @@ module.exports = {
     es6: true
   },
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
     'react/prop-types': [2, { ignore: ['children'] }]
   },
   extends: [
