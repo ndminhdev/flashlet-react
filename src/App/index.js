@@ -1,5 +1,5 @@
 import React from 'react';
-import Field from '../common/Field';
+import Field from '@/components/Field';
 
 import './style.scss';
 
