@@ -1,18 +1,16 @@
 import React from 'react';
-import Field from '@/components/Field';
+
+import GoogleIcon from '@/assets/icons/google.svg';
+import FacebookIcon from '@/assets/icons/facebook.svg';
+import SocialButton from '@/components/SocialButton';
 
 import './style.scss';
 
 const App = () => {
   return (
     <div className="App">
-      <Field
-        size="lg"
-        name="email"
-        label="Email address"
-        //error="Email address is incorrect"
-        placeholder="Your email address"
-      />
+      <SocialButton icon={GoogleIcon}>Sign in with Google</SocialButton>
+      <SocialButton icon={FacebookIcon}>Sign in with Facebook</SocialButton>
     </div>
   );
 };

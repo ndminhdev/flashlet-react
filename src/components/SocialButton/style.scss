@@ -1,0 +1,34 @@
+.social-btn {
+  cursor: pointer;
+  position: relative;
+  max-width: 60rem;
+  min-width: 36rem;
+  width: 100%;
+  text-align: center;
+  border: 2px solid var(--neutral-400);
+  outline: none;
+  font-weight: var(--weight-medium);
+  background-color: var(--neutral-100);
+  color: var(--ink-200);
+
+  &--sm {
+    font-size: var(--size-md);
+    border-radius: var(--button-radius-md);
+    padding: var(--button-padding-v-md) var(--button-padding-h-md);
+  }
+
+  &--lg {
+    font-size: var(--size-lg);
+    border-radius: var(--button-radius-lg);
+    padding: var(--button-padding-v-lg) var(--button-padding-h-lg);
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 6rem;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+  }
+}
