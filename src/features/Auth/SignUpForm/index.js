@@ -38,6 +38,12 @@ const SignUpForm = () => {
         </SocialButton>
       </div>
 
+      <div className="signup-form__line">
+        <span className="signup-form__seperator">&nbsp;</span>
+        <p className="signup-form__line-text">or EMAIL</p>
+        <span className="signup-form__seperator">&nbsp;</span>
+      </div>
+
       <form className="signup-form__form" onSubmit={handleSubmit(onSubmit)}>
         <Field
           size="lg"

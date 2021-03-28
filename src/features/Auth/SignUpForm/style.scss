@@ -1,10 +1,32 @@
 .signup-form {
-  width: 60rem;
+  min-width: 60rem;
 
   &__social {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: var(--spacing-lg);
+  }
+
+  &__line {
+    position: relative;
+    margin: var(--spacing-xl) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__line-text {
+    flex: 20%;
+    text-align: center;
+    font-weight: var(--weight-medium);
+    color: var(--neutral-500);
+  }
+
+  &__seperator {
+    width: 50%;
+    height: 2px;
+    background-color: var(--neutral-400);
   }
 
   &__form > * {
