@@ -1,7 +1,11 @@
 import Google from '@/assets/icons/google.svg';
 import Facebook from '@/assets/icons/facebook.svg';
+import Close from '@/assets/icons/close.svg';
 
-export const socialIcons = {
+const icons = {
   Google,
-  Facebook
+  Facebook,
+  Close
 };
+
+export default icons;

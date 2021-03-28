@@ -1,0 +1,34 @@
+.authbox {
+  width: 64rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background-color: var(--cyan-500);
+  }
+
+  &__title {
+    font-weight: var(--weight-medium);
+    color: var(--neutral-100);
+  }
+
+  &__close-btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+  }
+
+  &__close-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    fill: var(--neutral-100);
+  }
+
+  &__body {
+    padding: var(--spacing-lg);
+    background-color: var(--neutral-100);
+  }
+}
