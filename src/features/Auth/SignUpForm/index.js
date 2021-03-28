@@ -10,6 +10,7 @@ import { Button, Field, SocialButton } from '@/components';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Email is incorrect').required('Email is required'),
+  name: Yup.string().required('Full name is required'),
   password: Yup.string()
     .matches(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gi,
@@ -18,7 +19,7 @@ const schema = Yup.object().shape({
     .required('Password is required')
 });
 
-const SignInForm = () => {
+const SignUpForm = () => {
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
@@ -27,17 +28,17 @@ const SignInForm = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="signin-form">
-      <div className="signin-form__social">
-        <SocialButton icon={socialIcons.Google}>
-          Sign in with Google
+    <div className="signup-form">
+      <div className="signup-form__social">
+        <SocialButton size="sm" icon={socialIcons.Google}>
+          Continue with Google
         </SocialButton>
-        <SocialButton icon={socialIcons.Facebook}>
-          Sign in with Facebook
+        <SocialButton size="sm" icon={socialIcons.Facebook}>
+          Continue with Facebook
         </SocialButton>
       </div>
 
-      <form className="signin-form__form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="signup-form__form" onSubmit={handleSubmit(onSubmit)}>
         <Field
           size="lg"
           name="email"
@@ -45,6 +46,14 @@ const SignInForm = () => {
           register={register}
           placeholder="Type your email address"
           error={errors.email?.message}
+        />
+        <Field
+          size="lg"
+          name="name"
+          label="Full name"
+          register={register}
+          placeholder="Type your full name"
+          error={errors.name?.message}
         />
         <Field
           type="password"
@@ -56,14 +65,18 @@ const SignInForm = () => {
           error={errors.password?.message}
         />
         <Button type="submit" size="lg" block={true}>
-          Continue
+          Sign up
         </Button>
       </form>
-      <Link className="signin-form__link" to="/forgotten">
-        Forgot password?
-      </Link>
+
+      <div className="signup-form__bottom">
+        <p className="signup-form__bottom-text">Already have account?</p>
+        <Link className="signup-form__bottom-link" to="/signin">
+          Sign in
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

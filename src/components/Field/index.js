@@ -12,6 +12,8 @@ const Field = ({ size, name, label, type, register, error, ...rest }) => {
         id={name}
         name={name}
         ref={register}
+        autoCorrect="off"
+        autoComplete="off"
         {...rest}
       />
       <label

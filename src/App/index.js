@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SignInForm from '@/features/Auth/SignInForm';
+import SignUpForm from '@/features/Auth/SignUpForm';
 
 import './style.scss';
 
 const App = () => {
   return (
     <div className="App">
-      <SignInForm />
+      <SignUpForm />
     </div>
   );
 };

@@ -2,7 +2,7 @@
   cursor: pointer;
   position: relative;
   max-width: 60rem;
-  min-width: 36rem;
+  min-width: 28rem;
   width: 100%;
   text-align: center;
   border: 2px solid var(--neutral-400);
@@ -26,9 +26,18 @@
   &__icon {
     position: absolute;
     top: 50%;
-    left: 6rem;
     transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
+  }
+
+  &__icon--sm {
+    left: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  &__icon--lg {
+    left: 6rem;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }

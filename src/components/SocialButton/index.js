@@ -8,9 +8,13 @@ const SocialButton = ({ icon: Icon, size, loading, children, ...rest }) => {
     return `social-btn social-btn--${size}`;
   };
 
+  const getIconClasses = () => {
+    return `social-btn__icon social-btn__icon--${size}`;
+  };
+
   return (
     <button className={getSocialButtonClasses()} {...rest}>
-      <Icon className="social-btn__icon" />
+      <Icon className={getIconClasses()} />
       {loading ? 'Loading...' : children}
     </button>
   );
