@@ -9,7 +9,9 @@ const Overlay = ({ component: OverlayComponent, show, toggleShow }) =>
     ? ReactDOM.createPortal(
         <React.Fragment>
           <div className="overlay__backdrop"></div>
-          <OverlayComponent toggleShow={toggleShow} />
+          <div className="overlay__box">
+            <OverlayComponent toggleShow={toggleShow} />
+          </div>
         </React.Fragment>,
         document.getElementById('portal-overlay')
       )
