@@ -3,16 +3,20 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const Field = ({ size, name, label, type, error, ...rest }) => {
+const Field = ({ size, name, label, type, register, error, ...rest }) => {
   return (
     <div className="field-group">
       <input
+        type={type}
         className={`field-group__field field-group__field--${size}`}
-        id={label}
+        id={name}
+        name={name}
+        ref={register}
         {...rest}
       />
       <label
         className={`field-group__label ${error && 'field-group__label--error'}`}
+        htmlFor={name}
       >
         {error ? error : label}
       </label>
@@ -25,6 +29,7 @@ Field.propTypes = {
   type: PropTypes.oneOf(['text', 'password']),
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  register: PropTypes.func.isRequired,
   error: PropTypes.string,
   placeholder: PropTypes.string.isRequired
 };
