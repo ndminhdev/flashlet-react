@@ -8,7 +8,7 @@ const Overlay = ({ component: OverlayComponent, show, toggleShow }) =>
   show
     ? ReactDOM.createPortal(
         <React.Fragment>
-          <div className="overlay__backdrop"></div>
+          <div className="overlay__backdrop" onClick={toggleShow}></div>
           <div className="overlay__box">
             <OverlayComponent toggleShow={toggleShow} />
           </div>
