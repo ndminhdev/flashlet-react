@@ -12,18 +12,6 @@
     border: none;
   }
 
-  &__field::placeholder {
-    color: var(--neutral-500);
-  }
-
-  &__field:-ms-input-placeholder {
-    color: var(--neutral-500);
-  }
-
-  &__field::-ms-input-placeholder {
-    color: var(--neutral-500);
-  }
-
   &__field--sm {
     font-size: var(--size-sm);
   }

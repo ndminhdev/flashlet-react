@@ -1,0 +1,80 @@
+.header {
+  height: 6rem;
+  padding: 0 var(--spacing-xxl);
+  display: flex;
+  align-items: center;
+  background-color: var(--cyan-400);
+
+  &__logo,
+  &__logo:active {
+    font-size: var(--size-xl);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+    color: var(--neutral-100);
+  }
+
+  &__search {
+    position: relative;
+    width: 28rem;
+    margin-left: var(--spacing-lg);
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: var(--input-padding-v-sm) 0;
+    padding-left: var(--spacing-xxl);
+    border-radius: var(--input-radius-sm);
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.35);
+    transition: background-color var(--duration-short) ease-out;
+  }
+
+  &__search-input:focus {
+    background-color: var(--neutral-100);
+  }
+
+  &__search-input:focus ~ &__search-icon {
+    fill: var(--ink-100);
+  }
+
+  &__search-icon {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: var(--spacing-xs);
+    fill: rgba(255, 255, 255, 0.5);
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  &__clear-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-xs);
+    transform: translateY(-50%);
+    width: 1.6rem;
+    height: 1.6rem;
+    outline: none;
+    border: none;
+    background-color: var(--ink-100);
+    border-radius: 50%;
+  }
+
+  &__clear-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: var(--neutral-100);
+  }
+
+  &__buttons {
+    margin-left: auto;
+    display: flex;
+  }
+
+  &__buttons > *:first-child {
+    margin-right: var(--spacing-md);
+  }
+}

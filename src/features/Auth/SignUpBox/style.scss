@@ -50,8 +50,8 @@
     text-transform: uppercase;
   }
 
-  &__bottom-link,
-  &__bottom-link:active {
+  &__bottom-link {
+    cursor: pointer;
     text-decoration: none;
     color: var(--cyan-300);
     font-weight: var(--weight-medium);

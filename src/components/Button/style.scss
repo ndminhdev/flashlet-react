@@ -13,9 +13,17 @@
     color: var(--neutral-100);
   }
 
+  &--cyan:hover {
+    background-color: var(--cyan-400);
+  }
+
   &--gold {
     background-color: var(--gold-300);
     color: var(--neutral-100);
+  }
+
+  &--gold:hover {
+    background-color: var(--gold-400);
   }
 
   &--neutral {
@@ -23,14 +31,27 @@
     color: var(--ink-300);
   }
 
+  &--neutral:hover {
+    background-color: var(--neutral-500);
+  }
+
   &--ink {
     background-color: var(--ink-300);
+    color: var(--neutral-100);
+  }
+
+  &--ink:hover {
+    background-color: var(--ink-100);
     color: var(--neutral-100);
   }
 
   &--none {
     background-color: transparent;
     color: var(--neutral-100);
+  }
+
+  &--none:hover {
+    background-color: rgba(255, 255, 255, 0.35);
   }
 
   &--block {
