@@ -38,8 +38,7 @@
   &__image {
     align-self: stretch;
     height: 60rem;
-    background-position: center;
-    background-size: cover;
+    overflow: hidden;
   }
 
   &__text {

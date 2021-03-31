@@ -29,7 +29,7 @@ const carouselItems = [
   }
 ];
 
-const SWAP_TIME = 2000;
+const SWAP_TIME = 3000;
 
 const LandingPage = () => {
   const [currentItem, setCurrenItem] = useState(carouselItems[0]);
@@ -68,11 +68,8 @@ const LandingPage = () => {
           </div>
 
           <div className="landing__carousel">
-            <div
-              className="landing__image"
-              style={{ backgroundImage: `url(${currentItem.image})` }}
-            >
-              &nbsp;
+            <div className="landing__image">
+              <img src={currentItem.image} alt={`carousel-${currentItem.id}`} />
             </div>
             <p className="landing__text">Flashlet is for</p>
             <span className="landing__quote">
