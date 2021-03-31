@@ -9,8 +9,9 @@ const CloseIcon = icons.Close;
 
 const AuthBox = ({ children, title, handleClose }) => {
   const props = useSpring({
-    from: { transform: 'translateY(-100px)', opacity: 0 },
-    to: { transform: 'translateY(0)', opacity: 1 }
+    from: { transform: 'translateY(-20px)', opacity: 0.8 },
+    to: { transform: 'translateY(0)', opacity: 1 },
+    config: { duration: 200 }
   });
 
   return (
