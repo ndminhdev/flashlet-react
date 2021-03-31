@@ -9,7 +9,6 @@ const Field = ({ size, name, label, type, register, error, ...rest }) => {
       <input
         type={type}
         className={`field-group__field field-group__field--${size}`}
-        id={name}
         name={name}
         ref={register}
         autoCorrect="off"
@@ -18,7 +17,6 @@ const Field = ({ size, name, label, type, register, error, ...rest }) => {
       />
       <label
         className={`field-group__label ${error && 'field-group__label--error'}`}
-        htmlFor={name}
       >
         {error ? error : label}
       </label>

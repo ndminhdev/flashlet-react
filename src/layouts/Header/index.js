@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import './style.scss';
 import { Button } from '@/components';
@@ -12,16 +13,16 @@ const SearchIcon = icons.Search;
 const ClearIcon = icons.Close;
 
 const Header = () => {
-  const [keyword, setKeyword] = useState('');
+  const { register, watch, setValue, handleSubmit } = useForm({
+    mode: 'onChange'
+  });
   const [showSignInOverlay, toggleShowSignInOverlay] = useOverlay();
   const [showSignUpOverlay, toggleShowSignUpOverlay] = useOverlay();
 
-  const handleChange = (event) => {
-    setKeyword(event.target.value);
-  };
+  const onSubmit = (data) => console.log(data);
 
   const clearSearchInput = () => {
-    setKeyword('');
+    setValue('keyword', '');
   };
 
   return (
@@ -30,23 +31,22 @@ const Header = () => {
         <Link to="/" className="header__logo">
           Flashlet
         </Link>
-        <div className="header__search">
+        <form className="header__search" onSubmit={handleSubmit(onSubmit)}>
           <input
             className="header__search-input"
             type="text"
             name="keyword"
             placeholder="Search"
-            value={keyword}
-            onChange={handleChange}
             onBlur={clearSearchInput}
+            ref={register}
           />
           <SearchIcon className="header__search-icon" />
-          {keyword && (
+          {watch('keyword') && (
             <button className="header__clear-btn" onClick={clearSearchInput}>
               <ClearIcon className="header__clear-icon" />
             </button>
           )}
-        </div>
+        </form>
         <div className="header__buttons">
           <Button variant="none" onClick={toggleShowSignInOverlay}>
             Sign in
