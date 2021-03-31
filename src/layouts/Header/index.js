@@ -11,7 +11,7 @@ import { useOverlay } from '@/hooks';
 const SearchIcon = icons.Search;
 const ClearIcon = icons.Close;
 
-const Header = ({ children }) => {
+const Header = () => {
   const [keyword, setKeyword] = useState('');
   const [showSignInOverlay, toggleShowSignInOverlay] = useOverlay();
   const [showSignUpOverlay, toggleShowSignUpOverlay] = useOverlay();

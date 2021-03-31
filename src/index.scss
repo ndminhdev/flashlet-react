@@ -112,6 +112,7 @@ body {
   position: relative;
   font-family: 'Barlow', sans-serif;
   font-size: var(--size-md);
+  color: var(--ink-200);
 }
 
 input,
@@ -129,4 +130,8 @@ input:-ms-input-placeholder {
 
 input::-ms-input-placeholder {
   color: var(--neutral-500);
+}
+
+#portal-overlay * {
+  z-index: var(--z-index-10);
 }

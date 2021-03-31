@@ -1,10 +1,10 @@
 import React from 'react';
 
 import './style.scss';
-import { LandingPage } from '@/pages';
+import { ForgottenPage } from '@/pages';
 
 const App = () => {
-  return <LandingPage />;
+  return <ForgottenPage />;
 };
 
 export default App;

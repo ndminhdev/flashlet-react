@@ -1,0 +1,11 @@
+.forgotten-form {
+  width: 60rem;
+
+  & > * {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  &__form > * {
+    margin-bottom: var(--spacing-sm);
+  }
+}
