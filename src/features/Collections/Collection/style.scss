@@ -1,0 +1,90 @@
+.collection {
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  max-width: 80rem;
+  background-color: var(--neutral-100);
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--gold-200);
+    transition: height var(--duration-short) ease-out;
+  }
+
+  &:hover::before {
+    height: 3px;
+  }
+
+  &__main {
+    padding: var(--spacing-md);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+  }
+
+  &__num-of-terms {
+    color: var(--ink-100);
+  }
+
+  &__user,
+  &__user:link,
+  &__user:active {
+    margin-left: var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cyan-300);
+    transition: color var(--duration-short) ease-out;
+  }
+
+  &__user:hover {
+    color: var(--gold-300);
+  }
+
+  &__profile-image {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+  }
+
+  &__fullname {
+    margin-left: var(--spacing-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  &__title {
+    margin-top: var(--spacing-sm);
+  }
+
+  &__preview-terms {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--neutral-300);
+  }
+
+  &__term {
+    flex: 1 1 0;
+    padding: var(--spacing-md);
+    color: var(--ink-100);
+    font-size: var(--size-sm);
+  }
+
+  &__term:not(:last-child) {
+    border-right: 1px solid var(--neutral-300);
+  }
+
+  &__text {
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--weight-medium);
+  }
+}

@@ -1,10 +1,47 @@
 import React from 'react';
 
 import './style.scss';
-import { ResetPage } from '@/pages';
+import { Collection } from '@/features/Collections';
+
+const collection = {
+  title: 'Business Test For English Native Speaker (Part 2)',
+  user: {
+    _id: '0123',
+    name: 'Elizabeth Monnah',
+    profileImage:
+      'https://res-1.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco/v1443584492/vosgqpvicpjgknz2rn2l.png'
+  },
+  numOfTerms: 46,
+  previewTerms: [
+    {
+      _id: 0,
+      text: 'origin',
+      description: 'The starting point on the grid'
+    },
+    {
+      _id: 1,
+      text: 'origin',
+      description: 'The starting point on the grid'
+    },
+    {
+      _id: 2,
+      text: 'origin',
+      description: 'The starting point on the grid'
+    },
+    {
+      _id: 3,
+      text: 'origin',
+      description: 'The starting point on the grid'
+    }
+  ]
+};
 
 const App = () => {
-  return <ResetPage />;
+  return (
+    <div className="App">
+      <Collection {...collection} onClick={() => console.log('Clicked')} />
+    </div>
+  );
 };
 
 export default App;
