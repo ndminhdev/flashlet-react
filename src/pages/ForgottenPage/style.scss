@@ -1,0 +1,21 @@
+.forgotten {
+  height: 90vh;
+  padding-top: 16rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &__left,
+  &__right {
+    position: absolute;
+    bottom: 20%;
+  }
+
+  &__left {
+    left: var(--spacing-xxl);
+  }
+
+  &__right {
+    right: var(--spacing-xxl);
+  }
+}

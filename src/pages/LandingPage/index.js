@@ -7,24 +7,22 @@ import { Button, Overlay } from '@/components';
 import { SignInBox, SignUpBox } from '@/features/Auth';
 import { useOverlay } from '@/hooks';
 
-import carouselOne from '@/assets/images/carousel-1.png';
-import carouselTwo from '@/assets/images/carousel-2.png';
-import carouselThree from '@/assets/images/carousel-3.png';
+import { carouselImages } from '@/utils/images';
 
 const carouselItems = [
   {
     id: 0,
-    image: carouselOne,
+    image: carouselImages.carouselOne,
     quote: 'I am done with my books. I will try something new.'
   },
   {
     id: 1,
-    image: carouselTwo,
+    image: carouselImages.carouselTwo,
     quote: 'Tonight I work, so tomorrow I can hang out'
   },
   {
     id: 2,
-    image: carouselThree,
+    image: carouselImages.carouselThree,
     quote: 'I can sleep all day after exams are over'
   }
 ];
