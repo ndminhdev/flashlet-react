@@ -29,6 +29,11 @@ const SignUpBox = ({ toggleShow, showSignInOverlay }) => {
 
   const onSubmit = (data) => console.log(data);
 
+  const handleSwapSignInClick = () => {
+    toggleShow();
+    showSignInOverlay();
+  };
+
   return (
     <AuthBox title="Sign up" handleClose={toggleShow}>
       <div className="signup-box">
@@ -80,7 +85,10 @@ const SignUpBox = ({ toggleShow, showSignInOverlay }) => {
 
         <div className="signup-box__bottom">
           <p className="signup-box__bottom-text">Already have account?</p>
-          <span className="signup-box__bottom-link" onClick={showSignInOverlay}>
+          <span
+            className="signup-box__bottom-link"
+            onClick={handleSwapSignInClick}
+          >
             Sign in
           </span>
         </div>
