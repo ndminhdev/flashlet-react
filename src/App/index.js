@@ -1,10 +1,10 @@
 import React from 'react';
 
 import './style.scss';
-import { ForgottenPage } from '@/pages';
+import { ResetPage } from '@/pages';
 
 const App = () => {
-  return <ForgottenPage />;
+  return <ResetPage />;
 };
 
 export default App;
