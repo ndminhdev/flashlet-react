@@ -1,0 +1,9 @@
+.collection-list {
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > *:not(:last-child) {
+    margin-bottom: var(--spacing-md);
+  }
+}

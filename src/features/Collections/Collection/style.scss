@@ -2,7 +2,6 @@
   user-select: none;
   cursor: pointer;
   position: relative;
-  max-width: 80rem;
   background-color: var(--neutral-100);
   border: 1px solid var(--neutral-300);
   border-radius: var(--radius-md);
@@ -44,11 +43,11 @@
     align-items: center;
     text-decoration: none;
     color: var(--cyan-300);
-    transition: color var(--duration-short) ease-out;
+    transition: color var(--duration-long) ease-out;
   }
 
   &__user:hover {
-    color: var(--gold-300);
+    color: var(--gold-400);
   }
 
   &__profile-image {
