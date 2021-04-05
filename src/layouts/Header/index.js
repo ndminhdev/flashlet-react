@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useSpring, animated } from 'react-spring';
 
 import './style.scss';
 import { Button } from '@/components';
 import icons from '@/utils/icons';
 import { SignInBox, SignUpBox } from '@/features/Auth';
 import { Overlay } from '@/components';
-import { useOverlay } from '@/hooks';
+import { useOverlay, useAuth } from '@/hooks';
 
 const SearchIcon = icons.Search;
 const ClearIcon = icons.Close;
@@ -18,6 +19,14 @@ const Header = () => {
   });
   const [showSignInOverlay, toggleShowSignInOverlay] = useOverlay();
   const [showSignUpOverlay, toggleShowSignUpOverlay] = useOverlay();
+  const [showUserList, setShowUserList] = useState(false);
+  const springProps = useSpring({
+    from: { transform: 'translateY(-20px)', opacity: 0.6 },
+    to: { transform: 'translateY(0)', opacity: 1 },
+    config: { duration: 200 }
+  });
+
+  const { isAuth, user } = useAuth();
 
   const onSubmit = (data) => console.log(data);
 
@@ -47,14 +56,53 @@ const Header = () => {
             </button>
           )}
         </form>
-        <div className="header__buttons">
-          <Button variant="none" onClick={toggleShowSignInOverlay}>
-            Sign in
-          </Button>
-          <Button variant="gold" onClick={toggleShowSignUpOverlay}>
-            Get started
-          </Button>
-        </div>
+        {isAuth ? (
+          <div className="header__user">
+            <div
+              style={{
+                borderColor: showUserList ? 'var(--neutral-100)' : null
+              }}
+              className="header__profile-image"
+              onClick={() => setShowUserList(!showUserList)}
+            >
+              <img
+                className="header__image"
+                src={user.profileImage || user.profileImageDefault}
+                alt="profile"
+              />
+            </div>
+            {showUserList && (
+              <animated.div style={springProps} className="header__dropdown">
+                <div className="header__info">
+                  <img
+                    className="header__info-image"
+                    src={user.profileImage || user.profileImageDefault}
+                    alt="profile-image"
+                  />
+                  <div className="header__info-text">
+                    <span className="header__info-name">{user.name}</span>
+                    <span className="header__info-email">{user.email}</span>
+                  </div>
+                </div>
+
+                <div className="header__options">
+                  <Link className="header__link">Profile</Link>
+                  <Link className="header__link">Profile</Link>
+                  <Link className="header__link">Profile</Link>
+                </div>
+              </animated.div>
+            )}
+          </div>
+        ) : (
+          <div className="header__buttons">
+            <Button variant="none" onClick={toggleShowSignInOverlay}>
+              Sign in
+            </Button>
+            <Button variant="gold" onClick={toggleShowSignUpOverlay}>
+              Get started
+            </Button>
+          </div>
+        )}
       </div>
       <Overlay
         component={SignInBox}

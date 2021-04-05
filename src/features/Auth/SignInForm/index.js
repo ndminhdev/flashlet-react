@@ -7,6 +7,9 @@ import * as Yup from 'yup';
 import './style.scss';
 import icons from '@/utils/icons';
 import { Button, Field, SocialButton } from '@/components';
+import { useDispatch, useNavigate } from '@/hooks';
+import { UserAPI } from '@/api';
+import { signIn } from '@/context/actions/user';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Email is incorrect').required('Email is required'),
@@ -24,7 +27,14 @@ const SignInForm = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data) => console.log(data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const result = await UserAPI.signIn(data);
+    signIn(dispatch, result);
+    navigate('/landing');
+  };
 
   return (
     <div className="signin-form">

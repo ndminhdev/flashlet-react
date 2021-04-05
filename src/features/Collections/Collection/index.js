@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
+import { useNavigate } from '@/hooks';
 
 const Collection = ({
   _id,
@@ -12,14 +13,14 @@ const Collection = ({
   previewTerms,
   ...rest
 }) => {
-  const history = useHistory();
-
-  const navigateToCollection = () => {
-    history.push(`/collections/${_id}`);
-  };
+  const navigate = useNavigate();
 
   return (
-    <div className="collection" {...rest} onClick={navigateToCollection}>
+    <div
+      className="collection"
+      {...rest}
+      onClick={() => navigate(`/collections/${_id}`)}
+    >
       <div className="collection__main">
         <div className="collection__top">
           <span className="collection__num-of-terms">{numOfTerms} terms</span>

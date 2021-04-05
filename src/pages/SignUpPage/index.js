@@ -1,15 +1,12 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
+import { useNavigate } from '@/hooks';
 import { SignUpForm } from '@/features/Auth';
 
 const SignUpPage = () => {
-  const history = useHistory();
-
-  const navigateToSignIn = () => {
-    history.push('/signin');
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="signup">
@@ -17,7 +14,7 @@ const SignUpPage = () => {
         Flashlet
       </Link>
       <h1 className="signup__title">Sign up</h1>
-      <SignUpForm swapSignIn={navigateToSignIn} />
+      <SignUpForm swapSignIn={() => navigate('/signin')} />
     </div>
   );
 };

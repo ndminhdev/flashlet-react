@@ -1,10 +1,10 @@
 import useStore from './useStore';
 
 const useAuth = () => {
-  const { state } = useStore();
-  const auth = state.user;
-  console.log(state);
-  return { auth };
+  const {
+    state: { user }
+  } = useStore();
+  return user;
 };
 
 export default useAuth;

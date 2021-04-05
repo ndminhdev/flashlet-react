@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 
 import './style.scss';
 import AppRoutes from '@/routes';
@@ -41,8 +41,6 @@ import AppRoutes from '@/routes';
 //   ...collection
 // }));
 
-const App = () => {
-  return <AppRoutes />;
-};
+const App = () => <AppRoutes />;
 
 export default App;
