@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 
 import './style.scss';
-import { CollectionList } from '@/features/Collections';
-import StateContext from '@/context';
+import AppRoutes from '@/routes';
 
 // const collection = {
 //   title: 'Business Test For English Native Speaker (Part 2)',
@@ -43,9 +42,7 @@ import StateContext from '@/context';
 // }));
 
 const App = () => {
-  const { state } = useContext(StateContext);
-
-  return <div className="App">{JSON.stringify(state.user)}</div>;
+  return <AppRoutes />;
 };
 
 export default App;
