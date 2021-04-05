@@ -26,10 +26,10 @@
 
   &__label {
     position: relative;
-    margin-top: var(--spacing-md);
-    padding-top: var(--spacing-sm);
-    font-size: var(--size-xs);
-    font-weight: var(--weight-medium);
+    margin-top: var(--spacing-xs);
+    padding-top: var(--spacing-xs);
+    font-size: var(--size-xxs);
+    font-weight: var(--weight-bold);
     text-transform: uppercase;
     color: var(--ink-100);
   }

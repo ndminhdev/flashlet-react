@@ -10,10 +10,10 @@ const RightImage = illustrations.right;
 
 const ResetPage = () => (
   <Layout>
-    <div className="forgotten">
+    <div className="reset">
       <ResetForm />
-      <LeftImage className="forgotten__left" />
-      <RightImage className="forgotten__right" />
+      <LeftImage className="reset__left" />
+      <RightImage className="reset__right" />
     </div>
   </Layout>
 );
