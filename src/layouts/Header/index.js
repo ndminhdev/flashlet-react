@@ -8,7 +8,12 @@ import { Button } from '@/components';
 import icons from '@/utils/icons';
 import { SignInBox, SignUpBox } from '@/features/Auth';
 import { Overlay } from '@/components';
-import { useOverlay, useAuth } from '@/hooks';
+import { useDispatch, useOverlay, useAuth } from '@/hooks';
+import {
+  showSignInOverlay,
+  showSignUpOverlay,
+  hideOverlays
+} from '@/context/actions/ui';
 
 const SearchIcon = icons.Search;
 const ClearIcon = icons.Close;
@@ -17,8 +22,8 @@ const Header = () => {
   const { register, watch, setValue, handleSubmit } = useForm({
     mode: 'onChange'
   });
-  const [showSignInOverlay, toggleShowSignInOverlay] = useOverlay();
-  const [showSignUpOverlay, toggleShowSignUpOverlay] = useOverlay();
+  const dispatch = useDispatch();
+  const { signInOverlayShown, signUpOverlayShown } = useOverlay();
   const [showUserList, setShowUserList] = useState(false);
   const springProps = useSpring({
     from: { transform: 'translateY(-20px)', opacity: 0.6 },
@@ -95,25 +100,20 @@ const Header = () => {
           </div>
         ) : (
           <div className="header__buttons">
-            <Button variant="none" onClick={toggleShowSignInOverlay}>
+            <Button variant="none" onClick={() => showSignInOverlay(dispatch)}>
               Sign in
             </Button>
-            <Button variant="gold" onClick={toggleShowSignUpOverlay}>
+            <Button variant="gold" onClick={() => showSignUpOverlay(dispatch)}>
               Get started
             </Button>
           </div>
         )}
       </div>
-      <Overlay
-        component={SignInBox}
-        show={showSignInOverlay}
-        toggleShow={toggleShowSignInOverlay}
-      />
+      <Overlay component={SignInBox} overlayShown={signInOverlayShown} />
       <Overlay
         component={SignUpBox}
-        show={showSignUpOverlay}
-        toggleShow={toggleShowSignUpOverlay}
-        showSignInOverlay={toggleShowSignInOverlay}
+        overlayShown={signUpOverlayShown}
+        showSignInOverlay={() => showSignInOverlay(dispatch)}
       />
     </React.Fragment>
   );

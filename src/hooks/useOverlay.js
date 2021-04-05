@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import useStore from './useStore';
 
 const useOverlay = () => {
-  const [show, setShow] = useState(false);
-
-  const toggleShow = () => setShow(!show);
-
-  return [show, toggleShow];
+  const { state } = useStore();
+  const { signInOverlayShown, signUpOverlayShown } = state.ui;
+  return { signInOverlayShown, signUpOverlayShown };
 };
 
 export default useOverlay;

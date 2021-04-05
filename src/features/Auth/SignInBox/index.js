@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.scss';
 import { AuthBox } from '@/layouts';
 import SignInForm from '../SignInForm';
 
-const SignInBox = ({ toggleShow }) => (
-  <AuthBox title="Sign in" handleClose={toggleShow}>
-    <SignInForm />
-  </AuthBox>
-);
+const SignInBox = ({ hideOverlay }) => {
+  return (
+    <AuthBox title="Sign in" handleClose={hideOverlay}>
+      <SignInForm />
+    </AuthBox>
+  );
+};
 
 SignInBox.propTypes = {
-  toggleShow: PropTypes.func.isRequired
+  hideOverlay: PropTypes.func.isRequired
 };
 
 export default SignInBox;

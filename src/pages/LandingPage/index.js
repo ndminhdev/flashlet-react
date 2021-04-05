@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 
 import { Layout } from '@/layouts';
-import { Button, Overlay } from '@/components';
-import { SignInBox, SignUpBox } from '@/features/Auth';
-import { useOverlay } from '@/hooks';
+import { Button } from '@/components';
+import { useDispatch } from '@/hooks';
+import { showSignUpOverlay } from '@/context/actions/ui';
 
 import { carouselImages } from '@/utils/images';
 
@@ -30,10 +30,9 @@ const carouselItems = [
 const SWAP_TIME = 3000;
 
 const LandingPage = () => {
+  const dispatch = useDispatch();
   const [currentItem, setCurrenItem] = useState(carouselItems[0]);
   const [progress, setProgress] = useState(0);
-  const [showSignInOverlay, toggleShowSignInOverlay] = useOverlay();
-  const [showSignUpOverlay, toggleShowSignUpOverlay] = useOverlay();
 
   useEffect(() => {
     const item =
@@ -60,7 +59,11 @@ const LandingPage = () => {
             <span className="landing__description">
               Try our incredible study tools
             </span>
-            <Button size="lg" variant="gold" onClick={toggleShowSignUpOverlay}>
+            <Button
+              size="lg"
+              variant="gold"
+              onClick={() => showSignUpOverlay(dispatch)}
+            >
               TRY FOR FREE
             </Button>
           </div>
@@ -86,17 +89,6 @@ const LandingPage = () => {
           </div>
         </div>
       </Layout>
-      <Overlay
-        component={SignInBox}
-        show={showSignInOverlay}
-        toggleShow={toggleShowSignInOverlay}
-      />
-      <Overlay
-        component={SignUpBox}
-        show={showSignUpOverlay}
-        toggleShow={toggleShowSignUpOverlay}
-        showSignInOverlay={toggleShowSignInOverlay}
-      />
     </React.Fragment>
   );
 };

@@ -4,21 +4,27 @@ import ReactDOM from 'react-dom';
 
 import './style.scss';
 
+import { hideOverlays } from '@/context/actions/ui';
+import { useDispatch } from '@/hooks';
+
 const Overlay = ({
   component: OverlayComponent,
-  show,
-  toggleShow,
+  overlayShown,
   showSignInOverlay
 }) => {
   const portalOverlay = document.getElementById('portal-overlay');
+  const dispatch = useDispatch();
 
-  return show
+  return overlayShown
     ? ReactDOM.createPortal(
         <React.Fragment>
-          <div className="overlay__backdrop" onClick={toggleShow}></div>
+          <div
+            className="overlay__backdrop"
+            onClick={() => hideOverlays(dispatch)}
+          ></div>
           <div className="overlay__box">
             <OverlayComponent
-              toggleShow={toggleShow}
+              hideOverlay={() => hideOverlays(dispatch)}
               showSignInOverlay={showSignInOverlay}
             />
           </div>
@@ -30,9 +36,7 @@ const Overlay = ({
 
 Overlay.propTypes = {
   component: PropTypes.func.isRequired,
-  show: PropTypes.bool.isRequired,
-  toggleShow: PropTypes.func.isRequired,
-  showSignInOverlay: PropTypes.func
+  overlayShown: PropTypes.bool.isRequired
 };
 
 export default Overlay;

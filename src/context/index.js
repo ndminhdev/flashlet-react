@@ -8,6 +8,10 @@ const StateContext = React.createContext({
 });
 
 const initialState = {
+  ui: {
+    signInOverlayShown: false,
+    signUpOverlayShown: false
+  },
   user: {
     isAuth: false,
     user: null,
