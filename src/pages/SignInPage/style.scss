@@ -1,2 +1,53 @@
 .signin {
+  margin: 0 auto;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo,
+  &__logo:active {
+    margin-top: var(--spacing-xxl);
+    font-family: 'Recursive', sans-serif;
+    font-size: var(--size-xxl);
+    font-weight: '900';
+    text-decoration: none;
+    color: var(--cyan-300);
+  }
+
+  &__title {
+    margin-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-lg);
+    width: 100%;
+    border-bottom: 5px solid var(--gold-300);
+    color: var(--ink-100);
+  }
+
+  &__bottom {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--button-padding-v-lg) var(--button-padding-h-lg);
+    border-radius: var(--button-radius-lg);
+    border: 2px solid var(--neutral-400);
+  }
+
+  &__bottom-text {
+    margin-right: var(--spacing-xs);
+    font-weight: var(--weight-medium);
+    color: var(--ink-100);
+  }
+
+  &__bottom-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--cyan-300);
+    font-weight: var(--weight-medium);
+  }
+
+  &__bottom-link:hover {
+    color: var(--cyan-400);
+  }
 }

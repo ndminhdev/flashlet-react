@@ -1,0 +1,23 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo,
+  &__logo:active {
+    margin-top: var(--spacing-xxl);
+    font-family: 'Recursive', sans-serif;
+    font-size: var(--size-xxl);
+    font-weight: '900';
+    text-decoration: none;
+    color: var(--cyan-300);
+  }
+
+  &__title {
+    margin-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-lg);
+    width: 60rem;
+    border-bottom: 5px solid var(--gold-300);
+    color: var(--ink-100);
+  }
+}

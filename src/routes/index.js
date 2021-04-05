@@ -1,16 +1,25 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import { SignInPage, ForgottenPage, LandingPage, ResetPage } from '@/pages';
+import {
+  SignInPage,
+  SignUpPage,
+  ForgottenPage,
+  LandingPage,
+  ResetPage
+} from '@/pages';
 
 const AppRoutes = () => (
   <Switch>
     <Route path="/signin">
       <SignInPage />
     </Route>
-    <PrivateRoute path="/landing">
+    <Route path="/signup">
+      <SignUpPage />
+    </Route>
+    <Route path="/landing">
       <LandingPage />
-    </PrivateRoute>
+    </Route>
     <Route path="/forgotten">
       <ForgottenPage />
     </Route>
