@@ -16,7 +16,7 @@ const SignUpPage = () => {
       <Link className="signup__logo" to="/landing">
         Flashlet
       </Link>
-      <h1 className="signup__title">Sign in</h1>
+      <h1 className="signup__title">Sign up</h1>
       <SignUpForm swapSignIn={navigateToSignIn} />
     </div>
   );
