@@ -4,12 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background-color: var(--neutral-100);
 
   &__field {
     width: 100%;
     outline: none;
     border: none;
+    background-color: transparent;
   }
 
   &__field--sm {

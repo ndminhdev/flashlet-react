@@ -23,6 +23,14 @@ export const getMyCollections = async (token) => {
   return responseData;
 };
 
+export const searchCollections = async (keyword) => {
+  const responseData = await sendRequest({
+    method: 'get',
+    url: `/collections/search/${keyword}`
+  });
+  return responseData;
+};
+
 export const getMyCollectionById = async (id, token) => {
   const responseData = await sendRequest({
     method: 'get',

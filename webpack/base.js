@@ -15,7 +15,7 @@ module.exports = {
   entry,
   output: {
     path: paths.build,
-    publicPath: './',
+    publicPath: '/',
     filename: isDev ? '[name].[fullhash].js' : '[name].[contenthash].js'
   },
   module: {

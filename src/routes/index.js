@@ -1,32 +1,53 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
 import {
   SignInPage,
   SignUpPage,
   ForgottenPage,
+  ResetPage,
   LandingPage,
-  ResetPage
+  SearchPage
 } from '@/pages';
 
-const AppRoutes = () => (
+const routes = [
+  {
+    name: 'signin',
+    path: '/signin',
+    component: SignInPage
+  },
+  {
+    name: 'signup',
+    path: '/signup',
+    component: SignUpPage
+  },
+  {
+    name: 'forgotten',
+    path: '/forgotten',
+    component: ForgottenPage
+  },
+  {
+    name: 'reset',
+    path: '/reset',
+    component: ResetPage
+  },
+  {
+    name: 'landing',
+    path: '/landing',
+    component: LandingPage
+  },
+  {
+    name: 'search',
+    path: '/search/:keyword',
+    component: SearchPage
+  }
+];
+
+const AuthRoutes = () => (
   <Switch>
-    <Route path="/signin">
-      <SignInPage />
-    </Route>
-    <Route path="/signup">
-      <SignUpPage />
-    </Route>
-    <Route path="/landing">
-      <LandingPage />
-    </Route>
-    <Route path="/forgotten">
-      <ForgottenPage />
-    </Route>
-    <Route path="/reset">
-      <ResetPage />
-    </Route>
+    {routes.map(({ name, ...rest }) => (
+      <Route key={name} {...rest} />
+    ))}
   </Switch>
 );
 
-export default AppRoutes;
+export default AuthRoutes;

@@ -11,6 +11,7 @@ const Collection = ({
   user,
   numOfTerms,
   previewTerms,
+  createdAt,
   ...rest
 }) => {
   const navigate = useNavigate();
@@ -52,7 +53,8 @@ Collection.propTypes = {
   title: PropTypes.string.isRequired,
   user: PropTypes.object.isRequired,
   numOfTerms: PropTypes.number.isRequired,
-  previewTerms: PropTypes.array.isRequired
+  previewTerms: PropTypes.array.isRequired,
+  createdAt: PropTypes.string.isRequired
 };
 
 export default Collection;

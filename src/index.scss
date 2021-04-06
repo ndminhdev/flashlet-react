@@ -124,7 +124,8 @@ body {
 }
 
 input,
-textarea {
+textarea,
+select {
   font-size: inherit;
 }
 
@@ -138,8 +139,4 @@ input:-ms-input-placeholder {
 
 input::-ms-input-placeholder {
   color: var(--neutral-500);
-}
-
-#portal-overlay * {
-  z-index: var(--z-index-10);
 }
