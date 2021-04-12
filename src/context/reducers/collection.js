@@ -1,6 +1,6 @@
-import { CREATE_COLLECTION } from '../constants/collection';
+import { CREATE_COLLECTION } from '../constants/set';
 
-const collectionReducer = (state, action) => {
+const setReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -14,4 +14,4 @@ const collectionReducer = (state, action) => {
   }
 };
 
-export default collectionReducer;
+export default setReducer;

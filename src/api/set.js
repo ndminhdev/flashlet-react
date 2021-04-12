@@ -1,9 +1,9 @@
 import sendRequest from './sendRequest';
 
-export const createCollection = async (data, token) => {
+export const createSet = async (data, token) => {
   const responseData = await sendRequest({
     method: 'post',
-    url: '/collections',
+    url: '/sets',
     data,
     headers: {
       Authorization: `Bearer ${token}`
@@ -12,10 +12,10 @@ export const createCollection = async (data, token) => {
   return responseData;
 };
 
-export const getMyCollections = async (token) => {
+export const getMySets = async (token) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: '/collections',
+    url: '/sets',
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -23,18 +23,18 @@ export const getMyCollections = async (token) => {
   return responseData;
 };
 
-export const searchCollections = async (keyword) => {
+export const searchSets = async (keyword) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: `/collections/search/${keyword}`
+    url: `/subject/${keyword}`
   });
   return responseData;
 };
 
-export const getMyCollectionById = async (id, token) => {
+export const getMySetById = async (id, token) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: `/collections/${id}`,
+    url: `/sets/${id}`,
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -42,10 +42,10 @@ export const getMyCollectionById = async (id, token) => {
   return responseData;
 };
 
-export const updateCollection = async (id, data, token) => {
+export const updateSet = async (id, data, token) => {
   const responseData = await sendRequest({
     method: 'put',
-    url: `/collections/${id}`,
+    url: `/sets/${id}`,
     data,
     headers: {
       Authorization: `Bearer ${token}`
@@ -54,10 +54,10 @@ export const updateCollection = async (id, data, token) => {
   return responseData;
 };
 
-export const deleteCollection = async (id, token) => {
+export const deleteSet = async (id, token) => {
   const responseData = await sendRequest({
     method: 'delete',
-    url: `/collections/${id}`,
+    url: `/sets/${id}`,
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -68,7 +68,7 @@ export const deleteCollection = async (id, token) => {
 export const addCard = async (id, data, token) => {
   const responseData = await sendRequest({
     method: 'post',
-    url: `/collections/${id}/cards`,
+    url: `/sets/${id}/cards`,
     data,
     headers: {
       Authorization: `Bearer ${token}`
@@ -80,7 +80,7 @@ export const addCard = async (id, data, token) => {
 export const getCards = async (id, token) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: `/collections/${id}/cards`,
+    url: `/sets/${id}/cards`,
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -91,7 +91,7 @@ export const getCards = async (id, token) => {
 export const updateCard = async (id, cardId, data, token) => {
   const responseData = await sendRequest({
     method: 'patch',
-    url: `/collections/${id}/cards/${cardId}`,
+    url: `/sets/${id}/cards/${cardId}`,
     data,
     headers: {
       Authorization: `Bearer ${token}`
@@ -103,7 +103,7 @@ export const updateCard = async (id, cardId, data, token) => {
 export const removeCard = async (id, cardId, token) => {
   const responseData = await sendRequest({
     method: 'delete',
-    url: `/collections/${id}/cards/${cardId}`,
+    url: `/sets/${id}/cards/${cardId}`,
     headers: {
       Authorization: `Bearer ${token}`
     }
