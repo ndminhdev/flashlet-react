@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import './style.scss';
 import { ResetForm } from '@/features/Auth';
@@ -10,6 +11,9 @@ const RightImage = illustrations.right;
 
 const ResetPage = () => (
   <Layout>
+    <Helmet>
+      <title>Reset your password | Flashlet</title>
+    </Helmet>
     <div className="reset">
       <ResetForm />
       <LeftImage className="reset__left" />

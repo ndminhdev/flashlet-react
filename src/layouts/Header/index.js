@@ -8,7 +8,7 @@ import { Button } from '@/components';
 import icons from '@/utils/icons';
 import { SignInBox, SignUpBox } from '@/features/Auth';
 import { Overlay } from '@/components';
-import { useDispatch, useOverlay, useAuth } from '@/hooks';
+import { useDispatch, useOverlay, useAuth, useNavigate } from '@/hooks';
 import {
   showSignInOverlay,
   showSignUpOverlay,
@@ -30,10 +30,12 @@ const Header = () => {
     to: { transform: 'translateY(0)', opacity: 1 },
     config: { duration: 200 }
   });
-
   const { isAuth, user } = useAuth();
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    navigate(`/subject/${data.keyword}`);
+  };
 
   const clearSearchInput = () => {
     setValue('keyword', '');
@@ -55,12 +57,12 @@ const Header = () => {
             ref={register}
           />
           <SearchIcon className="header__search-icon" />
-          {watch('keyword') && (
-            <button className="header__clear-btn" onClick={clearSearchInput}>
-              <ClearIcon className="header__clear-icon" />
-            </button>
-          )}
         </form>
+        {watch('keyword') && (
+          <button className="header__clear-btn" onClick={clearSearchInput}>
+            <ClearIcon className="header__clear-icon" />
+          </button>
+        )}
         {isAuth ? (
           <div className="header__user">
             <div

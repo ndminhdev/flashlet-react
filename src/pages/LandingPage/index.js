@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 import './style.scss';
 
@@ -47,49 +48,54 @@ const LandingPage = () => {
   }, [currentItem]);
 
   return (
-    <React.Fragment>
-      <Layout>
-        <div className="landing">
-          <div className="landing__hero">
-            <h1 className="landing__title">
-              Unstoppable <br />
-              Motivate yourself <br />
-              Take up new challenges
-            </h1>
-            <span className="landing__description">
-              Try our incredible study tools
-            </span>
-            <Button
-              size="lg"
-              variant="gold"
-              onClick={() => showSignUpOverlay(dispatch)}
-            >
-              TRY FOR FREE
-            </Button>
-          </div>
+    <Layout>
+      <Helmet>
+        <title>Landing Page | Flashlet</title>
+      </Helmet>
+      <div className="landing">
+        <div className="landing__hero">
+          <h1 className="landing__title">
+            Unstoppable <br />
+            Motivate yourself <br />
+            Take up new challenges
+          </h1>
+          <span className="landing__description">
+            Try our incredible study tools
+          </span>
+          <Button
+            size="lg"
+            variant="gold"
+            onClick={() => showSignUpOverlay(dispatch)}
+          >
+            TRY FOR FREE
+          </Button>
+        </div>
 
-          <div className="landing__carousel">
-            <div className="landing__image">
-              <img src={currentItem.image} alt={`carousel-${currentItem.id}`} />
-            </div>
-            <p className="landing__text">Flashlet is for</p>
-            <span className="landing__quote">
-              &quot;{currentItem.quote}&quot;
+        <div className="landing__carousel">
+          <div className="landing__image-container">
+            <img
+              className="landing__image"
+              src={currentItem.image}
+              alt={`carousel-${currentItem.id}`}
+            />
+          </div>
+          <p className="landing__text">Flashlet is for</p>
+          <span className="landing__quote">
+            &quot;{currentItem.quote}&quot;
+          </span>
+          <div className="landing__processbar">
+            <span
+              className="landing__processcursor"
+              style={{
+                width: `${progress}%`
+              }}
+            >
+              &nbsp;
             </span>
-            <div className="landing__processbar">
-              <span
-                className="landing__processcursor"
-                style={{
-                  width: `${progress}%`
-                }}
-              >
-                &nbsp;
-              </span>
-            </div>
           </div>
         </div>
-      </Layout>
-    </React.Fragment>
+      </div>
+    </Layout>
   );
 };
 

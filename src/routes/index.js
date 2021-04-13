@@ -37,7 +37,7 @@ const routes = [
   },
   {
     name: 'search',
-    path: '/search/:keyword',
+    path: '/subject/:keyword',
     component: SearchPage
   }
 ];

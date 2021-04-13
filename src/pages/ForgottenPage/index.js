@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import './style.scss';
 import { ForgottenForm } from '@/features/Auth';
@@ -10,6 +11,9 @@ const RightImage = illustrations.right;
 
 const ForgottenPage = () => (
   <Layout>
+    <Helmet>
+      <title>Forgot your password | Flashlet</title>
+    </Helmet>
     <div className="forgotten">
       <ForgottenForm />
       <LeftImage className="forgotten__left" />

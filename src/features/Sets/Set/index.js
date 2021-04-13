@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
+import { limitString } from '@/utils/string';
 import { useNavigate } from '@/hooks';
 
 const Set = ({
@@ -17,12 +18,20 @@ const Set = ({
 }) => {
   const navigate = useNavigate();
 
+  const handleUsernameClick = (event) => {
+    event.stopPropagation();
+  };
+
   return (
     <div className="set" {...rest} onClick={() => navigate(`/sets/${_id}`)}>
       <div className="set__main">
         <div className="set__top">
           <span className="set__num-of-terms">{termsCount} terms</span>
-          <Link to={`/users/${user._id}`} className="set__user">
+          <Link
+            to={`/users/${user._id}`}
+            className="set__user"
+            onClick={handleUsernameClick}
+          >
             <img
               className="set__profile-image"
               src={user.profileImage || user.profileImageDefault}
@@ -37,7 +46,9 @@ const Set = ({
         {previewTerms.map((t) => (
           <div key={t._id} className="set__term">
             <p className="set__text">{t.term}</p>
-            <span className="set__description">{t.definition}</span>
+            <span className="set__description">
+              {limitString(t.definition, 45)}
+            </span>
           </div>
         ))}
       </div>

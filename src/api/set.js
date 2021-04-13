@@ -23,10 +23,16 @@ export const getMySets = async (token) => {
   return responseData;
 };
 
-export const searchSets = async (keyword) => {
+export const searchSets = async (
+  keyword,
+  page = 1,
+  sortBy = 'title',
+  orderBy = 1,
+  limit = 8
+) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: `/subject/${keyword}`
+    url: `/subject/${keyword}?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
   });
   return responseData;
 };

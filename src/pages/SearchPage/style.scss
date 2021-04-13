@@ -16,18 +16,37 @@
     text-transform: uppercase;
   }
 
-  &__sort {
-    cursor: pointer;
-    width: 16rem;
-    padding: var(--spacing-xs);
+  &__sorts {
+    display: flex;
+  }
+
+  &__sort-btn {
+    margin-left: 1rem;
     outline: none;
     border: none;
-    border-radius: var(--radius-sm);
-    font-weight: var(--weight-medium);
-    background-color: var(--neutral-100);
+    background: transparent;
+    font-weight: var(--weight-bold);
+    color: var(--ink-100);
+    cursor: pointer;
+    transition: color var(--duration-short) linear;
+  }
+
+  &__sort-btn:hover {
+    color: var(--gold-300);
   }
 
   &__main {
     margin-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__main > * {
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__end-of-results {
+    color: var(--ink-100);
   }
 }
