@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 
 import './style.scss';
 import icons from '@/utils/icons';
+import handleError from '@/utils/handleError';
 import { Button, Field, SocialButton } from '@/components';
 import { useDispatch, useNavigate } from '@/hooks';
 import { UserAPI } from '@/api';
@@ -30,15 +31,20 @@ const SignInForm = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       const result = await UserAPI.signIn(data);
       signIn(dispatch, result);
+      setLoading(false);
       hideOverlays(dispatch);
       navigate('/landing');
     } catch (err) {
-      console.log(err);
+      handleError(err, setErrMessage);
+      setLoading(false);
     }
   };
 
@@ -67,10 +73,11 @@ const SignInForm = () => {
           placeholder="Type your password"
           error={errors.password?.message}
         />
-        <Button type="submit" size="lg" block={true}>
+        <Button loading={loading} type="submit" size="lg" block={true}>
           Continue
         </Button>
       </form>
+      {errMessage && <span className="signin-form__error">{errMessage}</span>}
       <Link className="signin-form__link" to="/forgotten">
         Forgot password?
       </Link>

@@ -14,6 +14,12 @@
     margin-bottom: var(--spacing-lg);
   }
 
+  &__error {
+    display: block;
+    color: var(--coral-300);
+    margin-bottom: var(--spacing-lg);
+  }
+
   &__link,
   &__link:active {
     text-decoration: none;
