@@ -44,7 +44,7 @@ const Header = () => {
   };
 
   const handleOutsideClick = (event) => {
-    if (showUserList && !infoDropdownRef.current.contains(event.target)) {
+    if (showUserList && !infoDropdownRef?.current?.contains(event.target)) {
       setShowUserList(false);
     }
   };
