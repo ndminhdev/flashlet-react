@@ -18,6 +18,28 @@ export const signIn = async (data) => {
   return responseData;
 };
 
+export const signOut = async (token) => {
+  const responseData = await sendRequest({
+    method: 'delete',
+    url: '/users/signout',
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+  return responseData;
+};
+
+export const signOutAll = async (token) => {
+  const responseData = await sendRequest({
+    method: 'delete',
+    url: '/users/signout/all',
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+  return responseData;
+};
+
 export const forgotPassword = async (data) => {
   const responseData = await sendRequest({
     method: 'post',

@@ -6,6 +6,12 @@
     margin-bottom: var(--spacing-lg);
   }
 
+  &__count {
+    font-size: var(--size-md);
+    font-weight: var(--weight-regular);
+    color: var(--ink-100);
+  }
+
   &__top {
     display: flex;
     align-items: center;
@@ -36,7 +42,6 @@
   }
 
   &__main {
-    margin-top: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     align-items: center;

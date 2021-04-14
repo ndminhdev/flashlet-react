@@ -6,7 +6,6 @@ import './style.scss';
 import { Layout } from '@/layouts';
 import { SetList } from '@/features/Sets';
 import { SetAPI } from '@/api';
-import { set } from 'core-js/core/dict';
 import { Button } from '@/components';
 
 const sorts = [
@@ -26,6 +25,7 @@ const SearchPage = () => {
   const [sort, setSort] = useState('+title');
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
+  const [setsCount, setSetsCount] = useState(0);
 
   const handleLoadingMoreClick = () => {
     setPage(page + 1);
@@ -43,6 +43,7 @@ const SearchPage = () => {
     const data = await SetAPI.searchSets(keyword, page, sortBy, orderBy, 2);
     setSets([...sets, ...data.sets]);
     setHasNextPage(data.hasNextPage);
+    setSetsCount(data.setsCount);
   }, [page, sort]);
 
   return (
@@ -51,31 +52,43 @@ const SearchPage = () => {
         <title>Subject: {keyword} | Flashlet</title>
       </Helmet>
       <div className="search">
-        <h1 className="search__keyword">{keyword}</h1>
-        <div className="search__top">
-          <h3 className="search__title">Sets</h3>
-          <div className="search__sorts">
-            {sorts.map(({ sort, label }) => (
-              <button
-                key={sort}
-                className="search__sort-btn"
-                onClick={() => setSort(sort)}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="search__main">
-          <SetList sets={sets} />
-          {hasNextPage ? (
-            <Button size="sm" variant="gold" onClick={handleLoadingMoreClick}>
-              Load more
-            </Button>
-          ) : (
-            <span className="search__end-of-results">End of results</span>
-          )}
-        </div>
+        <h1 className="search__keyword">
+          {keyword} <span className="search__count">({setsCount})</span>
+        </h1>
+        {setsCount ? (
+          <React.Fragment>
+            <div className="search__top">
+              <h3 className="search__title">Sets</h3>
+              <div className="search__sorts">
+                {sorts.map(({ sort, label }) => (
+                  <button
+                    key={sort}
+                    className="search__sort-btn"
+                    onClick={() => setSort(sort)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="search__main">
+              <SetList sets={sets} />
+              {hasNextPage ? (
+                <Button
+                  size="sm"
+                  variant="gold"
+                  onClick={handleLoadingMoreClick}
+                >
+                  Load more
+                </Button>
+              ) : (
+                <span className="search__end-of-results">End of results</span>
+              )}
+            </div>
+          </React.Fragment>
+        ) : (
+          <span className="search__info-text">No results</span>
+        )}
       </div>
     </Layout>
   );

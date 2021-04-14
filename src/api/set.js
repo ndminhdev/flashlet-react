@@ -32,7 +32,7 @@ export const searchSets = async (
 ) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: `/subject/${keyword}?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
+    url: `/sets/subject/${keyword}?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
   });
   return responseData;
 };

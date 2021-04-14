@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSpring, animated } from 'react-spring';
@@ -33,6 +33,8 @@ const Header = () => {
   const { isAuth, user } = useAuth();
   const navigate = useNavigate();
 
+  const infoDropdownRef = useRef(null);
+
   const onSubmit = (data) => {
     navigate(`/subject/${data.keyword}`);
   };
@@ -40,6 +42,17 @@ const Header = () => {
   const clearSearchInput = () => {
     setValue('keyword', '');
   };
+
+  const handleOutsideClick = (event) => {
+    if (showUserList && !infoDropdownRef.current.contains(event.target)) {
+      setShowUserList(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', handleOutsideClick);
+    return () => window.removeEventListener('click', handleOutsideClick);
+  }, [showUserList]);
 
   return (
     <React.Fragment>
@@ -79,7 +92,11 @@ const Header = () => {
               />
             </div>
             {showUserList && (
-              <animated.div style={springProps} className="header__dropdown">
+              <animated.div
+                style={springProps}
+                ref={infoDropdownRef}
+                className="header__dropdown"
+              >
                 <div className="header__info">
                   <img
                     className="header__info-image"
@@ -93,9 +110,15 @@ const Header = () => {
                 </div>
 
                 <div className="header__options">
-                  <Link className="header__link">Profile</Link>
-                  <Link className="header__link">Profile</Link>
-                  <Link className="header__link">Profile</Link>
+                  <Link to="/me" className="header__link">
+                    Profile
+                  </Link>
+                  <Link to="/me" className="header__link">
+                    Profile
+                  </Link>
+                  <Link to="/me" className="header__link">
+                    Profile
+                  </Link>
                 </div>
               </animated.div>
             )}
