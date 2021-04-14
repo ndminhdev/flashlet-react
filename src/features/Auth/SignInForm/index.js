@@ -10,6 +10,7 @@ import { Button, Field, SocialButton } from '@/components';
 import { useDispatch, useNavigate } from '@/hooks';
 import { UserAPI } from '@/api';
 import { signIn } from '@/context/actions/user';
+import { hideOverlays } from '@/context/actions/ui';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Email is incorrect').required('Email is required'),
@@ -31,9 +32,14 @@ const SignInForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const result = await UserAPI.signIn(data);
-    signIn(dispatch, result);
-    navigate('/landing');
+    try {
+      const result = await UserAPI.signIn(data);
+      signIn(dispatch, result);
+      hideOverlays(dispatch);
+      navigate('/landing');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
