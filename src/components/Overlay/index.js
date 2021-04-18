@@ -18,8 +18,12 @@ const Overlay = ({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    body.style.overflow = 'hidden';
-    return () => (body.style.overflow = 'visible');
+    if (overlayShown) {
+      body.style.overflow = 'hidden';
+    }
+    return () => {
+      body.style.overflow = 'visible';
+    };
   }, [overlayShown]);
 
   return (

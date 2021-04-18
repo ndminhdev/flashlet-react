@@ -7,8 +7,8 @@ import Set from '../Set';
 const SetList = ({ sets }) => {
   return (
     <div className="set-list">
-      {sets.map((c) => (
-        <Set key={c._id} {...c} />
+      {sets.map((s) => (
+        <Set key={s._id} {...s} />
       ))}
     </div>
   );

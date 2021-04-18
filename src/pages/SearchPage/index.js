@@ -40,11 +40,27 @@ const SearchPage = () => {
     } else {
       orderBy = -1;
     }
-    const data = await SetAPI.searchSets(keyword, page, sortBy, orderBy, 2);
+
+    const data = await SetAPI.searchSets(keyword, page, sortBy, orderBy, 8);
     setSets([...sets, ...data.sets]);
     setHasNextPage(data.hasNextPage);
     setSetsCount(data.setsCount);
-  }, [page, sort]);
+  }, [page]);
+
+  useEffect(async () => {
+    const sortBy = sort.slice(1);
+    let orderBy;
+
+    if (sort.startsWith('+')) {
+      orderBy = 1;
+    } else {
+      orderBy = -1;
+    }
+
+    const data = await SetAPI.searchSets(keyword, 1, sortBy, orderBy, 8);
+    setSets(data.sets);
+    setHasNextPage(data.hasNextPage);
+  }, [sort]);
 
   return (
     <Layout>
