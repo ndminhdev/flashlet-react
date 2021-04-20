@@ -10,19 +10,23 @@ import { Button } from '@/components';
 
 const sorts = [
   {
+    id: '-title',
     label: 'Title A-Z',
-    sort: '+title'
+    sortBy: 'title',
+    orderBy: 1
   },
   {
+    id: '-createdAt',
     label: 'Most Recent',
-    sort: '-createdAt'
+    sortBy: 'createdAt',
+    orderBy: -1
   }
 ];
 
 const SearchPage = () => {
   const { keyword } = useParams();
   const [sets, setSets] = useState([]);
-  const [sort, setSort] = useState('+title');
+  const [sort, setSort] = useState({ sortBy: 'title', orderBy: 1 });
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [setsCount, setSetsCount] = useState(0);
@@ -32,15 +36,7 @@ const SearchPage = () => {
   };
 
   useEffect(async () => {
-    const sortBy = sort.slice(1);
-    let orderBy;
-
-    if (sort.startsWith('+')) {
-      orderBy = 1;
-    } else {
-      orderBy = -1;
-    }
-
+    const { sortBy, orderBy } = sort;
     const data = await SetAPI.searchSets(keyword, page, sortBy, orderBy, 8);
     setSets([...sets, ...data.sets]);
     setHasNextPage(data.hasNextPage);
@@ -48,15 +44,7 @@ const SearchPage = () => {
   }, [page]);
 
   useEffect(async () => {
-    const sortBy = sort.slice(1);
-    let orderBy;
-
-    if (sort.startsWith('+')) {
-      orderBy = 1;
-    } else {
-      orderBy = -1;
-    }
-
+    const { sortBy, orderBy } = sort;
     const data = await SetAPI.searchSets(keyword, 1, sortBy, orderBy, 8);
     setSets(data.sets);
     setHasNextPage(data.hasNextPage);
@@ -76,11 +64,11 @@ const SearchPage = () => {
             <div className="search__top">
               <h3 className="search__title">Sets</h3>
               <div className="search__sorts">
-                {sorts.map(({ sort, label }) => (
+                {sorts.map(({ id, sortBy, orderBy, label }) => (
                   <button
-                    key={sort}
+                    key={id}
                     className="search__sort-btn"
-                    onClick={() => setSort(sort)}
+                    onClick={() => setSort({ sortBy, orderBy })}
                   >
                     {label}
                   </button>

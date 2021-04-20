@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSpring, animated } from 'react-spring';
 
@@ -8,7 +8,7 @@ import { Button } from '@/components';
 import icons from '@/utils/icons';
 import { SignInBox, SignUpBox } from '@/features/Auth';
 import { Overlay } from '@/components';
-import { useDispatch, useOverlay, useAuth, useNavigate } from '@/hooks';
+import { useDispatch, useOverlay, useAuth } from '@/hooks';
 import {
   showSignInOverlay,
   showSignUpOverlay,
@@ -31,12 +31,13 @@ const Header = () => {
     config: { duration: 200 }
   });
   const { isAuth, user } = useAuth();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const infoDropdownRef = useRef(null);
 
   const onSubmit = (data) => {
-    navigate(`/subject/${data.keyword}`);
+    history.push(`/subject/${data.keyword}`);
+    window.location.reload();
   };
 
   const clearSearchInput = () => {
