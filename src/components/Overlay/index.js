@@ -7,7 +7,8 @@ import './style.scss';
 import { hideOverlays } from '@/context/actions/ui';
 import { useDispatch } from '@/hooks';
 
-const body = document.querySelector('body');
+const body = document.body;
+const root = document.getElementById('root');
 const portalOverlay = document.getElementById('portal-overlay');
 
 const Overlay = ({
@@ -19,10 +20,10 @@ const Overlay = ({
 
   useEffect(() => {
     if (overlayShown) {
-      body.style.overflow = 'hidden';
+      body.classList.add('lock');
     }
     return () => {
-      body.style.overflow = 'visible';
+      body.classList.remove('lock');
     };
   }, [overlayShown]);
 
