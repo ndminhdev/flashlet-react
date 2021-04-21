@@ -71,45 +71,11 @@ export const deleteSet = async (id, token) => {
   return responseData;
 };
 
-export const addCard = async (id, data, token) => {
+export const uploadImage = async (data, token) => {
   const responseData = await sendRequest({
     method: 'post',
-    url: `/sets/${id}/cards`,
+    url: `/sets/upload-image`,
     data,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
-  return responseData;
-};
-
-export const getCards = async (id, token) => {
-  const responseData = await sendRequest({
-    method: 'get',
-    url: `/sets/${id}/cards`,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
-  return responseData;
-};
-
-export const updateCard = async (id, cardId, data, token) => {
-  const responseData = await sendRequest({
-    method: 'patch',
-    url: `/sets/${id}/cards/${cardId}`,
-    data,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
-  return responseData;
-};
-
-export const removeCard = async (id, cardId, token) => {
-  const responseData = await sendRequest({
-    method: 'delete',
-    url: `/sets/${id}/cards/${cardId}`,
     headers: {
       Authorization: `Bearer ${token}`
     }

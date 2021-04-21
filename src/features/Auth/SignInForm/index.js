@@ -10,7 +10,7 @@ import handleError from '@/utils/handleError';
 import { Button, Field, SocialButton } from '@/components';
 import { useDispatch, useNavigate } from '@/hooks';
 import { UserAPI } from '@/api';
-import { signIn } from '@/context/actions/user';
+import { signIn } from '@/context/actions/session';
 import { hideOverlays } from '@/context/actions/ui';
 
 const schema = Yup.object().shape({

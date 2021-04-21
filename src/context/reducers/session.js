@@ -1,6 +1,6 @@
-import { SIGN_IN } from '../constants/user';
+import { SIGN_IN } from '../constants/session';
 
-const userReducer = (state, action) => {
+const sessionReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -17,4 +17,4 @@ const userReducer = (state, action) => {
   }
 };
 
-export default userReducer;
+export default sessionReducer;

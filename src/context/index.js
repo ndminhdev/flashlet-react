@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 import appReducer from './reducers';
 
@@ -12,7 +12,7 @@ const initialState = {
     signInOverlayShown: false,
     signUpOverlayShown: false
   },
-  user: {
+  session: {
     isAuth: false,
     user: null,
     token: ''
@@ -20,7 +20,13 @@ const initialState = {
 };
 
 export const StateProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(appReducer, initialState);
+  const localState = JSON.parse(localStorage.getItem('state'));
+  const [state, dispatch] = useReducer(appReducer, localState || initialState);
+  useEffect(() => {
+    localStorage.setItem('state', JSON.stringify(state));
+    console.log('Storage saved', JSON.parse(localStorage.getItem('state')));
+  }, [state]);
+
   return (
     <StateContext.Provider value={{ state, dispatch }}>
       {children}

@@ -1,0 +1,15 @@
+.card-field-group {
+  &__top {
+    padding: var(--spacing-xxs) var(--spacing-md);
+    font-size: var(--size-lg);
+    background-color: var(--neutral-100);
+  }
+
+  &__form {
+    display: flex;
+  }
+
+  &__form > *:not(:last-child) {
+    margin-right: var(--spacing-md);
+  }
+}

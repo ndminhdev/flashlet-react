@@ -1,7 +1,10 @@
-import useAuth from './useAuth';
+import useLocalStorage from './useLocalStorage';
 
 const useToken = () => {
-  return useAuth().token;
+  const {
+    value: { token }
+  } = useLocalStorage('session');
+  return token;
 };
 
 export default useToken;

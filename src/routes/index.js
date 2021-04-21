@@ -1,12 +1,15 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+
+import PrivateRoute from './PrivateRoute';
 import {
   SignInPage,
   SignUpPage,
   ForgottenPage,
   ResetPage,
   LandingPage,
-  SearchPage
+  SearchPage,
+  SetFormPage
 } from '@/pages';
 
 const routes = [
@@ -39,14 +42,28 @@ const routes = [
     name: 'search',
     path: '/subject/:keyword',
     component: SearchPage
+  },
+  {
+    name: 'createSet',
+    path: '/create-set',
+    component: SetFormPage
+    //isPrivate: true
   }
 ];
 
 const AuthRoutes = () => (
   <Switch>
-    {routes.map(({ name, ...rest }) => (
-      <Route key={name} {...rest} />
-    ))}
+    {routes.map(({ name, component: Component, isPrivate, ...rest }) =>
+      isPrivate ? (
+        <PrivateRoute key={name} {...rest}>
+          <Component />
+        </PrivateRoute>
+      ) : (
+        <Route key={name} {...rest}>
+          <Component />
+        </Route>
+      )
+    )}
     <Redirect to="/landing" />
   </Switch>
 );

@@ -1,4 +1,4 @@
-import { SIGN_IN } from '../constants/user';
+import { SIGN_IN } from '../constants/session';
 
 export const signIn = (dispatch, data) =>
   dispatch({

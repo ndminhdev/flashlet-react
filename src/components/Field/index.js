@@ -26,10 +26,10 @@ const Field = ({ size, name, label, type, register, error, ...rest }) => {
 
 Field.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  type: PropTypes.oneOf(['text', 'password']),
+  type: PropTypes.oneOf(['text', 'password', 'file']),
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func,
   error: PropTypes.string,
   placeholder: PropTypes.string.isRequired
 };

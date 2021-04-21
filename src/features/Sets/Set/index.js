@@ -23,7 +23,7 @@ const Set = ({
   };
 
   return (
-    <div className="set" {...rest} onClick={() => navigate(`/sets/${_id}`)}>
+    <div className="set" onClick={() => navigate(`/sets/${_id}`)}>
       <div className="set__main">
         <div className="set__top">
           <span className="set__num-of-terms">{termsCount} terms</span>
@@ -43,8 +43,8 @@ const Set = ({
         <h3 className="set__title">{title}</h3>
       </div>
       <div className="set__preview-terms">
-        {previewTerms.map((t) => (
-          <div key={t._id} className="set__term">
+        {previewTerms.map((t, index) => (
+          <div key={index} className="set__term">
             <p className="set__text">{t.term}</p>
             <span className="set__description">
               {limitString(t.definition, 45)}

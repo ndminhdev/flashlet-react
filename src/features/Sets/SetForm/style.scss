@@ -1,0 +1,9 @@
+.set-form {
+  &__form {
+    margin-top: var(--spacing-lg);
+  }
+
+  &__form > *:not(:last-child) {
+    margin-bottom: var(--spacing-sm);
+  }
+}

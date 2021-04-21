@@ -17,7 +17,7 @@ const handleError = (err, actionToHandle, dispatch) => {
   } else if (actionToHandle && dispatch) {
     actionToHandle(dispatch, errMessage);
   } else {
-    console.log(errMessage);
+    console.error(errMessage);
   }
 };
 

@@ -1,10 +1,8 @@
-import useStore from './useStore';
+import useLocalStorage from './useLocalStorage';
 
 const useAuth = () => {
-  const {
-    state: { user }
-  } = useStore();
-  return user;
+  const { value } = useLocalStorage('session');
+  return value;
 };
 
 export default useAuth;
