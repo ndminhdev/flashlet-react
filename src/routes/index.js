@@ -35,8 +35,9 @@ const routes = [
     page: ResetPage
   },
   {
-    name: 'landing',
-    path: '/landing',
+    name: 'home',
+    path: '/',
+    exact: true,
     page: LandingPage
   },
   {
@@ -47,7 +48,8 @@ const routes = [
   {
     name: 'dashboard',
     path: '/dashboard',
-    page: DashboardPage
+    page: DashboardPage,
+    isPrivate: true
   },
   {
     name: 'createSet',

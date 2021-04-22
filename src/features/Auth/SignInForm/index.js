@@ -41,7 +41,7 @@ const SignInForm = () => {
       signIn(dispatch, result);
       setLoading(false);
       hideOverlays(dispatch);
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       handleError(err, setErrMessage);
       setLoading(false);
