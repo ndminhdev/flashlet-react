@@ -20,37 +20,43 @@ const SetForm = () => {
     resolver: yupResolver(schema)
   });
 
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(Array.from({ length: 4 }, (v, k) => null));
   const token = useToken();
 
   useEffect(() => {
     console.log(cards);
   }, [cards]);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     console.log(cards);
+
+    try {
+      const responseData = await SetAPI.createSet(
+        { ...data, isPublic: true, cards },
+        token
+      );
+      console.log(responseData);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onTermChange = (event, id) => {
-    let newCards = [...cards];
-
-    if (!newCards[id]) {
+    if (!cards[id]) {
       return setCards([...cards, { term: event.target.value }]);
     }
 
-    newCards[id].term = event.target.value;
+    cards[id].term = event.target.value;
     setCards(cards);
   };
 
   const onDefinitionChange = (event, id) => {
-    let newCards = [...cards];
-
-    if (!newCards[id]?.term) {
+    if (!cards[id]?.term) {
       throw new Error('Term is required');
     }
 
-    newCards[id].definition = event.target.value;
+    cards[id].definition = event.target.value;
     setCards(cards);
   };
 
@@ -58,7 +64,22 @@ const SetForm = () => {
     const formData = new FormData();
     formData.append('image', event.target.files[0]);
     const data = await SetAPI.uploadImage(formData, token);
-    console.log(data.imageUrl);
+
+    if (!cards[id]) {
+      throw new Error('Term is required');
+    }
+
+    cards[id].imageUrl = data.imageUrl;
+    setCards(cards);
+  };
+
+  const onDeleteCard = (id) => {
+    let newCards = cards.splice(id, 1);
+    setCards(newCards);
+  };
+
+  const onAddCardClick = () => {
+    console.log('Add card');
   };
 
   return (
@@ -79,12 +100,25 @@ const SetForm = () => {
           placeholder="Add a description"
           error={errors.description?.message}
         />
-        <CardFieldGroup
-          id={0}
-          onTermChange={onTermChange}
-          onDefinitionChange={onDefinitionChange}
-          onImageChange={onImageChange}
-        />
+        <div className="set-form__cards">
+          {cards.map((card, index) => (
+            <CardFieldGroup
+              key={index}
+              id={index}
+              onTermChange={onTermChange}
+              onDefinitionChange={onDefinitionChange}
+              onImageChange={onImageChange}
+              onDeleteCard={onDeleteCard}
+            />
+          ))}
+          <button
+            className="set-form__add-card-btn"
+            type="button"
+            onClick={onAddCardClick}
+          >
+            + Add card
+          </button>
+        </div>
         <Button size="sm" type="submit">
           Create
         </Button>

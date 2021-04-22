@@ -1,0 +1,25 @@
+.image-field {
+  &__field {
+    display: none;
+  }
+
+  &__label {
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--neutral-500);
+    border-radius: var(--radius-sm);
+  }
+
+  &__label:hover &__icon {
+    fill: var(--gold-300);
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    transition: fill var(--duration-short) ease-out;
+  }
+}

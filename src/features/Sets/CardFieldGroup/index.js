@@ -2,18 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
-import { Field } from '@/components';
+import { Field, ImageField } from '@/components';
+import icons from '@/utils/icons';
+
+const DeleteIcon = icons.Close;
 
 const CardFieldGroup = ({
   id,
   onTermChange,
   onDefinitionChange,
   onImageChange,
-  ...rest
+  onDeleteCard
 }) => {
   return (
-    <div className="card-field-group" {...rest}>
-      <div className="card-field-group__top">{id + 1}</div>
+    <div className="card-field-group">
+      <div className="card-field-group__top">
+        <span>{id + 1}</span>
+        <button
+          className="card-field-group__delete-btn"
+          type="button"
+          onClick={() => onDeleteCard(id)}
+        >
+          <DeleteIcon className="card-field-group__delete-icon" />
+        </button>
+      </div>
       <div className="card-field-group__form">
         <Field
           name="term"
@@ -27,11 +39,9 @@ const CardFieldGroup = ({
           placeholder="Enter definition"
           onChange={(event) => onDefinitionChange(event, id)}
         />
-        <Field
-          type="file"
+        <ImageField
+          id={id}
           name="image"
-          label="image"
-          placeholder="Enter definition"
           onChange={(event) => onImageChange(event, id)}
         />
       </div>
@@ -43,7 +53,8 @@ CardFieldGroup.propTypes = {
   id: PropTypes.number.isRequired,
   onTermChange: PropTypes.func.isRequired,
   onDefinitionChange: PropTypes.func.isRequired,
-  onImageChange: PropTypes.func.isRequired
+  onImageChange: PropTypes.func.isRequired,
+  onDeleteCard: PropTypes.func.isRequired
 };
 
 export default CardFieldGroup;

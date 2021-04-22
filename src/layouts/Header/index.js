@@ -9,11 +9,7 @@ import icons from '@/utils/icons';
 import { SignInBox, SignUpBox } from '@/features/Auth';
 import { Overlay } from '@/components';
 import { useDispatch, useOverlay, useAuth } from '@/hooks';
-import {
-  showSignInOverlay,
-  showSignUpOverlay,
-  hideOverlays
-} from '@/context/actions/ui';
+import { showSignInOverlay, showSignUpOverlay } from '@/context/actions/ui';
 
 const SearchIcon = icons.Search;
 const ClearIcon = icons.Close;

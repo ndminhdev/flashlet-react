@@ -37,10 +37,10 @@ export const searchSets = async (
   return responseData;
 };
 
-export const getMySetById = async (id, token) => {
+export const getMySetById = async (setId, token) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: `/sets/${id}`,
+    url: `/sets/${setId}`,
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -48,10 +48,10 @@ export const getMySetById = async (id, token) => {
   return responseData;
 };
 
-export const updateSet = async (id, data, token) => {
+export const updateSet = async (setId, data, token) => {
   const responseData = await sendRequest({
     method: 'put',
-    url: `/sets/${id}`,
+    url: `/sets/${setId}`,
     data,
     headers: {
       Authorization: `Bearer ${token}`
@@ -60,10 +60,10 @@ export const updateSet = async (id, data, token) => {
   return responseData;
 };
 
-export const deleteSet = async (id, token) => {
+export const deleteSet = async (setId, token) => {
   const responseData = await sendRequest({
     method: 'delete',
-    url: `/sets/${id}`,
+    url: `/sets/${setId}`,
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -71,14 +71,34 @@ export const deleteSet = async (id, token) => {
   return responseData;
 };
 
-export const uploadImage = async (data, token) => {
+export const addCard = async (setId, data, token) => {
   const responseData = await sendRequest({
     method: 'post',
-    url: `/sets/upload-image`,
+    url: `/sets/${setId}/cards`,
     data,
     headers: {
       Authorization: `Bearer ${token}`
     }
   });
-  return responseData;
+};
+
+export const editCard = async (cardId, data, token) => {
+  const responseData = await sendRequest({
+    method: 'put',
+    url: `/cards/${cardId}`,
+    data,
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+};
+
+export const removeCard = async (cardId, token) => {
+  const responseData = await sendRequest({
+    method: 'delete',
+    url: `/cards/${cardId}`,
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
 };
