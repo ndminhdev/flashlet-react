@@ -9,6 +9,7 @@ import {
   ResetPage,
   LandingPage,
   SearchPage,
+  DashboardPage,
   SetFormPage
 } from '@/pages';
 
@@ -16,51 +17,56 @@ const routes = [
   {
     name: 'signin',
     path: '/signin',
-    component: SignInPage
+    page: SignInPage
   },
   {
     name: 'signup',
     path: '/signup',
-    component: SignUpPage
+    page: SignUpPage
   },
   {
     name: 'forgotten',
     path: '/forgotten',
-    component: ForgottenPage
+    page: ForgottenPage
   },
   {
     name: 'reset',
     path: '/reset',
-    component: ResetPage
+    page: ResetPage
   },
   {
     name: 'landing',
     path: '/landing',
-    component: LandingPage
+    page: LandingPage
   },
   {
     name: 'search',
     path: '/subject/:keyword',
-    component: SearchPage
+    page: SearchPage
+  },
+  {
+    name: 'dashboard',
+    path: '/dashboard',
+    page: DashboardPage
   },
   {
     name: 'createSet',
     path: '/create-set',
-    component: SetFormPage,
+    page: SetFormPage,
     isPrivate: true
   }
 ];
 
 const AuthRoutes = () => (
   <Switch>
-    {routes.map(({ name, component: Component, isPrivate, ...rest }) =>
+    {routes.map(({ name, page: PageComponent, isPrivate, ...rest }) =>
       isPrivate ? (
         <PrivateRoute key={name} {...rest}>
-          <Component />
+          <PageComponent />
         </PrivateRoute>
       ) : (
         <Route key={name} {...rest}>
-          <Component />
+          <PageComponent />
         </Route>
       )
     )}

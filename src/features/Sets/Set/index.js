@@ -13,8 +13,7 @@ const Set = ({
   user,
   termsCount,
   previewTerms,
-  createdAt,
-  ...rest
+  createdAt
 }) => {
   const navigate = useNavigate();
 

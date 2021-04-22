@@ -4,4 +4,5 @@ export { default as ForgottenPage } from './ForgottenPage';
 export { default as LandingPage } from './LandingPage';
 export { default as ResetPage } from './ResetPage';
 export { default as SearchPage } from './SearchPage';
+export { default as DashboardPage } from './DashboardPage';
 export { default as SetFormPage } from './SetFormPage';

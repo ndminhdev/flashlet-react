@@ -12,10 +12,13 @@ export const createSet = async (data, token) => {
   return responseData;
 };
 
-export const getMySets = async (token) => {
+export const getMySets = async (
+  { page = 1, sortBy = 'title', orderBy = 1, limit = 8 },
+  token
+) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: '/sets',
+    url: `/sets?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`,
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -23,13 +26,13 @@ export const getMySets = async (token) => {
   return responseData;
 };
 
-export const searchSets = async (
+export const searchSets = async ({
   keyword,
   page = 1,
   sortBy = 'title',
   orderBy = 1,
   limit = 8
-) => {
+}) => {
   const responseData = await sendRequest({
     method: 'get',
     url: `/sets/subject/${keyword}?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
@@ -80,6 +83,7 @@ export const addCard = async (setId, data, token) => {
       Authorization: `Bearer ${token}`
     }
   });
+  return responseData;
 };
 
 export const editCard = async (cardId, data, token) => {
@@ -91,6 +95,7 @@ export const editCard = async (cardId, data, token) => {
       Authorization: `Bearer ${token}`
     }
   });
+  return responseData;
 };
 
 export const removeCard = async (cardId, token) => {
@@ -101,4 +106,5 @@ export const removeCard = async (cardId, token) => {
       Authorization: `Bearer ${token}`
     }
   });
+  return responseData;
 };
