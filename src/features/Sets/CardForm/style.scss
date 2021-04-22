@@ -1,0 +1,33 @@
+.card-field-group {
+  align-self: stretch;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--neutral-100);
+  box-shadow: var(--shadow);
+
+  &__top {
+    padding: var(--spacing-xxs) 0;
+    font-size: var(--size-xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    color: var(--neutral-500);
+    border-bottom: 2px solid var(--neutral-300);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form > *:last-child {
+    align-self: flex-start;
+  }
+
+  &__fields {
+    padding: var(--spacing-sm) 0;
+    display: flex;
+  }
+
+  &__fields > *:not(:last-child) {
+    margin-right: var(--spacing-md);
+  }
+}

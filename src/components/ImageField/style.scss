@@ -5,7 +5,8 @@
 
   &__label {
     cursor: pointer;
-    padding: var(--spacing-sm);
+    width: 6rem;
+    height: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,8 +19,8 @@
   }
 
   &__icon {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     transition: fill var(--duration-short) ease-out;
   }
 }

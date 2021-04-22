@@ -5,23 +5,24 @@ import './style.scss';
 import icons from '@/utils/icons';
 const ImageIcon = icons.Image;
 
-const ImageField = ({ id, register, ...rest }) => (
+const ImageField = ({ name, register, ...rest }) => (
   <div className="image-field">
     <input
       className="image-field__field"
-      id={`image${id}`}
+      id="image"
       type="file"
-      register={register}
+      name={name}
+      ref={register}
       {...rest}
     />
-    <label className="image-field__label" htmlFor={`image${id}`}>
+    <label className="image-field__label" htmlFor="image">
       <ImageIcon className="image-field__icon" />
     </label>
   </div>
 );
 
 ImageField.propTypes = {
-  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
   register: PropTypes.func
 };
 

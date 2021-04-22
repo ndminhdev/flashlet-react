@@ -4,8 +4,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import './style.scss';
-import { useToken, useNavigate } from '@/hooks';
 import { Field, Button, Checkbox } from '@/components';
+import CardForm from '../CardForm';
+import { useToken, useNavigate } from '@/hooks';
 import { SetAPI } from '@/api';
 
 const schema = Yup.object().shape({

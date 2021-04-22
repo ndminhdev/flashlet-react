@@ -46,8 +46,8 @@ const routes = [
   {
     name: 'createSet',
     path: '/create-set',
-    component: SetFormPage
-    //isPrivate: true
+    component: SetFormPage,
+    isPrivate: true
   }
 ];
 
@@ -64,7 +64,6 @@ const AuthRoutes = () => (
         </Route>
       )
     )}
-    <Redirect to="/landing" />
   </Switch>
 );
 

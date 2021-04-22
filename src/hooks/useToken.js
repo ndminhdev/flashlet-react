@@ -2,8 +2,8 @@ import useLocalStorage from './useLocalStorage';
 
 const useToken = () => {
   const {
-    value: { token }
-  } = useLocalStorage('session');
+    session: { token }
+  } = useLocalStorage();
   return token;
 };
 
