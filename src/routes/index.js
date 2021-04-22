@@ -12,6 +12,7 @@ import {
   DashboardPage,
   SetFormPage
 } from '@/pages';
+import { useAuth } from '@/hooks';
 
 const routes = [
   {
@@ -38,7 +39,8 @@ const routes = [
     name: 'home',
     path: '/',
     exact: true,
-    page: LandingPage
+    page: LandingPage,
+    authRedirect: '/dashboard'
   },
   {
     name: 'search',
@@ -59,20 +61,29 @@ const routes = [
   }
 ];
 
-const AuthRoutes = () => (
-  <Switch>
-    {routes.map(({ name, page: PageComponent, isPrivate, ...rest }) =>
-      isPrivate ? (
-        <PrivateRoute key={name} {...rest}>
-          <PageComponent />
-        </PrivateRoute>
-      ) : (
-        <Route key={name} {...rest}>
-          <PageComponent />
-        </Route>
-      )
-    )}
-  </Switch>
-);
+const AuthRoutes = () => {
+  const { isAuth } = useAuth();
+
+  return (
+    <Switch>
+      {routes.map(
+        ({ name, page: PageComponent, isPrivate, authRedirect, ...rest }) =>
+          isPrivate ? (
+            <PrivateRoute key={name} {...rest}>
+              <PageComponent />
+            </PrivateRoute>
+          ) : (
+            <Route key={name} {...rest}>
+              {isAuth && authRedirect ? (
+                <Redirect to={authRedirect} />
+              ) : (
+                <PageComponent />
+              )}
+            </Route>
+          )
+      )}
+    </Switch>
+  );
+};
 
 export default AuthRoutes;
