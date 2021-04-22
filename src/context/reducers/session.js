@@ -1,4 +1,4 @@
-import { SIGN_IN } from '../constants/session';
+import { SIGN_IN, SIGN_OUT } from '../constants/session';
 
 const sessionReducer = (state, action) => {
   const { type, payload } = action;
@@ -11,6 +11,15 @@ const sessionReducer = (state, action) => {
         user: payload.user,
         token: payload.token
       };
+
+    case SIGN_OUT: {
+      return {
+        ...state,
+        isAuth: false,
+        user: null,
+        token: ''
+      };
+    }
 
     default:
       return state;

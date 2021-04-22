@@ -8,8 +8,16 @@ import { Button } from '@/components';
 import icons from '@/utils/icons';
 import { SignInBox, SignUpBox } from '@/features/Auth';
 import { Overlay } from '@/components';
-import { useDispatch, useOverlay, useAuth } from '@/hooks';
+import {
+  useDispatch,
+  useOverlay,
+  useAuth,
+  useToken,
+  useNavigate
+} from '@/hooks';
 import { showSignInOverlay, showSignUpOverlay } from '@/context/actions/ui';
+import { signOut } from '@/context/actions/session';
+import { UserAPI } from '@/api';
 
 const SearchIcon = icons.Search;
 const ClearIcon = icons.Close;
@@ -27,12 +35,13 @@ const Header = () => {
     config: { duration: 200 }
   });
   const { isAuth, user } = useAuth();
-  const history = useHistory();
+  const token = useToken();
+  const navigate = useNavigate();
 
   const infoDropdownRef = useRef(null);
 
   const onSubmit = (data) => {
-    history.push(`/subject/${data.keyword}`);
+    navigate(`/subject/${data.keyword}`);
     window.location.reload();
   };
 
@@ -40,15 +49,25 @@ const Header = () => {
     setValue('keyword', '');
   };
 
-  const handleOutsideClick = (event) => {
+  const onOutsideClick = (event) => {
     if (showUserList && !infoDropdownRef?.current?.contains(event.target)) {
       setShowUserList(false);
     }
   };
 
+  const onSignOutClick = async () => {
+    try {
+      await UserAPI.signOut(token);
+      signOut(dispatch, token);
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener('click', handleOutsideClick);
-    return () => window.removeEventListener('click', handleOutsideClick);
+    window.addEventListener('click', onOutsideClick);
+    return () => window.removeEventListener('click', onOutsideClick);
   }, [showUserList]);
 
   return (
@@ -116,6 +135,9 @@ const Header = () => {
                   <Link to="/me" className="header__link">
                     Profile
                   </Link>
+                  <div className="header__link" onClick={onSignOutClick}>
+                    Sign out
+                  </div>
                 </div>
               </animated.div>
             )}

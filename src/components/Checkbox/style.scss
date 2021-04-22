@@ -1,0 +1,23 @@
+.checkbox {
+  font-size: var(--size-xxs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+
+  &__label {
+    color: var(--ink-100);
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__option {
+    user-select: none;
+    cursor: pointer;
+    color: var(--cyan-300);
+  }
+
+  &__option:hover {
+    color: var(--gold-300);
+  }
+}

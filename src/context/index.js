@@ -22,9 +22,10 @@ const initialState = {
 export const StateProvider = ({ children }) => {
   const localState = JSON.parse(localStorage.getItem('state'));
   const [state, dispatch] = useReducer(appReducer, localState || initialState);
+  localStorage.setItem('state', JSON.stringify(localState || initialState));
+
   useEffect(() => {
     localStorage.setItem('state', JSON.stringify(state));
-    console.log('Storage saved', JSON.parse(localStorage.getItem('state')));
   }, [state]);
 
   return (

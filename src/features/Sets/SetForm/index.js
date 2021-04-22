@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import './style.scss';
-import { useToken } from '@/hooks';
-import { Field, Button } from '@/components';
-import CardFieldGroup from '../CardFieldGroup';
+import { useToken, useNavigate } from '@/hooks';
+import { Field, Button, Checkbox } from '@/components';
 import { SetAPI } from '@/api';
 
 const schema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
-  description: Yup.string().required('Description is required')
+  description: Yup.string().required('Description is required'),
+  isPublic: Yup.bool()
 });
 
 const SetForm = () => {
@@ -19,67 +19,20 @@ const SetForm = () => {
     mode: 'onChange',
     resolver: yupResolver(schema)
   });
-
-  const [cards, setCards] = useState(Array.from({ length: 4 }, (v, k) => null));
   const token = useToken();
-
-  useEffect(() => {
-    console.log(cards);
-  }, [cards]);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    console.log(data);
-    console.log(cards);
-
     try {
-      const responseData = await SetAPI.createSet(
-        { ...data, isPublic: true, cards },
-        token
-      );
-      console.log(responseData);
+      setLoading(true);
+      const responseData = await SetAPI.createSet(data, token);
+      setLoading(false);
+      navigate(`/sets/${responseData.set._id}/cards`);
     } catch (err) {
+      setLoading(false);
       console.log(err);
     }
-  };
-
-  const onTermChange = (event, id) => {
-    if (!cards[id]) {
-      return setCards([...cards, { term: event.target.value }]);
-    }
-
-    cards[id].term = event.target.value;
-    setCards(cards);
-  };
-
-  const onDefinitionChange = (event, id) => {
-    if (!cards[id]?.term) {
-      throw new Error('Term is required');
-    }
-
-    cards[id].definition = event.target.value;
-    setCards(cards);
-  };
-
-  const onImageChange = async (event, id) => {
-    const formData = new FormData();
-    formData.append('image', event.target.files[0]);
-    const data = await SetAPI.uploadImage(formData, token);
-
-    if (!cards[id]) {
-      throw new Error('Term is required');
-    }
-
-    cards[id].imageUrl = data.imageUrl;
-    setCards(cards);
-  };
-
-  const onDeleteCard = (id) => {
-    let newCards = cards.splice(id, 1);
-    setCards(newCards);
-  };
-
-  const onAddCardClick = () => {
-    console.log('Add card');
   };
 
   return (
@@ -100,26 +53,14 @@ const SetForm = () => {
           placeholder="Add a description"
           error={errors.description?.message}
         />
-        <div className="set-form__cards">
-          {cards.map((card, index) => (
-            <CardFieldGroup
-              key={index}
-              id={index}
-              onTermChange={onTermChange}
-              onDefinitionChange={onDefinitionChange}
-              onImageChange={onImageChange}
-              onDeleteCard={onDeleteCard}
-            />
-          ))}
-          <button
-            className="set-form__add-card-btn"
-            type="button"
-            onClick={onAddCardClick}
-          >
-            + Add card
-          </button>
-        </div>
-        <Button size="sm" type="submit">
+        <Checkbox
+          name="isPublic"
+          label="Share it with everyone"
+          optionWhenCheck="Yes"
+          optionWhenUncheck="No"
+          register={register}
+        />
+        <Button loading={loading} size="sm" type="submit">
           Create
         </Button>
       </form>
