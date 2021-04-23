@@ -6,3 +6,4 @@ export { default as ResetPage } from './ResetPage';
 export { default as SearchPage } from './SearchPage';
 export { default as DashboardPage } from './DashboardPage';
 export { default as SetFormPage } from './SetFormPage';
+export { default as AddCardsPage } from './AddCardsPage';

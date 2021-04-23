@@ -5,7 +5,7 @@ import './style.scss';
 import icons from '@/utils/icons';
 const ImageIcon = icons.Image;
 
-const ImageField = ({ name, register, ...rest }) => (
+const ImageField = ({ name, register, previewUrl, ...rest }) => (
   <div className="image-field">
     <input
       className="image-field__field"
@@ -16,14 +16,23 @@ const ImageField = ({ name, register, ...rest }) => (
       {...rest}
     />
     <label className="image-field__label" htmlFor="image">
-      <ImageIcon className="image-field__icon" />
+      {previewUrl ? (
+        <img
+          className="image-field__preview"
+          src={previewUrl}
+          atl="preview-image"
+        />
+      ) : (
+        <ImageIcon className="image-field__icon" />
+      )}
     </label>
   </div>
 );
 
 ImageField.propTypes = {
   name: PropTypes.string.isRequired,
-  register: PropTypes.func
+  register: PropTypes.func,
+  previewUrl: PropTypes.string
 };
 
 export default ImageField;

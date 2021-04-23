@@ -1,5 +1,5 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -13,24 +13,25 @@ const schema = Yup.object().shape({
   image: Yup.mixed()
 });
 
-const CardForm = () => {
+const CardForm = ({ title, onSubmit, onCancel }) => {
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const [previewUrl, setPreviewUrl] = useState(null);
+
+  const onImageChange = (event) => {
+    const file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    setPreviewUrl(url);
   };
 
   return (
-    <div className="card-field-group">
-      <div className="card-field-group__top">Add new card</div>
-      <form
-        className="card-field-group__form"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <div className="card-field-group__fields">
+    <div className="card-form">
+      <div className="card-form__top">{title}</div>
+      <form className="card-form__form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="card-form__fields">
           <Field
             name="term"
             label="Term"
@@ -45,14 +46,30 @@ const CardForm = () => {
             placeholder="Enter definition"
             error={errors.definition?.message}
           />
-          <ImageField name="image" register={register} />
+          <ImageField
+            name="image"
+            register={register}
+            onChange={onImageChange}
+            previewUrl={previewUrl}
+          />
         </div>
-        <Button size="sm" type="submit">
-          Add
-        </Button>
+        <div className="card-form__buttons">
+          <Button size="sm" type="submit">
+            Add
+          </Button>
+          <Button size="sm" variant="neutral" type="button" onClick={onCancel}>
+            Cancel
+          </Button>
+        </div>
       </form>
     </div>
   );
+};
+
+CardForm.propTypes = {
+  title: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired
 };
 
 export default CardForm;

@@ -126,16 +126,22 @@ const Header = () => {
                 </div>
 
                 <div className="header__options">
-                  <Link to="/me" className="header__link">
-                    Profile
+                  <Link to="/create-set" className="header__link">
+                    Create a study set
+                  </Link>
+                  <Link to="/dashboard" className="header__link">
+                    Dashboard
                   </Link>
                   <Link to="/me" className="header__link">
                     Profile
                   </Link>
-                  <Link to="/me" className="header__link">
-                    Profile
+                  <Link to="/settings" className="header__link">
+                    Settings
                   </Link>
-                  <div className="header__link" onClick={onSignOutClick}>
+                  <div
+                    className="header__link header__link--coral"
+                    onClick={onSignOutClick}
+                  >
                     Sign out
                   </div>
                 </div>

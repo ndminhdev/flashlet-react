@@ -4,6 +4,8 @@ import Close from '@/assets/icons/close.svg';
 import Search from '@/assets/icons/search.svg';
 import Image from '@/assets/icons/image.svg';
 import Set from '@/assets/icons/set.svg';
+import Edit from '@/assets/icons/edit.svg';
+import Delete from '@/assets/icons/delete.svg';
 
 const icons = {
   Google,
@@ -11,7 +13,9 @@ const icons = {
   Close,
   Search,
   Image,
-  Set
+  Set,
+  Edit,
+  Delete
 };
 
 export default icons;

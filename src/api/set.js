@@ -40,13 +40,10 @@ export const searchSets = async ({
   return responseData;
 };
 
-export const getMySetById = async (setId, token) => {
+export const getSetById = async (setId) => {
   const responseData = await sendRequest({
     method: 'get',
-    url: `/sets/${setId}`,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
+    url: `/sets/${setId}`
   });
   return responseData;
 };

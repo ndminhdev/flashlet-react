@@ -10,7 +10,8 @@ import {
   LandingPage,
   SearchPage,
   DashboardPage,
-  SetFormPage
+  SetFormPage,
+  AddCardsPage
 } from '@/pages';
 import { useAuth } from '@/hooks';
 
@@ -57,6 +58,13 @@ const routes = [
     name: 'createSet',
     path: '/create-set',
     page: SetFormPage,
+    isPrivate: true
+  },
+  {
+    name: 'addCards',
+    path: '/sets/:setId/cards',
+    exact: true,
+    page: AddCardsPage,
     isPrivate: true
   }
 ];

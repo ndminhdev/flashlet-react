@@ -1,0 +1,27 @@
+.add-cards {
+  padding: var(--spacing-xxl) var(--spacing-page-h);
+
+  &__description {
+    color: var(--ink-100);
+  }
+
+  &__cards {
+    margin-top: var(--spacing-xxl);
+  }
+
+  &__cards-title {
+    text-transform: uppercase;
+    font-weight: var(--weight-bold);
+    color: var(--ink-100);
+  }
+
+  &__cards-list {
+    margin-bottom: var(--spacing-xxl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--neutral-400);
+  }
+
+  &__cards-list > *:not(:first-child) {
+    margin-top: var(--spacing-md);
+  }
+}

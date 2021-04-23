@@ -28,11 +28,11 @@
 
   &--neutral {
     background-color: var(--neutral-300);
-    color: var(--ink-300);
+    color: var(--ink-100);
   }
 
   &--neutral:hover {
-    background-color: var(--neutral-500);
+    background-color: var(--neutral-400);
   }
 
   &--ink {
@@ -60,21 +60,21 @@
   }
 
   &--sm {
-    min-width: 8rem;
+    min-width: 10rem;
     font-size: var(--size-sm);
     border-radius: var(--button-radius-sm);
     padding: var(--button-padding-v-sm) var(--button-padding-h-sm);
   }
 
   &--md {
-    min-width: 15rem;
+    min-width: 18rem;
     font-size: var(--size-md);
     border-radius: var(--button-radius-md);
     padding: var(--button-padding-v-md) var(--button-padding-h-md);
   }
 
   &--lg {
-    min-width: 20rem;
+    min-width: 24rem;
     font-size: var(--size-lg);
     border-radius: var(--button-radius-lg);
     padding: var(--button-padding-v-lg) var(--button-padding-h-lg);

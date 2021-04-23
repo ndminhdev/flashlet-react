@@ -1,4 +1,4 @@
-.card-field-group {
+.card-form {
   align-self: stretch;
   padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--neutral-100);
@@ -18,10 +18,6 @@
     flex-direction: column;
   }
 
-  &__form > *:last-child {
-    align-self: flex-start;
-  }
-
   &__fields {
     padding: var(--spacing-sm) 0;
     display: flex;
@@ -29,5 +25,14 @@
 
   &__fields > *:not(:last-child) {
     margin-right: var(--spacing-md);
+  }
+
+  &__buttons {
+    align-self: flex-end;
+    display: flex;
+  }
+
+  &__buttons > *:first-child {
+    margin-right: var(--spacing-sm);
   }
 }

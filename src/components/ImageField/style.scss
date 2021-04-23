@@ -12,10 +12,15 @@
     justify-content: center;
     border: 1px dashed var(--neutral-500);
     border-radius: var(--radius-sm);
+    overflow: hidden;
   }
 
   &__label:hover &__icon {
     fill: var(--gold-300);
+  }
+
+  &__preview {
+    width: 100%;
   }
 
   &__icon {
