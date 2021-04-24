@@ -8,7 +8,7 @@ import CardForm from '../CardForm';
 const DeleteIcon = icons.Delete;
 const EditIcon = icons.Edit;
 
-const CardOverviewItem = ({ id, card, onCardAdd, onCardRemove }) => {
+const CardOverviewItem = ({ id, card, onCardEdit, onCardRemove }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const onToggleEditting = () => {
@@ -21,8 +21,11 @@ const CardOverviewItem = ({ id, card, onCardAdd, onCardRemove }) => {
     <React.Fragment>
       {isEditing ? (
         <CardForm
-          title="title"
-          onSubmit={onCardAdd}
+          title={id + 1}
+          card={card}
+          isEditing={true}
+          setIsEditing={setIsEditing}
+          onSubmit={onCardEdit}
           onCancel={onToggleEditting}
         />
       ) : (
@@ -67,7 +70,7 @@ CardOverviewItem.propTypes = {
     definition: PropTypes.string.isRequired,
     imageUrl: PropTypes.string
   }),
-  onCardAdd: PropTypes.func.isRequired,
+  onCardEdit: PropTypes.func.isRequired,
   onCardRemove: PropTypes.func.isRequired
 };
 

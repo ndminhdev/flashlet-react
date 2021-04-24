@@ -5,18 +5,20 @@ import { useParams } from 'react-router-dom';
 import './style.scss';
 import { Layout } from '@/layouts';
 import { CardOverviewItem, CardForm } from '@/features/Sets';
-import { useToken } from '@/hooks';
+import { useToken, useNavigate } from '@/hooks';
 import { SetAPI } from '@/api';
 
 const AddCardsPage = () => {
   const { setId } = useParams();
   const token = useToken();
+  const navigate = useNavigate();
   const [set, setSet] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [addLoading, setAddLoading] = useState(false);
+  const [editLoading, setEditLoading] = useState(false);
 
   const onCardAdd = async (data) => {
     try {
-      setLoading(true);
+      setAddLoading(true);
       const formData = new FormData();
       formData.append('term', data.term);
       formData.append('definition', data.definition);
@@ -27,11 +29,32 @@ const AddCardsPage = () => {
         ...set,
         cards: [...set.cards, card]
       });
-      setLoading(false);
+      setAddLoading(false);
     } catch (err) {
       console.log(err);
-      setLoading(false);
+      setAddLoading(false);
     }
+  };
+
+  const onCardEdit = (cardId) => (data) => {
+    setEditLoading(true);
+    const formData = new FormData();
+    formData.append('term', data.term);
+    formData.append('definition', data.definition);
+    formData.append('image', data.image[0]);
+    SetAPI.editCard(cardId, formData, token)
+      .then((responseData) => {
+        const { card } = responseData;
+        setSet({
+          ...set,
+          cards: set.cards.map((c) => (c._id === cardId ? card : c))
+        });
+        setEditLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setEditLoading(false);
+      });
   };
 
   const onCardRemove = async (cardId) => {
@@ -44,6 +67,10 @@ const AddCardsPage = () => {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const onCardAddCancel = () => {
+    navigate(`/sets/${set._id}`);
   };
 
   useEffect(async () => {
@@ -77,16 +104,16 @@ const AddCardsPage = () => {
                   key={card._id}
                   id={index}
                   card={card}
-                  onCardAdd={onCardAdd}
+                  onCardEdit={onCardEdit(card._id)}
                   onCardRemove={onCardRemove}
                 />
               ))}
             </div>
             <CardForm
-              loading={loading}
+              loading={addLoading}
               title="Add a new card"
               onSubmit={onCardAdd}
-              onCancel={() => console.log('cancel')}
+              onCancel={onCardAddCancel}
             />
           </div>
         </div>

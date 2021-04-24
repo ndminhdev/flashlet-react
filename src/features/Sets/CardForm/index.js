@@ -13,11 +13,30 @@ const schema = Yup.object().shape({
   image: Yup.mixed()
 });
 
-const CardForm = ({ loading, title, onSubmit, onCancel }) => {
-  const { register, reset, errors, handleSubmit } = useForm({
+const CardForm = ({
+  loading,
+  isEditing,
+  setIsEditing,
+  card,
+  title,
+  onSubmit,
+  onCancel
+}) => {
+  const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
+    defaultValues: {
+      term: card?.term || '',
+      definition: card?.definition || ''
+    },
     resolver: yupResolver(schema)
   });
+
+  const onSubmitWithCallback = isEditing
+    ? (data) => {
+        onSubmit(data);
+        setIsEditing(false);
+      }
+    : onSubmit;
 
   const [previewUrl, setPreviewUrl] = useState(null);
 
@@ -30,7 +49,10 @@ const CardForm = ({ loading, title, onSubmit, onCancel }) => {
   return (
     <div className="card-form">
       <div className="card-form__top">{title}</div>
-      <form className="card-form__form" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="card-form__form"
+        onSubmit={handleSubmit(onSubmitWithCallback)}
+      >
         <div className="card-form__fields">
           <Field
             name="term"
@@ -55,7 +77,7 @@ const CardForm = ({ loading, title, onSubmit, onCancel }) => {
         </div>
         <div className="card-form__buttons">
           <Button loading={loading} size="sm" type="submit">
-            Add
+            {isEditing ? 'Save' : 'Add'}
           </Button>
           <Button size="sm" variant="neutral" type="button" onClick={onCancel}>
             Cancel
@@ -68,13 +90,22 @@ const CardForm = ({ loading, title, onSubmit, onCancel }) => {
 
 CardForm.propTypes = {
   loading: PropTypes.bool,
-  title: PropTypes.string.isRequired,
+  isEditing: PropTypes.bool,
+  setIsEditing: PropTypes.func,
+  card: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    term: PropTypes.string.isRequired,
+    definition: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string
+  }),
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onSubmit: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired
 };
 
 CardForm.defaultProps = {
-  loading: false
+  loading: false,
+  isEditing: false
 };
 
 export default CardForm;

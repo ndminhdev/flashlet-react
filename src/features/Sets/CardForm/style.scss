@@ -10,7 +10,7 @@
   }
 
   &__top {
-    padding: var(--spacing-xxs) 0;
+    padding-bottom: var(--spacing-sm);
     font-size: var(--size-xs);
     font-weight: var(--weight-bold);
     text-transform: uppercase;
@@ -28,7 +28,7 @@
   }
 
   &__fields {
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) 0;
     display: flex;
   }
 
