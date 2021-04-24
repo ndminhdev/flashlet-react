@@ -1,25 +1,35 @@
 .image-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &__field {
     display: none;
   }
 
   &__label {
     cursor: pointer;
+    font-size: var(--size-xxs);
+    font-weight: var(--weight-medium);
+    color: var(--cyan-300);
+  }
+
+  &__label:hover {
+    color: var(--gold-300);
+  }
+
+  &__preview {
     width: 6rem;
     height: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px dashed var(--neutral-500);
     border-radius: var(--radius-sm);
+    border: 1px solid var(--neutral-200);
     overflow: hidden;
   }
 
-  &__label:hover &__icon {
-    fill: var(--gold-300);
-  }
-
-  &__preview {
+  &__image {
     width: 100%;
   }
 

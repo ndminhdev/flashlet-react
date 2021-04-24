@@ -106,6 +106,7 @@ const AddCardsPage = () => {
                   card={card}
                   onCardEdit={onCardEdit(card._id)}
                   onCardRemove={onCardRemove}
+                  loading={editLoading}
                 />
               ))}
             </div>

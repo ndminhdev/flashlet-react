@@ -1,18 +1,19 @@
 .add-cards {
   padding: var(--spacing-xxl) var(--spacing-page-h);
 
-  &__count {
-    font-size: var(--size-xs);
-    font-weight: var(--weight-regular);
-    color: var(--ink-100);
-  }
-
   &__description {
+    margin-top: var(--spacing-md);
     color: var(--ink-100);
   }
 
   &__cards {
     margin-top: var(--spacing-xl);
+  }
+
+  &__count {
+    font-size: var(--size-xs);
+    font-weight: var(--weight-regular);
+    color: var(--ink-100);
   }
 
   &__cards-title {

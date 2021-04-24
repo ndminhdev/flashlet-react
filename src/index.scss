@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@900&family=Open+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@900&family=Rubik:wght@400;500;700&display=swap');
 
 :root {
   // colors
@@ -42,7 +42,7 @@
   --size-xxs: 1.2rem;
   --size-xs: 1.3rem;
   --size-sm: 1.4rem;
-  --size-md: 1.6rem;
+  --size-md: 1.5rem;
   --size-lg: 1.8rem;
   --size-xl: 2.4rem;
   --size-xxl: 3.6rem;
@@ -120,7 +120,7 @@ html {
 
 body {
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: var(--size-md);
   color: var(--ink-200);
 }
@@ -159,4 +159,13 @@ input:-ms-input-placeholder {
 
 input::-ms-input-placeholder {
   color: var(--neutral-500);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--weight-medium);
 }

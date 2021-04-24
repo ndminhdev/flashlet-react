@@ -38,13 +38,7 @@ const CardForm = ({
       }
     : onSubmit;
 
-  const [previewUrl, setPreviewUrl] = useState(null);
-
-  const onImageChange = (event) => {
-    const file = event.target.files[0];
-    const url = URL.createObjectURL(file);
-    setPreviewUrl(url);
-  };
+  console.log(card);
 
   return (
     <div className="card-form">
@@ -71,8 +65,7 @@ const CardForm = ({
           <ImageField
             name="image"
             register={register}
-            onChange={onImageChange}
-            previewUrl={previewUrl}
+            imageUrl={card?.imageUrl}
           />
         </div>
         <div className="card-form__buttons">

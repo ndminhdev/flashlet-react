@@ -8,7 +8,14 @@ import CardForm from '../CardForm';
 const DeleteIcon = icons.Delete;
 const EditIcon = icons.Edit;
 
-const CardOverviewItem = ({ id, card, onCardEdit, onCardRemove }) => {
+const CardOverviewItem = ({
+  id,
+  card,
+  onCardEdit,
+  onCardRemove,
+  loading,
+  ...rest
+}) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const onToggleEditting = () => {
@@ -22,6 +29,7 @@ const CardOverviewItem = ({ id, card, onCardEdit, onCardRemove }) => {
       {isEditing ? (
         <CardForm
           title={id + 1}
+          loading={loading}
           card={card}
           isEditing={true}
           setIsEditing={setIsEditing}
@@ -29,7 +37,7 @@ const CardOverviewItem = ({ id, card, onCardEdit, onCardRemove }) => {
           onCancel={onToggleEditting}
         />
       ) : (
-        <div className="card-overview-item">
+        <div className="card-overview-item" {...rest}>
           <div className="card-overview-item__top">
             <div className="card-overview-item__id">{id + 1}</div>
             <div className="card-overview-item__tools">
@@ -71,7 +79,12 @@ CardOverviewItem.propTypes = {
     imageUrl: PropTypes.string
   }),
   onCardEdit: PropTypes.func.isRequired,
-  onCardRemove: PropTypes.func.isRequired
+  onCardRemove: PropTypes.func.isRequired,
+  loading: PropTypes.bool
+};
+
+CardOverviewItem.defaultProps = {
+  loading: false
 };
 
 export default CardOverviewItem;
