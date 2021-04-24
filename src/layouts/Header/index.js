@@ -76,22 +76,27 @@ const Header = () => {
         <Link to="/" className="header__logo">
           Flashlet
         </Link>
-        <form className="header__search" onSubmit={handleSubmit(onSubmit)}>
-          <input
-            className="header__search-input"
-            type="text"
-            name="keyword"
-            placeholder="Search"
-            onBlur={clearSearchInput}
-            ref={register}
-          />
-          <SearchIcon className="header__search-icon" />
-        </form>
-        {watch('keyword') && (
-          <button className="header__clear-btn" onClick={clearSearchInput}>
-            <ClearIcon className="header__clear-icon" />
-          </button>
-        )}
+        <div className="header__search">
+          <form
+            className="header__search-form"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              className="header__search-input"
+              type="text"
+              name="keyword"
+              placeholder="Search"
+              onBlur={clearSearchInput}
+              ref={register}
+            />
+            <SearchIcon className="header__search-icon" />
+          </form>
+          {watch('keyword') && (
+            <button className="header__clear-btn" onClick={clearSearchInput}>
+              <ClearIcon className="header__clear-icon" />
+            </button>
+          )}
+        </div>
         {isAuth ? (
           <div className="header__user">
             <div
