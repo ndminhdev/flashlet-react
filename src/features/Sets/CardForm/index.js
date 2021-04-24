@@ -13,8 +13,8 @@ const schema = Yup.object().shape({
   image: Yup.mixed()
 });
 
-const CardForm = ({ title, onSubmit, onCancel }) => {
-  const { register, errors, handleSubmit } = useForm({
+const CardForm = ({ loading, title, onSubmit, onCancel }) => {
+  const { register, reset, errors, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
   });
@@ -54,7 +54,7 @@ const CardForm = ({ title, onSubmit, onCancel }) => {
           />
         </div>
         <div className="card-form__buttons">
-          <Button size="sm" type="submit">
+          <Button loading={loading} size="sm" type="submit">
             Add
           </Button>
           <Button size="sm" variant="neutral" type="button" onClick={onCancel}>
@@ -67,9 +67,14 @@ const CardForm = ({ title, onSubmit, onCancel }) => {
 };
 
 CardForm.propTypes = {
+  loading: PropTypes.bool,
   title: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired
+};
+
+CardForm.defaultProps = {
+  loading: false
 };
 
 export default CardForm;

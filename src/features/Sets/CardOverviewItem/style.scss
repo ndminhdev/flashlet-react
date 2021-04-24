@@ -1,5 +1,5 @@
 .card-overview-item {
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--radius-sm);
   background-color: var(--neutral-100);
   box-shadow: var(--shadow);
@@ -11,7 +11,14 @@
   }
 
   &__id {
-    font-size: var(--size-lg);
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--cyan-300);
+    color: var(--neutral-100);
   }
 
   &__tools {
@@ -39,20 +46,21 @@
   }
 
   &__main {
+    margin-top: var(--spacing-md);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+  }
+
+  &__text {
+    flex: 1;
+    color: var(--ink-100);
   }
 
   &__term {
     font-weight: var(--weight-bold);
-    color: var(--ink-100);
   }
 
-  &__definition {
-    color: var(--ink-100);
-  }
-
-  &__image-attach {
+  &__attach {
     font-size: var(--size-sm);
     color: var(--cyan-300);
   }

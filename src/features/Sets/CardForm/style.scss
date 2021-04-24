@@ -1,6 +1,6 @@
 .card-form {
   align-self: stretch;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   background-color: var(--neutral-100);
   box-shadow: var(--shadow);
 
@@ -16,6 +16,10 @@
   &__form {
     display: flex;
     flex-direction: column;
+  }
+
+  &__forms > * {
+    margin-top: var(--spacing-md);
   }
 
   &__fields {

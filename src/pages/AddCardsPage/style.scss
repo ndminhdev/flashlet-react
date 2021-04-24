@@ -1,22 +1,29 @@
 .add-cards {
   padding: var(--spacing-xxl) var(--spacing-page-h);
 
+  &__count {
+    font-size: var(--size-lg);
+    font-weight: var(--weight-regular);
+    color: var(--ink-100);
+  }
+
   &__description {
     color: var(--ink-100);
   }
 
   &__cards {
-    margin-top: var(--spacing-xxl);
+    margin-top: var(--spacing-xl);
   }
 
   &__cards-title {
+    margin-bottom: var(--spacing-md);
     text-transform: uppercase;
     font-weight: var(--weight-bold);
     color: var(--ink-100);
   }
 
   &__cards-list {
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-md);
     border-bottom: 2px solid var(--neutral-400);
   }

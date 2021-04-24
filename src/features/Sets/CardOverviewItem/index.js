@@ -45,10 +45,12 @@ const CardOverviewItem = ({ id, card, onCardAdd, onCardRemove }) => {
             </div>
           </div>
           <div className="card-overview-item__main">
-            <span className="card-overview-item__term">{term}</span>
-            <span className="card-overview-item__definition">{definition}</span>
-            <span className="card-overview-item__image-attach">
-              {imageUrl ? '+1 image' : 'No image'}
+            <div className="card-overview-item__text">
+              <span className="card-overview-item__term">{term}:&nbsp;</span>
+              {definition}
+            </div>
+            <span className="card-overview-item__attach">
+              {imageUrl ? '+1 Image Attached' : 'No Image Attached'}
             </span>
           </div>
         </div>

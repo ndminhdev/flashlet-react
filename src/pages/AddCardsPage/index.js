@@ -12,9 +12,11 @@ const AddCardsPage = () => {
   const { setId } = useParams();
   const token = useToken();
   const [set, setSet] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const onCardAdd = async (data) => {
     try {
+      setLoading(true);
       const formData = new FormData();
       formData.append('term', data.term);
       formData.append('definition', data.definition);
@@ -25,8 +27,10 @@ const AddCardsPage = () => {
         ...set,
         cards: [...set.cards, card]
       });
+      setLoading(false);
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   };
 
@@ -63,7 +67,10 @@ const AddCardsPage = () => {
             <span className="add-cards__description">{set.description}</span>
           </div>
           <div className="add-cards__cards">
-            <div className="add-cards__cards-title">Cards</div>
+            <div className="add-cards__cards-title">
+              Cards{' '}
+              <span className="add-cards__count">({set.cards.length})</span>
+            </div>
             <div className="add-cards__cards-list">
               {set.cards.map((card, index) => (
                 <CardOverviewItem
@@ -76,6 +83,7 @@ const AddCardsPage = () => {
               ))}
             </div>
             <CardForm
+              loading={loading}
               title="Add a new card"
               onSubmit={onCardAdd}
               onCancel={() => console.log('cancel')}
