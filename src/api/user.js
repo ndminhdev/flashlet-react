@@ -70,10 +70,18 @@ export const changePassword = async (data, token) => {
   return responseData;
 };
 
+export const getUserProfile = async (username) => {
+  const responseData = await sendRequest({
+    method: 'get',
+    url: `/users/${username}`
+  });
+  return responseData;
+};
+
 export const changeProfile = async (data, token) => {
   const responseData = await sendRequest({
     method: 'patch',
-    url: 'users/me',
+    url: '/users/me',
     data,
     headers: {
       Authorization: `Bearer ${token}`
@@ -85,7 +93,7 @@ export const changeProfile = async (data, token) => {
 export const deleteAccount = async (data, token) => {
   const responseData = await sendRequest({
     method: 'delete',
-    url: 'users/me',
+    url: '/users/me',
     data,
     headers: {
       Authorization: `Bearer ${token}`
