@@ -27,7 +27,7 @@ const SetForm = ({ loading, set, onSubmit }) => {
 
   return (
     <div className="set-form">
-      <h3>Create a new study set</h3>
+      <h3>{set ? 'Edit study set' : 'Create a new study set'}</h3>
       <form className="set-form__form" onSubmit={handleSubmit(onSubmit)}>
         <Field
           name="title"
