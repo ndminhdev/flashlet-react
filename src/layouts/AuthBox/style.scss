@@ -1,5 +1,6 @@
 .authbox {
   width: 64rem;
+  border-radius: var(--radius-lg);
 
   &__header {
     display: flex;

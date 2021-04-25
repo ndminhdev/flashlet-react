@@ -1,5 +1,5 @@
 .checkbox {
-  font-size: var(--size-xxs);
+  font-size: var(--size-xs);
   font-weight: var(--weight-medium);
   text-transform: uppercase;
 
@@ -15,6 +15,7 @@
     user-select: none;
     cursor: pointer;
     color: var(--cyan-300);
+    font-size: var(--weight-bold);
   }
 
   &__option:hover {

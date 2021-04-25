@@ -5,6 +5,7 @@
   cursor: pointer;
   border: none;
   outline: none;
+  font-weight: var(--weight-medium);
   transition: all var(--duration-short) ease-out;
 
   &--cyan {

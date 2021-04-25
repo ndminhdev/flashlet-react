@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 
 import './style.scss';
@@ -19,6 +20,9 @@ const UserProfilePage = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{`${user && user.name} | Flashlet`}</title>
+      </Helmet>
       <div className="user-profile">
         {user && (
           <React.Fragment>

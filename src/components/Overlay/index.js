@@ -8,7 +8,6 @@ import { hideOverlays } from '@/context/actions/ui';
 import { useDispatch } from '@/hooks';
 
 const body = document.body;
-const root = document.getElementById('root');
 const portalOverlay = document.getElementById('portal-overlay');
 
 const Overlay = ({
@@ -22,6 +21,7 @@ const Overlay = ({
     if (overlayShown) {
       body.classList.add('lock');
     }
+
     return () => {
       body.classList.remove('lock');
     };

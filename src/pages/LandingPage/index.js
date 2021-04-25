@@ -50,7 +50,7 @@ const LandingPage = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Landing Page | Flashlet</title>
+        <title>Flashlet</title>
       </Helmet>
       <div className="landing">
         <div className="landing__hero">

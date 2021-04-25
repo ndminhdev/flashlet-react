@@ -25,7 +25,9 @@ const Set = ({
     <div className="set" onClick={() => navigate(`/sets/${_id}`)}>
       <div className="set__main">
         <div className="set__top">
-          <span className="set__num-of-terms">{termsCount} terms</span>
+          <span className="set__num-of-terms">
+            {termsCount} term{termsCount > 1 ? 's' : ''}
+          </span>
           <Link
             to={`/users/${user.username}`}
             className="set__user"

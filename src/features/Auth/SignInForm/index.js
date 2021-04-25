@@ -78,7 +78,11 @@ const SignInForm = () => {
         </Button>
       </form>
       {errMessage && <span className="signin-form__error">{errMessage}</span>}
-      <Link className="signin-form__link" to="/forgotten">
+      <Link
+        className="signin-form__link"
+        to="/forgotten"
+        onClick={() => hideOverlays(dispatch)}
+      >
         Forgot password?
       </Link>
     </div>

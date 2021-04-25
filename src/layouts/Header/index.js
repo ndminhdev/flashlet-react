@@ -72,7 +72,11 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <div className="header">
+      <div
+        className={`header ${
+          signInOverlayShown || signUpOverlayShown ? 'header--lock' : ''
+        }`}
+      >
         <Link to="/" className="header__logo">
           Flashlet
         </Link>
