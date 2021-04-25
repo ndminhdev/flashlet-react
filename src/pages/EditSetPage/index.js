@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import './style.scss';
 import { Layout } from '@/layouts';
-import { CardOverviewItem, CardForm } from '@/features/Sets';
+import { SetForm, CardOverviewItem, CardForm } from '@/features/Sets';
 import { useToken, useNavigate } from '@/hooks';
 import { SetAPI } from '@/api';
 
@@ -13,8 +13,20 @@ const AddCardsPage = () => {
   const token = useToken();
   const navigate = useNavigate();
   const [set, setSet] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [addLoading, setAddLoading] = useState(false);
   const [editLoading, setEditLoading] = useState(false);
+
+  const onSetEdit = async (data) => {
+    try {
+      setLoading(true);
+      const responseData = await SetAPI.updateSet(set._id, data, token);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      console.log(err);
+    }
+  };
 
   const onCardAdd = async (data) => {
     try {
@@ -85,20 +97,19 @@ const AddCardsPage = () => {
   return (
     <Layout>
       <Helmet>
-        <title>{`${set && set.title} - Add cards | Flashlet`}</title>
+        <title>{`${set && set.title} - Edit | Flashlet`}</title>
       </Helmet>
       {set && (
-        <div className="add-cards">
-          <div className="add-cards__set">
-            <h1>{set.title}</h1>
-            <span className="add-cards__description">{set.description}</span>
+        <div className="edit-set">
+          <div className="edit-set__set">
+            <SetForm loading={loading} set={set} onSubmit={onSetEdit} />
           </div>
-          <div className="add-cards__cards">
-            <div className="add-cards__cards-title">
+          <div className="edit-set__cards">
+            <div className="edit-set__cards-title">
               Cards{' '}
-              <span className="add-cards__count">({set.cards.length})</span>
+              <span className="edit-set__count">({set.cards.length})</span>
             </div>
-            <div className="add-cards__cards-list">
+            <div className="edit-set__cards-list">
               {set.cards.map((card, index) => (
                 <CardOverviewItem
                   key={card._id}

@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import './style.scss';
 import { Field, Button, Checkbox } from '@/components';
-import CardForm from '../CardForm';
-import { useToken, useNavigate } from '@/hooks';
-import { SetAPI } from '@/api';
 
 const schema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
@@ -15,26 +13,17 @@ const schema = Yup.object().shape({
   isPublic: Yup.bool()
 });
 
-const SetForm = () => {
+const SetForm = ({ loading, set, onSubmit }) => {
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
-    resolver: yupResolver(schema)
-  });
-  const token = useToken();
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-
-  const onSubmit = async (data) => {
-    try {
-      setLoading(true);
-      const responseData = await SetAPI.createSet(data, token);
-      setLoading(false);
-      navigate(`/sets/${responseData.set._id}/cards`);
-    } catch (err) {
-      setLoading(false);
-      console.log(err);
+    resolver: yupResolver(schema),
+    defaultValues: {
+      title: set?.title || '',
+      description: set?.description || ''
     }
-  };
+  });
+
+  console.log(set?.isPublic || false);
 
   return (
     <div className="set-form">
@@ -60,13 +49,38 @@ const SetForm = () => {
           optionWhenCheck="Yes"
           optionWhenUncheck="No"
           register={register}
+          defaultChecked={set?.isPublic || false}
         />
         <Button loading={loading} size="sm" type="submit">
-          Create
+          {set ? 'Change' : 'Create'}
         </Button>
       </form>
     </div>
   );
+};
+
+SetForm.propTypes = {
+  loading: PropTypes.bool,
+  set: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    isPublic: PropTypes.bool.isRequired,
+    user: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+      profileImage: PropTypes.string,
+      profileImageDefault: PropTypes.string.isRequired
+    }).isRequired,
+    cards: PropTypes.array,
+    createdAt: PropTypes.string.isRequired
+  }),
+  onSubmit: PropTypes.func.isRequired
+};
+
+SetForm.defaultProps = {
+  loading: false
 };
 
 export default SetForm;

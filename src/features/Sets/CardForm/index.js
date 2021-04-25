@@ -38,8 +38,6 @@ const CardForm = ({
       }
     : onSubmit;
 
-  console.log(card);
-
   return (
     <div className="card-form">
       <div className="card-form__top">{title}</div>

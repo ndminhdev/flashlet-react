@@ -5,5 +5,5 @@ export { default as LandingPage } from './LandingPage';
 export { default as ResetPage } from './ResetPage';
 export { default as SearchPage } from './SearchPage';
 export { default as DashboardPage } from './DashboardPage';
-export { default as SetFormPage } from './SetFormPage';
-export { default as AddCardsPage } from './AddCardsPage';
+export { default as CreateSetPage } from './CreateSetPage';
+export { default as EditSetPage } from './EditSetPage';

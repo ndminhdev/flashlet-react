@@ -54,6 +54,7 @@
   }
 
   &__list {
+    min-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: stretch;

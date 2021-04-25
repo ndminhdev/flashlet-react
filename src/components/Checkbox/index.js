@@ -8,9 +8,12 @@ const Checkbox = ({
   label,
   optionWhenCheck,
   optionWhenUncheck,
-  register
+  register,
+  defaultChecked,
+  ...rest
 }) => {
-  const [checked, setChecked] = useState(false);
+  console.log(defaultChecked);
+  const [checked, setChecked] = useState(defaultChecked);
 
   return (
     <div className="checkbox">
@@ -21,7 +24,9 @@ const Checkbox = ({
         id={name}
         name={name}
         ref={register}
+        checked={checked}
         onChange={() => setChecked(!checked)}
+        {...rest}
       />
       <label htmlFor={name} className="checkbox__option">
         {checked ? optionWhenCheck : optionWhenUncheck}
@@ -35,7 +40,12 @@ Checkbox.propTypes = {
   label: PropTypes.string.isRequired,
   optionWhenCheck: PropTypes.string.isRequired,
   optionWhenUncheck: PropTypes.string.isRequired,
-  register: PropTypes.func
+  register: PropTypes.func,
+  defaultChecked: PropTypes.bool
+};
+
+Checkbox.defaultProps = {
+  defaultChecked: false
 };
 
 export default Checkbox;
