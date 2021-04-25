@@ -33,25 +33,29 @@ const SetList = ({ title, keyword, fetchData }) => {
     setPage(page + 1);
   };
 
-  useEffect(async () => {
-    const { sortBy, orderBy } = sort;
-    const data = await fetchData(
-      { keyword, page, sortBy, orderBy, limit: 8 },
-      token
-    );
-    setSets([...sets, ...data.sets]);
-    setHasNextPage(data.hasNextPage);
-    setSetsCount(data.setsCount);
+  useEffect(() => {
+    (async () => {
+      const { sortBy, orderBy } = sort;
+      const data = await fetchData(
+        { keyword, page, sortBy, orderBy, limit: 8 },
+        token
+      );
+      setSets([...sets, ...data.sets]);
+      setHasNextPage(data.hasNextPage);
+      setSetsCount(data.setsCount);
+    })();
   }, [page]);
 
-  useEffect(async () => {
-    const { sortBy, orderBy } = sort;
-    const data = await fetchData(
-      { keyword, page: 1, sortBy, orderBy, limit: 8 },
-      token
-    );
-    setSets(data.sets);
-    setHasNextPage(data.hasNextPage);
+  useEffect(() => {
+    (async () => {
+      const { sortBy, orderBy } = sort;
+      const data = await fetchData(
+        { keyword, page: 1, sortBy, orderBy, limit: 8 },
+        token
+      );
+      setSets(data.sets);
+      setHasNextPage(data.hasNextPage);
+    })();
   }, [sort]);
 
   return (

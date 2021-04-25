@@ -9,6 +9,7 @@ import {
   ResetPage,
   LandingPage,
   SearchPage,
+  UserProfilePage,
   DashboardPage,
   CreateSetPage,
   EditSetPage
@@ -47,6 +48,11 @@ const routes = [
     name: 'search',
     path: '/subject/:keyword',
     page: SearchPage
+  },
+  {
+    name: 'userProfile',
+    path: '/users/:username',
+    page: UserProfilePage
   },
   {
     name: 'dashboard',

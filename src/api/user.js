@@ -78,6 +78,19 @@ export const getUserProfile = async (username) => {
   return responseData;
 };
 
+export const getPublicSetsOfAnUser = (username) => async ({
+  page = 1,
+  sortBy = 'title',
+  orderBy = 1,
+  limit = 8
+}) => {
+  const responseData = await sendRequest({
+    method: 'get',
+    url: `/users/${username}/sets?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
+  });
+  return responseData;
+};
+
 export const changeProfile = async (data, token) => {
   const responseData = await sendRequest({
     method: 'patch',

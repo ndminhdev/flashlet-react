@@ -85,13 +85,15 @@ const AddCardsPage = () => {
     navigate(`/sets/${set._id}`);
   };
 
-  useEffect(async () => {
-    try {
-      const responseData = await SetAPI.getSetById(setId);
-      setSet(responseData.set);
-    } catch (err) {
-      console.log(err);
-    }
+  useEffect(() => {
+    (async () => {
+      try {
+        const responseData = await SetAPI.getSetById(setId);
+        setSet(responseData.set);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
   }, []);
 
   return (

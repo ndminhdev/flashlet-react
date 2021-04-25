@@ -7,3 +7,4 @@ export { default as SearchPage } from './SearchPage';
 export { default as DashboardPage } from './DashboardPage';
 export { default as CreateSetPage } from './CreateSetPage';
 export { default as EditSetPage } from './EditSetPage';
+export { default as UserProfilePage } from './UserProfilePage';

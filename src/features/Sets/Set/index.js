@@ -27,7 +27,7 @@ const Set = ({
         <div className="set__top">
           <span className="set__num-of-terms">{termsCount} terms</span>
           <Link
-            to={`/users/${user._id}`}
+            to={`/users/${user.username}`}
             className="set__user"
             onClick={handleUsernameClick}
           >
