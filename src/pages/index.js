@@ -9,3 +9,4 @@ export { default as CreateSetPage } from './CreateSetPage';
 export { default as EditSetPage } from './EditSetPage';
 export { default as UserProfilePage } from './UserProfilePage';
 export { default as AccountPage } from './AccountPage';
+export { default as SetPage } from './SetPage';

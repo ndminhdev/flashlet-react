@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 import icons from '@/utils/icons';
-import CardForm from '../CardForm';
+import { CardForm } from '@/features/Cards';
 
 const DeleteIcon = icons.Delete;
 const EditIcon = icons.Edit;

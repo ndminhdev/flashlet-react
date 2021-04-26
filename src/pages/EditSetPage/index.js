@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import './style.scss';
 import { Layout } from '@/layouts';
-import { SetForm, CardOverviewItem, CardForm } from '@/features/Sets';
+import { SetForm } from '@/features/Sets';
+import { CardOverviewItem, CardForm } from '@/features/Cards';
 import { useToken, useNavigate } from '@/hooks';
 import { SetAPI } from '@/api';
 

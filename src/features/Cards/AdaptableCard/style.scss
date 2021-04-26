@@ -1,0 +1,36 @@
+.adaptable-card {
+  &__back,
+  &__front {
+    cursor: pointer;
+    position: absolute;
+    max-width: 80rem;
+    max-height: 45rem;
+    width: 60rem;
+    height: 33.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background-color: var(--neutral-100);
+    box-shadow: var(--shadow-big);
+  }
+
+  &__term {
+    font-size: var(--size-xl);
+    font-weight: var(--weight-medium);
+  }
+
+  &__definition {
+    margin-left: var(--spacing-md);
+    font-size: var(--size-lg);
+  }
+
+  &__image-container {
+    width: 12.8rem;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+  }
+}

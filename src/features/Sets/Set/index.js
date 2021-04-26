@@ -22,32 +22,32 @@ const Set = ({
   };
 
   return (
-    <div className="set" onClick={() => navigate(`/sets/${_id}`)}>
-      <div className="set__main">
-        <div className="set__top">
-          <span className="set__num-of-terms">
+    <div className="set-item" onClick={() => navigate(`/sets/${_id}`)}>
+      <div className="set-item__main">
+        <div className="set-item__top">
+          <span className="set-item__num-of-terms">
             {termsCount} term{termsCount > 1 ? 's' : ''}
           </span>
           <Link
             to={`/users/${user.username}`}
-            className="set__user"
+            className="set-item__user"
             onClick={handleUsernameClick}
           >
             <img
-              className="set__profile-image"
+              className="set-item__profile-image"
               src={user.profileImage || user.profileImageDefault}
               alt="profile image"
             />
-            <span className="set__fullname">{user.name}</span>
+            <span className="set-item__fullname">{user.name}</span>
           </Link>
         </div>
-        <h3 className="set__title">{title}</h3>
+        <h3 className="set-item__title">{title}</h3>
       </div>
-      <div className="set__preview-terms">
+      <div className="set-item__preview-terms">
         {previewTerms.map((t, index) => (
-          <div key={index} className="set__term">
-            <p className="set__text">{t.term}</p>
-            <span className="set__description">
+          <div key={index} className="set-item__term">
+            <p className="set-item__text">{t.term}</p>
+            <span className="set-item__description">
               {limitString(t.definition, 45)}
             </span>
           </div>

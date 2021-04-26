@@ -12,7 +12,6 @@ const Checkbox = ({
   defaultChecked,
   ...rest
 }) => {
-  console.log(defaultChecked);
   const [checked, setChecked] = useState(defaultChecked);
 
   return (

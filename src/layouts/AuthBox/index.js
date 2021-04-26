@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, a } from '@react-spring/web';
 
 import './style.scss';
 import icons from '@/utils/icons';
@@ -15,7 +15,7 @@ const AuthBox = ({ children, title, handleClose }) => {
   });
 
   return (
-    <animated.div style={props} className="authbox">
+    <a.div style={props} className="authbox">
       <div className="authbox__header">
         <h1 className="authbox__title">{title}</h1>
         <button className="authbox__close-btn" onClick={handleClose}>
@@ -23,7 +23,7 @@ const AuthBox = ({ children, title, handleClose }) => {
         </button>
       </div>
       <div className="authbox__body">{children}</div>
-    </animated.div>
+    </a.div>
   );
 };
 

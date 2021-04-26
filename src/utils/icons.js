@@ -6,6 +6,8 @@ import Image from '@/assets/icons/image.svg';
 import Set from '@/assets/icons/set.svg';
 import Edit from '@/assets/icons/edit.svg';
 import Delete from '@/assets/icons/delete.svg';
+import Card from '@/assets/icons/card.svg';
+import Write from '@/assets/icons/write.svg';
 
 const icons = {
   Google,
@@ -15,7 +17,9 @@ const icons = {
   Image,
   Set,
   Edit,
-  Delete
+  Delete,
+  Card,
+  Write
 };
 
 export default icons;

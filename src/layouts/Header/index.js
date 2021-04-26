@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, a } from '@react-spring/web';
 
 import './style.scss';
 import { Button } from '@/components';
@@ -117,7 +117,7 @@ const Header = () => {
               />
             </div>
             {showUserList && (
-              <animated.div
+              <a.div
                 style={springProps}
                 ref={infoDropdownRef}
                 className="header__dropdown"
@@ -154,7 +154,7 @@ const Header = () => {
                     Sign out
                   </div>
                 </div>
-              </animated.div>
+              </a.div>
             )}
           </div>
         ) : (

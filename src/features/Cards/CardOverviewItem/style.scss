@@ -6,7 +6,7 @@
   transition: all var(--duration-base) ease-out;
 
   &:hover {
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-big);
   }
 
   &__top {
