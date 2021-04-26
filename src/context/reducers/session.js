@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_OUT } from '../constants/session';
+import { SIGN_IN, SIGN_OUT, CHANGE_PROFILE } from '../constants/session';
 
 const sessionReducer = (state, action) => {
   const { type, payload } = action;
@@ -18,6 +18,13 @@ const sessionReducer = (state, action) => {
         isAuth: false,
         user: null,
         token: ''
+      };
+    }
+
+    case CHANGE_PROFILE: {
+      return {
+        ...state,
+        user: payload.user
       };
     }
 

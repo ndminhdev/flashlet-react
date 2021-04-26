@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_OUT } from '../constants/session';
+import { SIGN_IN, SIGN_OUT, CHANGE_PROFILE } from '../constants/session';
 
 export const signIn = (dispatch, data) =>
   dispatch({
@@ -6,7 +6,13 @@ export const signIn = (dispatch, data) =>
     payload: data
   });
 
-export const signOut = (dispatch, token) =>
+export const signOut = (dispatch) =>
   dispatch({
     type: SIGN_OUT
+  });
+
+export const changeProfile = (dispatch, data) =>
+  dispatch({
+    type: CHANGE_PROFILE,
+    payload: data
   });

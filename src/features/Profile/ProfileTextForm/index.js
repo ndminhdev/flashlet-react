@@ -5,12 +5,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import './style.scss';
 import { Field, Button } from '@/components';
-import { useToken } from '@/hooks';
+import { useToken, useDispatch } from '@/hooks';
+import { changeProfile } from '@/context/actions/session';
 import { UserAPI } from '@/api';
 
 const ProfileTextForm = ({ field, label, value, validationSchema }) => {
   const token = useToken();
-  const { register, errors, getValues, handleSubmit } = useForm({
+  const dispatch = useDispatch();
+  const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
     defaultValues: {
       value
@@ -31,7 +33,7 @@ const ProfileTextForm = ({ field, label, value, validationSchema }) => {
         { [field]: data.value },
         token
       );
-      console.log(responseData);
+      changeProfile(dispatch, responseData);
       setLoading(false);
       onToggleEditing();
     } catch (err) {
@@ -73,12 +75,9 @@ const ProfileTextForm = ({ field, label, value, validationSchema }) => {
         <div className="profile-text-form__field">
           <span className="profile-text-form__label">{label}:</span>
           <span className="profile-text-form__value">{value}</span>
-          <span
-            className="profile-text-form__change-btn"
-            onClick={onToggleEditing}
-          >
+          <Button size="xs" variant="neutral" onClick={onToggleEditing}>
             Change
-          </span>
+          </Button>
         </div>
       )}
     </div>

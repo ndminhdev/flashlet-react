@@ -58,7 +58,7 @@ const Header = () => {
   const onSignOutClick = async () => {
     try {
       await UserAPI.signOut(token);
-      signOut(dispatch, token);
+      signOut(dispatch);
       navigate('/');
     } catch (err) {
       console.log(err);

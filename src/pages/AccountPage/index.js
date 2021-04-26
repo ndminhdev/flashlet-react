@@ -31,7 +31,7 @@ const AccountPage = () => {
           <h3>Your profile</h3>
           <div className="account__profile-fields">
             <ProfileImageForm
-              currentImageUrl={user.profileImage || user.profileImageDefault}
+              image={user.profileImage || user.profileImageDefault}
             />
             <ProfileTextForm
               field="email"

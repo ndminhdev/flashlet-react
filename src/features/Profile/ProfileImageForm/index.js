@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
 
 import './style.scss';
-import { useToken } from '@/hooks';
+import { useToken, useDispatch } from '@/hooks';
+import { changeProfile } from '@/context/actions/session';
 import { UserAPI } from '@/api';
 
-const ProfileImageForm = ({ currentImageUrl }) => {
+const ProfileImageForm = ({ image }) => {
   const token = useToken();
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors, watch } = useForm({
     mode: 'onChange'
   });
-  const [imageUrl, setImageUrl] = useState(currentImageUrl);
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
@@ -20,7 +21,7 @@ const ProfileImageForm = ({ currentImageUrl }) => {
       const formData = new FormData();
       formData.append('profileImage', data.profileImage[0]);
       const responseData = await UserAPI.changeProfile(formData, token);
-      setImageUrl(responseData.user.profileImage);
+      changeProfile(dispatch, responseData);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -39,7 +40,7 @@ const ProfileImageForm = ({ currentImageUrl }) => {
       <div className="profile-image-form__container">
         <img
           className="profile-image-form__image"
-          src={imageUrl}
+          src={image}
           alt="profile-image-form"
         />
       </div>
@@ -63,7 +64,7 @@ const ProfileImageForm = ({ currentImageUrl }) => {
 };
 
 ProfileImageForm.propTypes = {
-  currentImageUrl: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired
 };
 
 export default ProfileImageForm;

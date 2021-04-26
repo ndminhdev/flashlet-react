@@ -3,8 +3,8 @@
   flex-direction: column;
 
   &__container {
-    width: 16rem;
-    height: 16rem;
+    width: 25.6rem;
+    height: 25.6rem;
     border-radius: var(--radius-lg);
     border: 1px solid var(--neutral-500);
     overflow: hidden;
@@ -15,7 +15,7 @@
   }
 
   &__form {
-    width: 16rem;
+    width: 25.6rem;
     display: flex;
   }
 
@@ -25,18 +25,20 @@
 
   &__label {
     cursor: pointer;
-    width: 16rem;
+    margin-top: var(--spacing-xxs);
+    width: 25.6rem;
     padding: var(--spacing-xxs) 0;
     text-align: center;
     border-radius: var(--radius-sm);
-    background-color: var(--neutral-100);
-    color: var(--cyan-300);
+    background-color: var(--neutral-300);
+    color: var(--ink-100);
+    font-size: var(--size-sm);
     font-weight: var(--weight-medium);
-    transition: color var(--duration-short) ease-out;
+    transition: background-color var(--duration-short) ease-out;
   }
 
   &__label:hover {
-    color: var(--gold-300);
+    background-color: var(--neutral-400);
   }
 
   &__error {
