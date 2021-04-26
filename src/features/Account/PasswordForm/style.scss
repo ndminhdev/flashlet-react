@@ -1,0 +1,21 @@
+.password-form {
+  &__form > *:not(:last-child) {
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__message,
+  &__message--error {
+    margin: var(--spacing-md) 0;
+    font-size: var(--size-xxs);
+    font-weight: var(--weight-medium);
+    text-transform: uppercase;
+  }
+
+  &__message {
+    color: var(--cyan-300);
+  }
+
+  &__message--error {
+    color: var(--coral-300);
+  }
+}

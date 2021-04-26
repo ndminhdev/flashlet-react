@@ -1,12 +1,26 @@
 .account {
   padding: var(--spacing-xxl) var(--spacing-page-h);
 
-  &__profile {
+  &__heading,
+  &__heading-danger {
     margin-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-transform: uppercase;
+    font-size: var(--size-lg);
+    color: var(--neutral-100);
   }
 
-  &__profile-fields {
-    margin-top: var(--spacing-lg);
+  &__heading {
+    background-color: var(--cyan-300);
+  }
+
+  &__heading-danger {
+    background-color: var(--coral-300);
+  }
+
+  &__profile {
+    margin-top: var(--spacing-xxl);
   }
 
   &__profile-fields > *:not(:last-child) {

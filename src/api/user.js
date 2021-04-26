@@ -103,11 +103,10 @@ export const changeProfile = async (data, token) => {
   return responseData;
 };
 
-export const deleteAccount = async (data, token) => {
+export const deleteAccount = async (token) => {
   const responseData = await sendRequest({
     method: 'delete',
     url: '/users/me',
-    data,
     headers: {
       Authorization: `Bearer ${token}`
     }

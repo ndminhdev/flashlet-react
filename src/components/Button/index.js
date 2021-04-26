@@ -51,7 +51,7 @@ const Button = ({ children, variant, size, block, loading, ...rest }) => {
 };
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(['cyan', 'gold', 'neutral', 'ink', 'none']),
+  variant: PropTypes.oneOf(['cyan', 'gold', 'neutral', 'ink', 'coral', 'none']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   block: PropTypes.bool,
   loading: PropTypes.bool

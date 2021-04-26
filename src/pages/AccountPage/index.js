@@ -4,7 +4,12 @@ import * as Yup from 'yup';
 
 import './style.scss';
 import { Layout } from '@/layouts';
-import { ProfileImageForm, ProfileTextForm } from '@/features/Profile';
+import {
+  ProfileImageForm,
+  ProfileTextForm,
+  PasswordForm,
+  SecurityArea
+} from '@/features/Account';
 import { useAuth } from '@/hooks';
 
 const emailSchema = Yup.object().shape({
@@ -28,7 +33,7 @@ const AccountPage = () => {
       <div className="account">
         <h1>Account Settings</h1>
         <div className="account__profile">
-          <h3>Your profile</h3>
+          <h3 className="account__heading">Profile</h3>
           <div className="account__profile-fields">
             <ProfileImageForm
               image={user.profileImage || user.profileImageDefault}
@@ -45,6 +50,18 @@ const AccountPage = () => {
               value={user.name}
               validationSchema={nameSchema}
             />
+          </div>
+        </div>
+        <div className="account__password">
+          <h3 className="account__heading">Change Password</h3>
+          <div className="account__password-form">
+            <PasswordForm />
+          </div>
+        </div>
+        <div className="account__security">
+          <h3 className="account__heading-danger">Security</h3>
+          <div className="account__security-buttons">
+            <SecurityArea />
           </div>
         </div>
       </div>

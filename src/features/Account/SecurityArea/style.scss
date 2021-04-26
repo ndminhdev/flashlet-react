@@ -1,0 +1,5 @@
+.security-area {
+  & > *:not(:last-child) {
+    margin-bottom: var(--spacing-sm);
+  }
+}

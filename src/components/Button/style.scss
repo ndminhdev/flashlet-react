@@ -42,7 +42,15 @@
 
   &--ink:hover {
     background-color: var(--ink-100);
+  }
+
+  &--coral {
+    background-color: var(--coral-300);
     color: var(--neutral-100);
+  }
+
+  &--coral:hover {
+    background-color: var(--coral-400);
   }
 
   &--none {

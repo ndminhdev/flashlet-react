@@ -28,7 +28,8 @@
   }
 
   &__value {
-    width: 28rem;
+    min-width: 22rem;
+    max-width: 28rem;
   }
 
   &__change-btn {
