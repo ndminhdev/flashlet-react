@@ -3,8 +3,8 @@
   flex-direction: column;
 
   &__container {
-    width: 25.6rem;
-    height: 25.6rem;
+    width: 12.8rem;
+    height: 12.8rem;
     border-radius: var(--radius-lg);
     border: 1px solid var(--neutral-500);
     overflow: hidden;
@@ -15,7 +15,7 @@
   }
 
   &__form {
-    width: 25.6rem;
+    width: 12.8rem;
     display: flex;
   }
 
@@ -26,7 +26,7 @@
   &__label {
     cursor: pointer;
     margin-top: var(--spacing-xxs);
-    width: 25.6rem;
+    width: 12.8rem;
     padding: var(--spacing-xxs) 0;
     text-align: center;
     border-radius: var(--radius-sm);

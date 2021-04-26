@@ -1,7 +1,10 @@
 .profile-text-form {
   &__form {
+    padding: var(--spacing-sm);
     display: flex;
     align-items: center;
+    border: 1px solid var(--gold-300);
+    border-radius: var(--radius-sm);
   }
 
   &__form > *:last-child {

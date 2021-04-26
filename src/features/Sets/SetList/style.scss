@@ -30,7 +30,7 @@
   }
 
   &__sort-btn {
-    margin-left: 1rem;
+    padding-left: var(--spacing-sm);
     outline: none;
     border: none;
     background: transparent;
@@ -38,6 +38,11 @@
     color: var(--ink-100);
     cursor: pointer;
     transition: color var(--duration-short) linear;
+  }
+
+  &__sort-btn:not(:last-child) {
+    padding-right: var(--spacing-sm);
+    border-right: 2px solid var(--neutral-400);
   }
 
   &__sort-btn:hover {
