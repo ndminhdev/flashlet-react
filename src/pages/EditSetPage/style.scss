@@ -31,4 +31,9 @@
   &__cards-list > *:not(:first-child) {
     margin-top: var(--spacing-md);
   }
+
+  &__add-card {
+    border: 2px solid var(--gold-300);
+    border-radius: var(--radius-sm);
+  }
 }

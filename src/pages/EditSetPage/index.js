@@ -12,6 +12,19 @@ const AddCardsPage = () => {
   const { setId } = useParams();
   const token = useToken();
   const navigate = useNavigate();
+
+  // current user owns this set?
+  (async () => {
+    try {
+      const responseData = await SetAPI.checkOwner(setId, token);
+      if (!responseData.result) {
+        navigate('/404');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  })();
+
   const [set, setSet] = useState(null);
   const [loading, setLoading] = useState(false);
   const [addLoading, setAddLoading] = useState(false);
@@ -20,7 +33,7 @@ const AddCardsPage = () => {
   const onSetEdit = async (data) => {
     try {
       setLoading(true);
-      const responseData = await SetAPI.updateSet(set._id, data, token);
+      await SetAPI.updateSet(set._id, data, token);
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -123,12 +136,14 @@ const AddCardsPage = () => {
                 />
               ))}
             </div>
-            <CardForm
-              loading={addLoading}
-              title="Add a new card"
-              onSubmit={onCardAdd}
-              onCancel={onCardAddCancel}
-            />
+            <div className="edit-set__add-card">
+              <CardForm
+                loading={addLoading}
+                title="Add a new card"
+                onSubmit={onCardAdd}
+                onCancel={onCardAddCancel}
+              />
+            </div>
           </div>
         </div>
       )}

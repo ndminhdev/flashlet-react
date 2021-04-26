@@ -9,12 +9,12 @@
   transition: all var(--duration-short) ease-out;
 
   &--cyan {
-    background-color: var(--cyan-300);
+    background-color: var(--cyan-400);
     color: var(--neutral-100);
   }
 
   &--cyan:hover {
-    background-color: var(--cyan-400);
+    background-color: var(--cyan-300);
   }
 
   &--gold {
@@ -50,7 +50,7 @@
   }
 
   &--coral:hover {
-    background-color: var(--coral-400);
+    background-color: var(--coral-500);
   }
 
   &--none {

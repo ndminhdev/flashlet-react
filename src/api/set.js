@@ -105,3 +105,14 @@ export const removeCard = async (cardId, token) => {
   });
   return responseData;
 };
+
+export const checkOwner = async (setId, token) => {
+  const responseData = await sendRequest({
+    method: 'get',
+    url: `/sets/check/${setId}`,
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+  return responseData;
+};
