@@ -39,10 +39,10 @@
   --spacing-page-h: 277px;
 
   // fonts
-  --size-xxs: 1.1rem;
+  --size-xxs: 1.2rem;
   --size-xs: 1.3rem;
-  --size-sm: 1.4rem;
-  --size-md: 1.5rem;
+  --size-sm: 1.5rem;
+  --size-md: 1.6rem;
   --size-lg: 1.8rem;
   --size-xl: 2.4rem;
   --size-xxl: 3.6rem;
@@ -56,9 +56,11 @@
   --border-neutral: 2px solid var(--neutral-400);
 
   // buttons
+  --button-padding-v-xs: 0.5rem;
   --button-padding-v-sm: 0.75rem;
   --button-padding-v-md: 1.25rem;
   --button-padding-v-lg: 2rem;
+  --button-padding-h-xs: 1rem;
   --button-padding-h-sm: 1.25rem;
   --button-padding-h-md: 1.75rem;
   --button-padding-h-lg: 2.5rem;
@@ -80,6 +82,7 @@
   // shadows
   --shadow: 0.125rem 0.125rem 0.5rem 0.125rem rgba(0, 0, 0, 0.1);
   --shadow-hover: 0.5rem 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
+  --shadow-light: 0.125rem 0.125rem 0.5rem 0.125rem rgba(255, 255, 255, 0.6);
 
   // radiuses
   --radius-sm: 0.375rem;

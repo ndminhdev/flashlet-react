@@ -1,0 +1,15 @@
+.account {
+  padding: var(--spacing-xxl) var(--spacing-page-h);
+
+  &__profile {
+    margin-top: var(--spacing-xxl);
+  }
+
+  &__profile-fields {
+    margin-top: var(--spacing-lg);
+  }
+
+  &__profile-fields > *:not(:last-child) {
+    margin-bottom: var(--spacing-md);
+  }
+}

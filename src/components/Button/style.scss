@@ -59,6 +59,13 @@
     width: 100%;
   }
 
+  &--xs {
+    min-width: 8rem;
+    font-size: var(--size-sm);
+    border-radius: var(--button-radius-sm);
+    padding: var(--button-padding-v-xs) var(--button-padding-h-xs);
+  }
+
   &--sm {
     min-width: 10rem;
     font-size: var(--size-sm);

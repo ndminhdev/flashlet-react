@@ -105,7 +105,7 @@ const Header = () => {
           <div className="header__user">
             <div
               style={{
-                borderColor: showUserList ? 'var(--neutral-100)' : null
+                boxShadow: showUserList ? 'var(--shadow-light)' : null
               }}
               className="header__profile-image"
               onClick={() => setShowUserList(!showUserList)}
@@ -141,7 +141,7 @@ const Header = () => {
                   <Link to="/dashboard" className="header__link">
                     Dashboard
                   </Link>
-                  <Link to="/me" className="header__link">
+                  <Link to="/account" className="header__link">
                     Profile
                   </Link>
                   <Link to="/settings" className="header__link">

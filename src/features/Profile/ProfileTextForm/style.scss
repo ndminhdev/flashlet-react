@@ -1,0 +1,44 @@
+.profile-text-form {
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+
+  &__form > *:last-child {
+    margin-left: var(--spacing-md);
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__buttons > *:last-child {
+    margin-top: var(--spacing-xs);
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label {
+    width: 14rem;
+    font-weight: var(--weight-medium);
+  }
+
+  &__value {
+    width: 24rem;
+  }
+
+  &__change-btn {
+    cursor: pointer;
+    padding: var(--spacing-xxs) var(--spacing-sm);
+    outline: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    background-color: var(--neutral-400);
+    color: var(--ink-100);
+    font-size: var(--size-xs);
+  }
+}

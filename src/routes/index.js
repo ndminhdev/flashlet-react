@@ -12,7 +12,8 @@ import {
   UserProfilePage,
   DashboardPage,
   CreateSetPage,
-  EditSetPage
+  EditSetPage,
+  AccountPage
 } from '@/pages';
 import { useAuth } from '@/hooks';
 
@@ -67,10 +68,16 @@ const routes = [
     isPrivate: true
   },
   {
-    name: 'addCards',
+    name: 'editSet',
     path: '/sets/:setId/cards',
     exact: true,
     page: EditSetPage,
+    isPrivate: true
+  },
+  {
+    name: 'account',
+    path: '/account',
+    page: AccountPage,
     isPrivate: true
   }
 ];
