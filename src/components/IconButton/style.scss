@@ -5,6 +5,14 @@
   border: none;
   background: transparent;
 
+  &:disabled &__icon {
+    fill: var(--neutral-500);
+  }
+
+  &:disabled:hover &__icon {
+    fill: var(--neutral-500);
+  }
+
   &:hover &__icon {
     fill: var(--gold-300);
   }

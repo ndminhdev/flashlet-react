@@ -27,7 +27,6 @@ const Flashcards = ({ set }) => {
   };
 
   useEffect(() => {
-    console.log(set);
     api.start((i) => {
       if (currentCardId < i) {
         return {
@@ -70,11 +69,19 @@ const Flashcards = ({ set }) => {
         </span>
       </div>
       <div className="flashcards__controls">
-        <IconButton icon={icons.ArrowBack} onClick={onCardPrevClick} />
+        <IconButton
+          icon={icons.ArrowBack}
+          onClick={onCardPrevClick}
+          disabled={currentCardId < 1}
+        />
         <div className="flashcards__number">
           {currentCardId + 1}/{set.cards.length}
         </div>
-        <IconButton icon={icons.ArrowForward} onClick={onCardNextClick} />
+        <IconButton
+          icon={icons.ArrowForward}
+          onClick={onCardNextClick}
+          disabled={currentCardId >= set.cards.length - 1}
+        />
       </div>
     </div>
   );
