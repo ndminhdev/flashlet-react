@@ -9,7 +9,7 @@ import { CardOverviewItem, CardForm } from '@/features/Cards';
 import { useToken, useNavigate } from '@/hooks';
 import { SetAPI } from '@/api';
 
-const AddCardsPage = () => {
+const EditSetPage = () => {
   const { setId } = useParams();
   const token = useToken();
   const navigate = useNavigate();
@@ -152,4 +152,4 @@ const AddCardsPage = () => {
   );
 };
 
-export default AddCardsPage;
+export default EditSetPage;

@@ -70,6 +70,7 @@ SetForm.propTypes = {
       _id: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       username: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       profileImage: PropTypes.string,
       profileImageDefault: PropTypes.string.isRequired
     }).isRequired,

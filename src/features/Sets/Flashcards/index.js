@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { useSprings } from '@react-spring/web';
 
 import './style.scss';
+import { IconButton } from '@/components';
 import { AdaptableCard } from '@/features/Cards';
 import icons from '@/utils/icons';
-
-const ArrowForwardIcon = icons.ArrowForward;
-const ArrowBackIcon = icons.ArrowBack;
 
 const Flashcards = ({ set }) => {
   const [currentCardId, setCurrentCardId] = useState(0);
@@ -71,15 +70,30 @@ const Flashcards = ({ set }) => {
         </span>
       </div>
       <div className="flashcards__controls">
-        <button className="flashcards__button" onClick={onCardPrevClick}>
-          <ArrowBackIcon className="flashcards__button-icon" />
-        </button>
+        <IconButton icon={icons.ArrowBack} onClick={onCardPrevClick} />
         <div className="flashcards__number">
           {currentCardId + 1}/{set.cards.length}
         </div>
-        <button className="flashcards__button" onClick={onCardNextClick}>
-          <ArrowForwardIcon className="flashcards__button-icon" />
-        </button>
+        <IconButton icon={icons.ArrowForward} onClick={onCardNextClick} />
+      </div>
+      <div className="flashcards__bottom">
+        <Link className="flashcards__user" to={`/users/${set.user.username}`}>
+          <div className="flashcards__image-container">
+            <img
+              className="flashcards__image"
+              src={set.user.profileImage || set.user.profileImageDefault}
+              alt="profile-image"
+            />
+          </div>
+          <div className="flashcards__text">
+            <span className="flashcards__created-by">Create by</span>
+            <span className="flashcards__name">{set.user.name}</span>
+          </div>
+        </Link>
+        <div className="flashcards__tools">
+          <IconButton icon={icons.Edit} />
+          <IconButton icon={icons.GetLink} />
+        </div>
       </div>
     </div>
   );
@@ -95,6 +109,7 @@ Flashcards.propTypes = {
       _id: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       username: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       profileImage: PropTypes.string,
       profileImageDefault: PropTypes.string.isRequired
     }).isRequired,

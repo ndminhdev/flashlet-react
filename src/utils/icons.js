@@ -10,6 +10,7 @@ import Card from '@/assets/icons/card.svg';
 import Write from '@/assets/icons/write.svg';
 import ArrowForward from '@/assets/icons/arrow_forward.svg';
 import ArrowBack from '@/assets/icons/arrow_back.svg';
+import GetLink from '@/assets/icons/get_link.svg';
 
 const icons = {
   Google,
@@ -23,7 +24,8 @@ const icons = {
   Card,
   Write,
   ArrowForward,
-  ArrowBack
+  ArrowBack,
+  GetLink
 };
 
 export default icons;
