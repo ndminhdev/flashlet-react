@@ -98,4 +98,8 @@
   &__tools > *:not(:last-child) {
     margin-right: var(--spacing-md);
   }
+
+  &__hidden {
+    display: none;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSprings } from '@react-spring/web';
@@ -6,9 +6,12 @@ import { useSprings } from '@react-spring/web';
 import './style.scss';
 import { IconButton } from '@/components';
 import { AdaptableCard } from '@/features/Cards';
+import { useAuth, useNavigate, useClipboard } from '@/hooks';
 import icons from '@/utils/icons';
 
 const Flashcards = ({ set }) => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const [currentCardId, setCurrentCardId] = useState(0);
   const [springs, api] = useSprings(set.cards.length, (i) =>
     currentCardId === i
@@ -18,6 +21,8 @@ const Flashcards = ({ set }) => {
         }
       : { display: 'none' }
   );
+  const linkRef = useRef(null);
+  const [success, copy] = useClipboard(linkRef);
 
   const onCardPrevClick = () => {
     setCurrentCardId((id) => (id - 1 < 0 ? id : id - 1));
@@ -91,10 +96,21 @@ const Flashcards = ({ set }) => {
           </div>
         </Link>
         <div className="flashcards__tools">
-          <IconButton icon={icons.Edit} />
-          <IconButton icon={icons.GetLink} />
+          {set.user._id === user._id && (
+            <IconButton
+              icon={icons.Edit}
+              onClick={() => navigate(`/sets/${set._id}/cards`)}
+            />
+          )}
+          <IconButton icon={icons.GetLink} onClick={() => copy()} />
         </div>
       </div>
+      <textarea
+        className="flashcards__hidden"
+        value={`http://localhost:8080/sets/${set._id}`}
+        name="link"
+        ref={linkRef}
+      />
     </div>
   );
 };
