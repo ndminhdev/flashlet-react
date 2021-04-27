@@ -107,11 +107,13 @@ const SetPage = () => {
                     {set.user._id === user?._id && (
                       <IconButton
                         icon={icons.Edit}
+                        label="Edit"
                         onClick={() => navigate(`/sets/edit/${set._id}`)}
                       />
                     )}
                     <IconButton
                       icon={success ? icons.Check : icons.GetLink}
+                      label="Clipboard"
                       onClick={onLinkCopy}
                     />
                   </div>

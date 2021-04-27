@@ -17,6 +17,10 @@
     fill: var(--gold-300);
   }
 
+  &:hover &__tooltip {
+    opacity: 1;
+  }
+
   &__sm {
     width: 1.8rem;
     height: 1.8rem;
@@ -36,9 +40,17 @@
 
   &__tooltip {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 120%;
+    left: 50%;
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    display: block;
+    transform: translateX(-50%);
+    font-size: var(--size-xs);
+    font-weight: var(--weight-medium);
+    border-radius: var(--radius-sm);
     background-color: var(--cyan-300);
     color: var(--neutral-100);
+    opacity: 0;
+    transition: opacity var(--duration-base) ease-out;
   }
 }
