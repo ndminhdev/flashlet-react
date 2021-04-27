@@ -8,6 +8,8 @@ import Edit from '@/assets/icons/edit.svg';
 import Delete from '@/assets/icons/delete.svg';
 import Card from '@/assets/icons/card.svg';
 import Write from '@/assets/icons/write.svg';
+import ArrowForward from '@/assets/icons/arrow_forward.svg';
+import ArrowBack from '@/assets/icons/arrow_back.svg';
 
 const icons = {
   Google,
@@ -19,7 +21,9 @@ const icons = {
   Edit,
   Delete,
   Card,
-  Write
+  Write,
+  ArrowForward,
+  ArrowBack
 };
 
 export default icons;

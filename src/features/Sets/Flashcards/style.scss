@@ -1,2 +1,64 @@
 .flashcards {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+
+  &__stack {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__progress-bar {
+    position: relative;
+    align-items: stretch;
+    width: 100%;
+    height: 5px;
+    border-radius: 100px;
+    background-color: var(--neutral-400);
+    overflow: hidden;
+  }
+
+  &__progress-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 100px;
+    background-color: var(--cyan-300);
+    transition: width var(--duration-short) linear;
+  }
+
+  &__controls {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__controls > *:not(:last-child) {
+    margin-right: var(--spacing-xxl);
+  }
+
+  &__number {
+    font-size: var(--size-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  &__button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+
+  &__button-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: var(--ink-200);
+  }
+
+  &__button:disabled &__button-icon {
+    color: var(--ink-100);
+  }
 }

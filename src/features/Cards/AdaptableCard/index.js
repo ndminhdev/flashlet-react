@@ -4,7 +4,7 @@ import { useSpring, a } from '@react-spring/web';
 
 import './style.scss';
 
-const AdaptableCard = ({ _id, term, definition, imageUrl }) => {
+const AdaptableCard = ({ _id, term, definition, imageUrl, ...rest }) => {
   const [flipped, setFlipped] = useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -12,7 +12,11 @@ const AdaptableCard = ({ _id, term, definition, imageUrl }) => {
     config: { mass: 5, tension: 500, friction: 80 }
   });
   return (
-    <div className="adaptable-card" onClick={() => setFlipped(!flipped)}>
+    <a.div
+      className="adaptable-card"
+      onClick={() => setFlipped(!flipped)}
+      {...rest}
+    >
       <a.div
         className="adaptable-card__front"
         style={{ opacity: opacity.to((o) => 1 - o), transform }}
@@ -34,7 +38,7 @@ const AdaptableCard = ({ _id, term, definition, imageUrl }) => {
         )}
         <div className="adaptable-card__definition">{definition}</div>
       </a.div>
-    </div>
+    </a.div>
   );
 };
 
