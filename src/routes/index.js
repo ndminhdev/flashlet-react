@@ -70,7 +70,7 @@ const routes = [
   },
   {
     name: 'editSet',
-    path: '/sets/:setId/cards',
+    path: '/sets/edit/:setId',
     exact: true,
     page: EditSetPage,
     isPrivate: true
@@ -84,7 +84,6 @@ const routes = [
   {
     name: 'set',
     path: '/sets/:setId',
-    exact: true,
     page: SetPage
   }
 ];

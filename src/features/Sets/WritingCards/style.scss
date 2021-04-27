@@ -1,0 +1,12 @@
+.writing-cards {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem;
+  max-height: 45rem;
+  width: 70rem;
+  height: 39.375rem;
+
+  &__cards {
+  }
+}

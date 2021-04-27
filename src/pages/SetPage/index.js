@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch,
+  Redirect
+} from 'react-router-dom';
 
 import './style.scss';
 import { Layout } from '@/layouts';
 import { IconButton } from '@/components';
-import { Flashcards } from '@/features/Sets';
+import { Flashcards, WritingCards } from '@/features/Sets';
 import { useAuth, useNavigate, useClipboard } from '@/hooks';
 import icons from '@/utils/icons';
 import { SetAPI } from '@/api';
 
 const sidebarItems = [
   {
-    name: 'flashcards',
+    path: '/flashcards',
     label: 'Flashcards',
-    icon: icons.Card
+    icon: icons.Card,
+    component: Flashcards
   },
   {
-    name: 'learn',
+    path: '/write',
     label: 'Write',
-    icon: icons.Write
+    icon: icons.Write,
+    component: WritingCards
   }
 ];
 
@@ -26,6 +35,7 @@ const SetPage = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { setId } = useParams();
+  const match = useRouteMatch();
   const [set, setSet] = useState(null);
   const { success, copy } = useClipboard();
 
@@ -51,15 +61,26 @@ const SetPage = () => {
             </div>
             <div className="set__container">
               <div className="set__sidebar">
-                {sidebarItems.map(({ name, label, icon: Icon }) => (
-                  <div key={name} className="set__sidebar-item">
+                {sidebarItems.map(({ path, label, icon: Icon }) => (
+                  <Link
+                    to={match.url + path}
+                    key={path}
+                    className="set__sidebar-item"
+                  >
                     <Icon className="set__sidebar-icon" />
                     <span className="set__sidebar-label">{label}</span>
-                  </div>
+                  </Link>
                 ))}
               </div>
               <div className="set__main">
-                <Flashcards set={set} />
+                <Switch>
+                  {sidebarItems.map(({ path, component: Component }) => (
+                    <Route key={path} path={match.url + path}>
+                      <Component set={set} />
+                    </Route>
+                  ))}
+                  <Redirect to={match.url + '/flashcards'} />
+                </Switch>
                 <div className="set__bottom">
                   <Link
                     className="set__user"
@@ -83,7 +104,7 @@ const SetPage = () => {
                     {set.user._id === user?._id && (
                       <IconButton
                         icon={icons.Edit}
-                        onClick={() => navigate(`/sets/${set._id}/cards`)}
+                        onClick={() => navigate(`/sets/edit/${set._id}`)}
                       />
                     )}
                     <IconButton
