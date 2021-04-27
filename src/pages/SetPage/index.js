@@ -44,6 +44,7 @@ const SetPage = () => {
   };
 
   useEffect(() => {
+    console.log(location);
     (async () => {
       const responseData = await SetAPI.getSetById(setId);
       setSet(responseData.set);
@@ -65,7 +66,9 @@ const SetPage = () => {
                   <Link
                     to={match.url + path}
                     key={path}
-                    className="set__sidebar-item"
+                    className={`set__sidebar-item ${
+                      false && 'set__sidebar-item--active'
+                    }`}
                   >
                     <Icon className="set__sidebar-icon" />
                     <span className="set__sidebar-label">{label}</span>
@@ -75,7 +78,7 @@ const SetPage = () => {
               <div className="set__main">
                 <Switch>
                   {sidebarItems.map(({ path, component: Component }) => (
-                    <Route key={path} path={match.url + path}>
+                    <Route key={path} exact path={match.url + path}>
                       <Component set={set} />
                     </Route>
                   ))}

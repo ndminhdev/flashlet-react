@@ -27,14 +27,19 @@
     padding: var(--spacing-sm) var(--spacing-md);
     display: flex;
     align-items: center;
+    text-decoration: none;
     border-radius: var(--radius-sm);
     color: var(--ink-100);
     transition: all var(--duration-base) ease-out;
   }
 
   &__sidebar-item:hover {
-    background-color: var(--gold-200);
+    background-color: var(--neutral-400);
     color: var(--ink-200);
+  }
+
+  &__sidebar-item--active {
+    background-color: var(--cyan-200);
   }
 
   &__sidebar-icon {
