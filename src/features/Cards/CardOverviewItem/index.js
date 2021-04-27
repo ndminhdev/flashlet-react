@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
+import { IconButton } from '@/components';
 import icons from '@/utils/icons';
 import { CardForm } from '@/features/Cards';
-
-const DeleteIcon = icons.Delete;
-const EditIcon = icons.Edit;
 
 const CardOverviewItem = ({
   id,
@@ -41,18 +39,16 @@ const CardOverviewItem = ({
           <div className="card-overview-item__top">
             <div className="card-overview-item__id">{id + 1}</div>
             <div className="card-overview-item__tools">
-              <button
-                className="card-overview-item__button"
+              <IconButton
+                size="sm"
+                icon={icons.Edit}
                 onClick={onToggleEditting}
-              >
-                <EditIcon className="card-overview-item__icon" />
-              </button>
-              <button
-                className="card-overview-item__button"
+              />
+              <IconButton
+                size="sm"
+                icon={icons.Delete}
                 onClick={() => onCardRemove(_id)}
-              >
-                <DeleteIcon className="card-overview-item__icon" />
-              </button>
+              />
             </div>
           </div>
           <div className="card-overview-item__main">

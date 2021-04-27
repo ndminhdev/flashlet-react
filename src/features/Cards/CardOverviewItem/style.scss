@@ -32,24 +32,8 @@
     display: flex;
   }
 
-  &__button {
-    cursor: pointer;
-    display: block;
-    padding: var(--spacing-xxs);
-    outline: none;
-    border: none;
-    border-radius: var(--radius-sm);
-    background: transparent;
-  }
-
-  &__icon {
-    width: 20px;
-    height: 20px;
-    fill: var(--ink-100);
-  }
-
-  &__button:hover &__icon {
-    fill: var(--gold-300);
+  &__tools > *:not(:last-child) {
+    margin-right: var(--spacing-sm);
   }
 
   &__main {
