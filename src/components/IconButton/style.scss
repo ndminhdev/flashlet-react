@@ -1,4 +1,5 @@
 .button-icon {
+  position: relative;
   cursor: pointer;
   outline: none;
   border: none;
@@ -23,5 +24,13 @@
     height: 100%;
     fill: var(--ink-200);
     transition: all var(--duration-short) ease-out;
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--cyan-300);
+    color: var(--neutral-100);
   }
 }

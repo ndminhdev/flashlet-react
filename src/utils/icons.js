@@ -11,6 +11,7 @@ import Write from '@/assets/icons/write.svg';
 import ArrowForward from '@/assets/icons/arrow_forward.svg';
 import ArrowBack from '@/assets/icons/arrow_back.svg';
 import GetLink from '@/assets/icons/get_link.svg';
+import Check from '@/assets/icons/check.svg';
 
 const icons = {
   Google,
@@ -25,7 +26,8 @@ const icons = {
   Write,
   ArrowForward,
   ArrowBack,
-  GetLink
+  GetLink,
+  Check
 };
 
 export default icons;

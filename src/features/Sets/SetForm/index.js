@@ -23,8 +23,6 @@ const SetForm = ({ loading, set, onSubmit }) => {
     }
   });
 
-  console.log(set?.isPublic || false);
-
   return (
     <div className="set-form">
       <h3>{set ? 'Edit study set' : 'Create a new study set'}</h3>
