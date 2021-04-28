@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,6 +7,10 @@ import * as Yup from 'yup';
 import './style.scss';
 import icons from '@/utils/icons';
 import { Button, Field, SocialButton } from '@/components';
+import { useDispatch } from '@/hooks';
+import { UserAPI } from '@/api';
+import { showSignInOverlay } from '@/context/actions/ui';
+import handleError from '@/utils/handleError';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Email is incorrect').required('Email is required'),
@@ -24,8 +28,21 @@ const SignUpForm = ({ swapSignIn }) => {
     mode: 'onChange',
     resolver: yupResolver(schema)
   });
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      setLoading(true);
+      await UserAPI.signUp(data);
+      setLoading(false);
+      showSignInOverlay(dispatch);
+    } catch (err) {
+      handleError(err, setErrMessage);
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="signup-form">
@@ -70,11 +87,11 @@ const SignUpForm = ({ swapSignIn }) => {
           placeholder="Type your password"
           error={errors.password?.message}
         />
-        <Button type="submit" size="lg" block={true}>
+        <Button loading={loading} type="submit" size="lg" block={true}>
           Sign up
         </Button>
       </form>
-
+      {errMessage && <span className="signup-form__error">{errMessage}</span>}
       <div className="signup-form__bottom">
         <p className="signup-form__bottom-text">Already have account?</p>
         <span className="signup-form__bottom-link" onClick={swapSignIn}>

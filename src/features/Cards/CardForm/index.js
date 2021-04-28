@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -22,7 +22,7 @@ const CardForm = ({
   onSubmit,
   onCancel
 }) => {
-  const { register, errors, handleSubmit } = useForm({
+  const { register, handleSubmit, errors, reset } = useForm({
     mode: 'onChange',
     defaultValues: {
       term: card?.term || '',
@@ -36,7 +36,10 @@ const CardForm = ({
         onSubmit(data);
         setIsEditing(false);
       }
-    : onSubmit;
+    : (data) => {
+        onSubmit(data);
+        reset();
+      };
 
   return (
     <div className="card-form">
