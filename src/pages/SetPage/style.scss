@@ -48,8 +48,14 @@
     font-weight: var(--weight-medium);
   }
 
+  &__main {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   &__bottom {
-    margin-top: calc(3 * var(--spacing-xxl));
     display: flex;
     align-items: center;
   }

@@ -5,6 +5,10 @@
   border: none;
   background: transparent;
 
+  &:disabled {
+    cursor: default;
+  }
+
   &:disabled &__icon {
     fill: var(--neutral-500);
   }
