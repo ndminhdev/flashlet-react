@@ -5,7 +5,7 @@ import './style.scss';
 
 import { Layout } from '@/layouts';
 import { Button } from '@/components';
-import { useDispatch } from '@/hooks';
+import { useDispatch, useOverlay } from '@/hooks';
 import { showSignUpOverlay } from '@/context/actions/ui';
 
 import { carouselImages } from '@/utils/images';
@@ -33,7 +33,7 @@ const SWAP_TIME = 3000;
 const LandingPage = () => {
   const dispatch = useDispatch();
   const [currentItem, setCurrenItem] = useState(carouselItems[0]);
-  const [progress, setProgress] = useState(0);
+  const { signInOverlayShown, signUpOverlayShown } = useOverlay();
 
   useEffect(() => {
     const item =
@@ -47,12 +47,14 @@ const LandingPage = () => {
     return () => clearInterval(timeout);
   }, [currentItem]);
 
+  const overlayShown = signInOverlayShown || signUpOverlayShown;
+
   return (
     <Layout>
       <Helmet>
         <title>Flashlet</title>
       </Helmet>
-      <div className="landing">
+      <div className={`landing ${overlayShown ? 'landing--lock' : ''}`}>
         <div className="landing__hero">
           <h1 className="landing__title">
             Unstoppable <br />
@@ -83,16 +85,6 @@ const LandingPage = () => {
           <span className="landing__quote">
             &quot;{currentItem.quote}&quot;
           </span>
-          <div className="landing__processbar">
-            <span
-              className="landing__processcursor"
-              style={{
-                width: `${progress}%`
-              }}
-            >
-              &nbsp;
-            </span>
-          </div>
         </div>
       </div>
     </Layout>

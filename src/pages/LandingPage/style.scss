@@ -1,8 +1,16 @@
 .landing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   height: calc(100h - 6rem);
   background-color: var(--cyan-500);
   color: var(--neutral-100);
+
+  &--lock {
+    width: calc(100% - 15px);
+  }
 
   &__hero {
     flex: 50%;
@@ -53,22 +61,7 @@
 
   &__quote {
     margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xxl);
     font-size: var(--size-lg);
-  }
-
-  &__processbar {
-    position: relative;
-    margin-top: var(--spacing-xxl);
-    width: 100%;
-    height: 0.8rem;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  &__processcursor {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: var(--gold-300);
   }
 }

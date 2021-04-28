@@ -1,5 +1,9 @@
-.main {
+.background {
   min-height: 100vh;
   padding-top: 6rem;
   background-color: var(--neutral-200);
+}
+
+.main {
+  padding: var(--spacing-xl) var(--spacing-page-h);
 }

@@ -16,7 +16,9 @@ const Field = ({ size, name, label, type, register, error, ...rest }) => {
         {...rest}
       />
       <label
-        className={`field-group__label ${error && 'field-group__label--error'}`}
+        className={`field-group__label ${
+          error ? 'field-group__label--error' : ''
+        }`}
       >
         {error ? error : label}
       </label>
