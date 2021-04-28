@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSprings } from '@react-spring/web';
 
 import './style.scss';
-import { ProgressBar } from '@/components';
+import { ProgressBar, Button } from '@/components';
 import { WritableCard } from '@/features/Cards';
 
 const WritingCards = ({ set }) => {
@@ -17,6 +17,7 @@ const WritingCards = ({ set }) => {
       : { display: 'none' }
   );
   const total = set.cards.length;
+  const [isLastCard, setIsLastCard] = useState(false);
   const [remainingProgress, setRemainingProgress] = useState(total);
   const [correctProgress, setCorrectProgress] = useState(0);
   const [incorrectProgress, setIncorrectProgress] = useState(0);
@@ -29,6 +30,18 @@ const WritingCards = ({ set }) => {
     } else {
       setIncorrectProgress((state) => (state + 1 > total ? state : state + 1));
     }
+
+    if (remainingProgress === 1) {
+      setIsLastCard(true);
+    }
+  };
+
+  const onResetClick = () => {
+    setIsLastCard(false);
+    setCurrentCardId(0);
+    setRemainingProgress(total);
+    setCorrectProgress(0);
+    setIncorrectProgress(0);
   };
 
   useEffect(() => {
@@ -54,16 +67,37 @@ const WritingCards = ({ set }) => {
 
   return (
     <div className="writing-cards">
-      <div className="writing-cards__stack">
-        {springs.map((styles, i) => (
-          <WritableCard
-            style={styles}
-            key={set.cards[i]._id}
-            {...set.cards[i]}
-            onCardAnswerSubmit={onCardAnswerSubmit}
-          />
-        ))}
-      </div>
+      {isLastCard ? (
+        <div className="writing-cards__done">
+          <h1 className="writing-cards__done-text">Done!</h1>
+          <div className="writing-cards__result writing-cards__result--correct">
+            <span className="writing-cards__result-title">Correct</span>
+            <span className="writing-cards__result-progress">
+              {Math.floor((correctProgress / total) * 100)}%
+            </span>
+          </div>
+          <div className="writing-cards__result writing-cards__result--incorrect">
+            <span className="writing-cards__result-title">Incorrect</span>
+            <span className="writing-cards__result-progress">
+              {Math.floor((incorrectProgress / total) * 100)}%
+            </span>
+          </div>
+          <Button variant="ink" onClick={onResetClick}>
+            Study again
+          </Button>
+        </div>
+      ) : (
+        <div className="writing-cards__stack">
+          {springs.map((styles, i) => (
+            <WritableCard
+              style={styles}
+              key={set.cards[i]._id}
+              {...set.cards[i]}
+              onCardAnswerSubmit={onCardAnswerSubmit}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="writing-cards__progress-bar">
         <span
