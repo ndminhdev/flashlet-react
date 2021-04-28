@@ -18,7 +18,9 @@ const ProgressBar = ({ label, variant, progress, total }) => {
       </div>
       <div className="progress-bar__text">
         <div className="progress-bar__label">{label}</div>
-        <div className="progress-bar__progress">{progress}</div>
+        <div className="progress-bar__progress">
+          {progress}/{total}
+        </div>
       </div>
     </div>
   );
@@ -26,7 +28,7 @@ const ProgressBar = ({ label, variant, progress, total }) => {
 
 ProgressBar.propTypes = {
   label: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['cyan', 'green', 'coral', 'gold']),
+  variant: PropTypes.oneOf(['cyan', 'green', 'coral', 'gold', 'ink']),
   progress: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired
 };

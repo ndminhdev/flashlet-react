@@ -34,10 +34,20 @@
     background-color: var(--gold-300);
   }
 
+  &--ink &__outer {
+    background-color: var(--neutral-400);
+  }
+
+  &--ink &__inner {
+    background-color: var(--ink-300);
+  }
+
   &__outer {
     position: relative;
     width: 20rem;
     height: 1.5rem;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
   }
 
   &__inner {

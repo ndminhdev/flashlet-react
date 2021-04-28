@@ -16,10 +16,19 @@ const WritingCards = ({ set }) => {
         }
       : { display: 'none' }
   );
+  const total = set.cards.length;
+  const [remainingProgress, setRemainingProgress] = useState(total);
+  const [correctProgress, setCorrectProgress] = useState(0);
+  const [incorrectProgress, setIncorrectProgress] = useState(0);
 
   const onCardAnswerSubmit = (data) => {
-    setCurrentCardId((id) => (id + 1 > set.cards.length - 1 ? id : id + 1));
-    console.log(data.answer === set.cards[currentCardId].term);
+    setCurrentCardId((id) => (id + 1 > total - 1 ? id : id + 1));
+    setRemainingProgress((state) => (state - 1 < 0 ? state : state - 1));
+    if (data.answer === set.cards[currentCardId].term) {
+      setCorrectProgress((state) => (state + 1 > total ? state : state + 1));
+    } else {
+      setIncorrectProgress((state) => (state + 1 > total ? state : state + 1));
+    }
   };
 
   useEffect(() => {
@@ -70,21 +79,21 @@ const WritingCards = ({ set }) => {
       <div className="writing-cards__results">
         <ProgressBar
           label="Remaining"
-          variant="cyan"
-          progress={20}
-          total={100}
+          variant="ink"
+          progress={remainingProgress}
+          total={total}
         />
         <ProgressBar
           label="Correct"
-          variant="green"
-          progress={40}
-          total={100}
+          variant="cyan"
+          progress={correctProgress}
+          total={total}
         />
         <ProgressBar
           label="Incorrect"
           variant="coral"
-          progress={40}
-          total={100}
+          progress={incorrectProgress}
+          total={total}
         />
       </div>
     </div>
