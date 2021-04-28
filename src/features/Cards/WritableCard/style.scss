@@ -1,0 +1,55 @@
+.writable-card {
+  user-select: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-xxl);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  background-color: var(--neutral-100);
+  box-shadow: var(--shadow-big);
+
+  &__top {
+    margin-bottom: var(--spacing-xxl);
+    padding-bottom: var(--spacing-xxl);
+    border-bottom: 2px solid var(--neutral-300);
+  }
+
+  &__prompt {
+    display: flex;
+    align-items: center;
+  }
+
+  &__answer {
+    margin-top: calc(1.5 * var(--spacing-xxl));
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__answer-title {
+    color: var(--ink-100);
+  }
+
+  &__answer-text {
+    font-size: var(--size-xl);
+  }
+
+  &__definition {
+    margin-right: auto;
+    font-size: var(--size-lg);
+  }
+
+  &__bottom {
+    margin-top: auto;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+
+  &__form > *:not(:last-child) {
+    margin-right: var(--spacing-md);
+  }
+}

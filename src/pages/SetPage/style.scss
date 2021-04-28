@@ -10,6 +10,7 @@
   }
 
   &__sidebar {
+    min-width: 24rem;
     width: 26rem;
     padding-right: var(--spacing-md);
     display: flex;

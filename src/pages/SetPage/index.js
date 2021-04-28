@@ -44,7 +44,6 @@ const SetPage = () => {
   };
 
   useEffect(() => {
-    console.log(location);
     (async () => {
       const responseData = await SetAPI.getSetById(setId);
       setSet(responseData.set);
