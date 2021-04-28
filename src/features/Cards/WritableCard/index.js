@@ -12,7 +12,7 @@ const WritableCard = ({
   term,
   definition,
   imageUrl,
-  onSubmit,
+  onCardAnswerSubmit,
   ...rest
 }) => {
   const { register, handleSubmit, errors } = useForm({
@@ -22,6 +22,10 @@ const WritableCard = ({
 
   const onShowAnswer = () => {
     setAnswerShown(true);
+  };
+
+  const onSubmit = (data) => {
+    onCardAnswerSubmit(data, answerShown);
   };
 
   return (
@@ -64,7 +68,7 @@ WritableCard.propTypes = {
   term: PropTypes.string.isRequired,
   definition: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired
+  onCardAnswerSubmit: PropTypes.func.isRequired
 };
 
 export default WritableCard;

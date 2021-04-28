@@ -21,10 +21,10 @@ const WritingCards = ({ set }) => {
   const [correctProgress, setCorrectProgress] = useState(0);
   const [incorrectProgress, setIncorrectProgress] = useState(0);
 
-  const onCardAnswerSubmit = (data) => {
+  const onCardAnswerSubmit = (data, answerShown) => {
     setCurrentCardId((id) => (id + 1 > total - 1 ? id : id + 1));
     setRemainingProgress((state) => (state - 1 < 0 ? state : state - 1));
-    if (data.answer === set.cards[currentCardId].term) {
+    if (data.answer === set.cards[currentCardId].term && !answerShown) {
       setCorrectProgress((state) => (state + 1 > total ? state : state + 1));
     } else {
       setIncorrectProgress((state) => (state + 1 > total ? state : state + 1));
@@ -60,7 +60,7 @@ const WritingCards = ({ set }) => {
             style={styles}
             key={set.cards[i]._id}
             {...set.cards[i]}
-            onSubmit={onCardAnswerSubmit}
+            onCardAnswerSubmit={onCardAnswerSubmit}
           />
         ))}
       </div>
