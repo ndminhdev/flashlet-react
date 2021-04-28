@@ -55,6 +55,7 @@
     top: 0;
     left: 0;
     height: 100%;
+    transition: all var(--duration-base) linear;
   }
 
   &__text {
