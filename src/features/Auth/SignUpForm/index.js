@@ -7,9 +7,8 @@ import * as Yup from 'yup';
 import './style.scss';
 import icons from '@/utils/icons';
 import { Button, Field, SocialButton } from '@/components';
-import { useDispatch } from '@/hooks';
+import { useNavigate } from '@/hooks';
 import { UserAPI } from '@/api';
-import { showSignInOverlay } from '@/context/actions/ui';
 import handleError from '@/utils/handleError';
 
 const schema = Yup.object().shape({
@@ -28,7 +27,7 @@ const SignUpForm = ({ swapSignIn }) => {
     mode: 'onChange',
     resolver: yupResolver(schema)
   });
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [errMessage, setErrMessage] = useState('');
 
@@ -37,7 +36,7 @@ const SignUpForm = ({ swapSignIn }) => {
       setLoading(true);
       await UserAPI.signUp(data);
       setLoading(false);
-      showSignInOverlay(dispatch);
+      navigate('/signin');
     } catch (err) {
       handleError(err, setErrMessage);
       setLoading(false);
