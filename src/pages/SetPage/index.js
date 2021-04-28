@@ -114,6 +114,7 @@ const SetPage = () => {
                       icon={success ? icons.Check : icons.GetLink}
                       label="Clipboard"
                       onClick={onLinkCopy}
+                      disabled={!set.isPublic}
                     />
                   </div>
                 </div>
