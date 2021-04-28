@@ -33,4 +33,10 @@
   &__add-card-btn:hover {
     border-color: var(--gold-300);
   }
+
+  &__error {
+    margin: var(--spacing-md) 0;
+    display: block;
+    color: var(--coral-300);
+  }
 }

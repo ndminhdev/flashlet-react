@@ -8,6 +8,7 @@ import { SetForm } from '@/features/Sets';
 import { CardOverviewItem, CardForm } from '@/features/Cards';
 import { useToken, useNavigate } from '@/hooks';
 import { SetAPI } from '@/api';
+import handleError from '@/utils/handleError';
 
 const EditSetPage = () => {
   const { setId } = useParams();
@@ -30,6 +31,7 @@ const EditSetPage = () => {
   const [loading, setLoading] = useState(false);
   const [addLoading, setAddLoading] = useState(false);
   const [editLoading, setEditLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   const onSetEdit = async (data) => {
     try {
@@ -38,7 +40,7 @@ const EditSetPage = () => {
       setLoading(false);
     } catch (err) {
       setLoading(false);
-      console.log(err);
+      handleError(err, setErrMessage);
     }
   };
 
@@ -118,7 +120,12 @@ const EditSetPage = () => {
       {set && (
         <div className="edit-set">
           <div className="edit-set__set">
-            <SetForm loading={loading} set={set} onSubmit={onSetEdit} />
+            <SetForm
+              loading={loading}
+              set={set}
+              onSubmit={onSetEdit}
+              error={errMessage}
+            />
           </div>
           <div className="edit-set__cards">
             <div className="edit-set__cards-title">

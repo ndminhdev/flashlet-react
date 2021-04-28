@@ -7,7 +7,7 @@ const handleError = (err, actionToHandle, dispatch) => {
     errMessage =
       err.request.message ||
       err.request.statusText ||
-      'Cannot make request to Flashlet server';
+      'Check your network and try again';
   } else {
     errMessage = err.message;
   }

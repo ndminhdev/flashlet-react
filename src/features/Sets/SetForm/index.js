@@ -13,7 +13,7 @@ const schema = Yup.object().shape({
   isPublic: Yup.bool()
 });
 
-const SetForm = ({ loading, set, onSubmit }) => {
+const SetForm = ({ loading, set, onSubmit, error }) => {
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -53,6 +53,7 @@ const SetForm = ({ loading, set, onSubmit }) => {
           {set ? 'Change' : 'Create'}
         </Button>
       </form>
+      {error && <div className="set-form__error">{error}</div>}
     </div>
   );
 };
@@ -75,11 +76,13 @@ SetForm.propTypes = {
     cards: PropTypes.array,
     createdAt: PropTypes.string.isRequired
   }),
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired
 };
 
 SetForm.defaultProps = {
-  loading: false
+  loading: false,
+  error: ''
 };
 
 export default SetForm;
