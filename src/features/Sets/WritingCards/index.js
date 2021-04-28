@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useSprings } from '@react-spring/web';
 
 import './style.scss';
+import { ProgressBar } from '@/components';
 import { WritableCard } from '@/features/Cards';
 
 const WritingCards = ({ set }) => {
@@ -15,6 +16,11 @@ const WritingCards = ({ set }) => {
         }
       : { display: 'none' }
   );
+
+  const onCardAnswerSubmit = (data) => {
+    setCurrentCardId((id) => (id + 1 > set.cards.length - 1 ? id : id + 1));
+    console.log(data.answer === set.cards[currentCardId].term);
+  };
 
   useEffect(() => {
     api.start((i) => {
@@ -45,9 +51,11 @@ const WritingCards = ({ set }) => {
             style={styles}
             key={set.cards[i]._id}
             {...set.cards[i]}
+            onSubmit={onCardAnswerSubmit}
           />
         ))}
       </div>
+
       <div className="writing-cards__progress-bar">
         <span
           className="writing-cards__progress-inner"
@@ -57,6 +65,27 @@ const WritingCards = ({ set }) => {
         >
           &nbsp;
         </span>
+      </div>
+
+      <div className="writing-cards__results">
+        <ProgressBar
+          label="Remaining"
+          variant="cyan"
+          progress={20}
+          total={100}
+        />
+        <ProgressBar
+          label="Correct"
+          variant="green"
+          progress={40}
+          total={100}
+        />
+        <ProgressBar
+          label="Incorrect"
+          variant="coral"
+          progress={40}
+          total={100}
+        />
       </div>
     </div>
   );

@@ -1,0 +1,66 @@
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+
+  &--cyan &__outer {
+    background-color: var(--cyan-100);
+  }
+
+  &--cyan &__inner {
+    background-color: var(--cyan-300);
+  }
+
+  &--green &__outer {
+    background-color: var(--green-100);
+  }
+
+  &--green &__inner {
+    background-color: var(--green-300);
+  }
+
+  &--coral &__outer {
+    background-color: var(--coral-100);
+  }
+
+  &--coral &__inner {
+    background-color: var(--coral-300);
+  }
+
+  &--gold &__outer {
+    background-color: var(--gold-100);
+  }
+
+  &--gold &__inner {
+    background-color: var(--gold-300);
+  }
+
+  &__outer {
+    position: relative;
+    width: 20rem;
+    height: 1.5rem;
+  }
+
+  &__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  &__text {
+    margin-top: var(--spacing-xxs);
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--size-xs);
+    font-weight: var(--weight-medium);
+    color: var(--ink-100);
+  }
+
+  &__label {
+    text-transform: uppercase;
+  }
+
+  &__progress {
+    font-weight: var(--weight-bold);
+  }
+}
