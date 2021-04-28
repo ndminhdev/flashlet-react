@@ -19,6 +19,7 @@ const Button = ({ children, variant, size, block, loading, ...rest }) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const ref = useRef(null);
+  const [showLoader, setShowLoader] = useState(false);
 
   // Capture button initial dimensions
   useEffect(() => {
@@ -29,6 +30,22 @@ const Button = ({ children, variant, size, block, loading, ...rest }) => {
       setHeight(ref.current.getBoundingClientRect().height);
     }
   }, [children]);
+
+  // Show loader at least 400ms
+  useEffect(() => {
+    if (loading) {
+      setShowLoader(true);
+    }
+
+    // avoid loading flash
+    const timeout = setTimeout(() => {
+      setShowLoader(false);
+    }, 600);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [showLoader, loading]);
 
   return (
     <button
@@ -42,10 +59,10 @@ const Button = ({ children, variant, size, block, loading, ...rest }) => {
             }
           : {}
       }
-      disabled={loading}
+      disabled={showLoader}
       {...rest}
     >
-      {loading ? <Loader /> : children}
+      {showLoader ? <Loader /> : children}
     </button>
   );
 };
