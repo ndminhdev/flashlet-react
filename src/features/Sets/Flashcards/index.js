@@ -13,9 +13,17 @@ const Flashcards = ({ set }) => {
     currentCardId === i
       ? {
           display: 'block',
-          transform: 'perspective(600px) scale(1) rotateY(0)'
+          transform: 'perspective(600px) scale(1) rotateY(0)',
+          config: {
+            duration: 250
+          }
         }
-      : { display: 'none' }
+      : {
+          display: 'none',
+          config: {
+            duration: 250
+          }
+        }
   );
 
   const onCardPrevClick = () => {
@@ -31,17 +39,26 @@ const Flashcards = ({ set }) => {
       if (currentCardId < i) {
         return {
           display: 'none',
-          transform: 'perspective(600px) scale(0.2) rotateY(60deg)'
+          transform: 'perspective(600px) scale(0.2) rotateY(60deg)',
+          config: {
+            duration: 250
+          }
         };
       } else if (currentCardId > i) {
         return {
           display: 'none',
-          transform: 'perspective(600px) scale(0.2) rotateY(-60deg)'
+          transform: 'perspective(600px) scale(0.2) rotateY(-60deg)',
+          config: {
+            duration: 250
+          }
         };
       } else {
         return {
           display: 'block',
-          transform: 'perspective(600px) scale(1) rotateY(0)'
+          transform: 'perspective(600px) scale(1) rotateY(0)',
+          config: {
+            duration: 250
+          }
         };
       }
     });
