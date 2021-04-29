@@ -48,11 +48,22 @@ const Set = ({
       </div>
       <div className="set-item__preview-terms">
         {previewTerms.map((t, index) => (
-          <div key={index} className="set-item__term">
-            <p className="set-item__text">{t.term}</p>
-            <span className="set-item__definition">
-              {limitString(t.definition, 45)}
-            </span>
+          <div key={index} className="set-item__preview">
+            {t.imageUrl && (
+              <div className="set-item__image-container">
+                <img
+                  className="set-item__image"
+                  src={t.imageUrl}
+                  alt="preview-image"
+                />
+              </div>
+            )}
+            <div className="set-item__text">
+              <p className="set-item__term">{t.term}</p>
+              <span className="set-item__definition">
+                {limitString(t.definition, 30)}
+              </span>
+            </div>
           </div>
         ))}
       </div>
