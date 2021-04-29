@@ -144,8 +144,8 @@ const Header = () => {
                   <Link to="/account" className="header__link">
                     Profile
                   </Link>
-                  <Link to="/settings" className="header__link">
-                    Settings
+                  <Link to="/preferences" className="header__link">
+                    Preferences
                   </Link>
                   <div
                     className="header__link header__link--coral"

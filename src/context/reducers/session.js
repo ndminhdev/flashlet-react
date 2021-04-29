@@ -1,4 +1,9 @@
-import { SIGN_IN, SIGN_OUT, CHANGE_PROFILE } from '../constants/session';
+import {
+  SIGN_IN,
+  SIGN_OUT,
+  CHANGE_PROFILE,
+  SET_PREFERENCES
+} from '../constants/session';
 
 const sessionReducer = (state, action) => {
   const { type, payload } = action;
@@ -17,7 +22,8 @@ const sessionReducer = (state, action) => {
         ...state,
         isAuth: false,
         user: null,
-        token: ''
+        token: '',
+        preferences: null
       };
     }
 
@@ -25,6 +31,13 @@ const sessionReducer = (state, action) => {
       return {
         ...state,
         user: payload.user
+      };
+    }
+
+    case SET_PREFERENCES: {
+      return {
+        ...state,
+        preferences: payload.preferences
       };
     }
 

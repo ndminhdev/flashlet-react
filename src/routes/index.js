@@ -15,7 +15,7 @@ import {
   EditSetPage,
   AccountPage,
   SetPage,
-  SettingsPage
+  PreferencesPage
 } from '@/pages';
 import { useAuth } from '@/hooks';
 
@@ -88,9 +88,9 @@ const routes = [
     page: SetPage
   },
   {
-    name: 'settings',
-    path: '/settings',
-    page: SettingsPage,
+    name: 'preferences',
+    path: '/preferences',
+    page: PreferencesPage,
     isPrivate: true
   }
 ];

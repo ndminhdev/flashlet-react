@@ -1,4 +1,9 @@
-import { SIGN_IN, SIGN_OUT, CHANGE_PROFILE } from '../constants/session';
+import {
+  SIGN_IN,
+  SIGN_OUT,
+  CHANGE_PROFILE,
+  SET_PREFERENCES
+} from '../constants/session';
 
 export const signIn = (dispatch, data) =>
   dispatch({
@@ -14,5 +19,11 @@ export const signOut = (dispatch) =>
 export const changeProfile = (dispatch, data) =>
   dispatch({
     type: CHANGE_PROFILE,
+    payload: data
+  });
+
+export const setPreferences = (dispatch, data) =>
+  dispatch({
+    type: SET_PREFERENCES,
     payload: data
   });

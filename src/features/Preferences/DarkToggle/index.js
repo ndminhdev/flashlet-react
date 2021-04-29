@@ -2,11 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 import './style.scss';
 import { Toggle } from '@/components';
+import { useToken, useDispatch, usePreferences } from '@/hooks';
+import { PreferenceAPI } from '@/api';
+import { setPreferences } from '@/context/actions/session';
 
 const html = document.documentElement;
 
 const DarkToggle = () => {
-  const [dark, setDark] = useState(false);
+  const token = useToken();
+  const dispatch = useDispatch();
+  const preferences = usePreferences();
+  const [dark, setDark] = useState(preferences.darkMode);
 
   const onDarkToggle = () => {
     setDark(!dark);
@@ -18,6 +24,16 @@ const DarkToggle = () => {
     } else {
       html.className = '';
     }
+
+    (async () => {
+      const responseData = await PreferenceAPI.changePreferences(
+        {
+          darkMode: dark
+        },
+        token
+      );
+      setPreferences(dispatch, responseData);
+    })();
   }, [dark]);
 
   // Dark Toggle🌙🔆

@@ -15,7 +15,8 @@ const initialState = {
   session: {
     isAuth: false,
     user: null,
-    token: ''
+    token: '',
+    preferences: null
   }
 };
 
