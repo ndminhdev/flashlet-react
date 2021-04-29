@@ -1,6 +1,9 @@
 export const formatDate = (utcString) => {
   const date = new Date(utcString);
-  return (
-    date.toLocaleString('default', { month: 'short' }) + ' ' + date.getDate()
-  );
+  const m = date.toLocaleString('default', { month: 'short' });
+  const d = date.getDate();
+  const y = date.getFullYear();
+  const currentYear = new Date().getFullYear();
+
+  return `${m} ${d}${y !== currentYear ? `, ${y}` : ''}`;
 };
