@@ -37,6 +37,7 @@ const WritableCard = ({
             icon={icons.Idea}
             label="Forget?"
             onClick={onShowAnswer}
+            disabled={answerShown}
           />
         </div>
         {answerShown && (

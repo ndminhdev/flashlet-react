@@ -28,11 +28,13 @@
   }
 
   &__answer-title {
-    color: var(--ink-100);
+    color: var(--neutral-500);
   }
 
   &__answer-text {
+    margin-top: var(--spacing-md);
     font-size: var(--size-xl);
+    font-weight: var(--weight-medium);
   }
 
   &__definition {
