@@ -26,7 +26,18 @@ const WritableCard = ({
   };
 
   const onSubmit = (data) => {
-    onCardAnswerSubmit(data, answerShown);
+    if (data.answer !== term) {
+      return setAnswerShown(true);
+    }
+
+    onCardAnswerSubmit(data, false);
+  };
+
+  const onCopyChange = (event) => {
+    const answer = event.target.value;
+    if (answer === term) {
+      onCardAnswerSubmit({ answer }, answerShown);
+    }
   };
 
   return (
@@ -49,18 +60,35 @@ const WritableCard = ({
         )}
       </div>
       <div className="writable-card__bottom">
-        <form className="writable-card__form" onSubmit={handleSubmit(onSubmit)}>
-          <Field
-            register={register}
-            size="lg"
-            name="answer"
-            label="Your answer"
-            placeholder={answerShown ? 'Copy answer' : 'Type your answer'}
-            error={errors.answer?.message}
-            autoFocus
-          />
-          <Button type="submit">Next</Button>
-        </form>
+        {answerShown ? (
+          <div className="writable-card__copy-form">
+            <Field
+              size="lg"
+              name="answer"
+              label="Your answer"
+              placeholder={answerShown ? 'Copy answer' : 'Type your answer'}
+              error={errors.answer?.message}
+              autoFocus
+              onChange={onCopyChange}
+            />
+          </div>
+        ) : (
+          <form
+            className="writable-card__form"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <Field
+              register={register}
+              size="lg"
+              name="answer"
+              label="Your answer"
+              placeholder="Type your answer here"
+              error={errors.answer?.message}
+              autoFocus
+            />
+            <Button type="submit">Next</Button>
+          </form>
+        )}
       </div>
     </a.div>
   );
