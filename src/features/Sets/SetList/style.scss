@@ -10,7 +10,7 @@
   &__count {
     font-size: var(--size-md);
     font-weight: var(--weight-regular);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__top {
@@ -35,7 +35,7 @@
     border: none;
     background: transparent;
     font-weight: var(--weight-bold);
-    color: var(--ink-100);
+    color: var(--color-text-light);
     cursor: pointer;
     transition: color var(--duration-short) linear;
   }
@@ -71,6 +71,6 @@
   }
 
   &__end-of-results {
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 }

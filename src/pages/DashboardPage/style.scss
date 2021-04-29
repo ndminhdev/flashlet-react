@@ -19,7 +19,7 @@
     text-align: center;
     font-weight: var(--weight-bold);
     border-radius: var(--radius-sm);
-    background-color: var(--cyan-300);
+    background-color: var(--cyan-400);
     color: var(--neutral-100);
   }
 
@@ -35,7 +35,7 @@
     display: flex;
     align-items: center;
     border-radius: var(--radius-sm);
-    color: var(--ink-100);
+    color: var(--color-text-light);
     transition: all var(--duration-base) ease-out;
   }
 
@@ -52,7 +52,7 @@
     margin-right: var(--spacing-sm);
     width: 24px;
     height: 24px;
-    fill: var(--ink-100);
+    fill: var(--color-text-light);
   }
 
   &__main {

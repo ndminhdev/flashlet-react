@@ -2,8 +2,8 @@
   user-select: none;
   cursor: pointer;
   position: relative;
-  background-color: var(--neutral-100);
-  border: 1px solid var(--neutral-300);
+  background-color: var(--color-background);
+  border: none;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
 
@@ -32,7 +32,7 @@
   }
 
   &__num-of-terms {
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__user,
@@ -48,7 +48,7 @@
   }
 
   &__user:hover {
-    color: var(--gold-300);
+    color: var(--color-secondary);
   }
 
   &__profile-image {
@@ -64,22 +64,23 @@
 
   &__date {
     margin-left: auto;
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__title {
     margin-top: var(--spacing-sm);
+    color: var(--color-text);
   }
 
   &__description {
     margin-top: var(--spacing-sm);
-    color: var(--neutral-500);
+    color: var(--color-text-light);
   }
 
   &__preview-terms {
     display: flex;
     align-items: center;
-    border-top: 1px solid var(--neutral-300);
+    border-top: var(--border-narrow);
   }
 
   &__preview {
@@ -87,17 +88,18 @@
     padding: var(--spacing-md);
     display: flex;
     align-items: center;
-    color: var(--ink-100);
+    color: var(--color-text-light);
     font-size: var(--size-sm);
   }
 
   &__preview:not(:last-child) {
-    border-right: 1px solid var(--neutral-300);
+    border-right: var(--border-narrow);
   }
 
   &__term {
     margin-bottom: var(--spacing-xs);
     font-weight: var(--weight-medium);
+    color: var(--color-text);
   }
 
   &__image-container {

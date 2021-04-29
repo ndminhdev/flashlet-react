@@ -63,7 +63,7 @@ const ProfileTextForm = ({ field, label, value, validationSchema }) => {
             </Button>
             <Button
               type="button"
-              variant="neutral"
+              variant="none"
               size="xs"
               onClick={onToggleEditing}
             >

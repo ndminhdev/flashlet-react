@@ -1,6 +1,6 @@
 .signup-form {
   min-width: 60rem;
-  background-color: var(--neutral-100);
+  background-color: var(--color-background);
 
   &__social {
     display: flex;
@@ -21,13 +21,13 @@
     flex: 20%;
     text-align: center;
     font-weight: var(--weight-medium);
-    color: var(--neutral-500);
+    color: var(--color-text-light);
   }
 
   &__seperator {
     width: 50%;
     height: 2px;
-    background-color: var(--neutral-400);
+    background-color: var(--color-theme);
   }
 
   &__form > * {
@@ -46,13 +46,13 @@
     justify-content: center;
     padding: var(--button-padding-v-lg) var(--button-padding-h-lg);
     border-radius: var(--button-radius-lg);
-    border: 2px solid var(--neutral-400);
+    border: var(--border);
   }
 
   &__bottom-text {
     margin-right: var(--spacing-xs);
     font-weight: var(--weight-medium);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__bottom-link {

@@ -5,10 +5,10 @@
   min-width: 24rem;
   width: 100%;
   text-align: center;
-  border: 2px solid var(--neutral-400);
+  border: var(--border);
   outline: none;
-  background-color: var(--neutral-100);
-  color: var(--ink-200);
+  background-color: var(--color-background);
+  color: var(--color-text-light);
 
   &--sm {
     font-size: var(--size-md);

@@ -2,9 +2,9 @@
   &__heading {
     margin-right: var(--spacing-xxl);
     min-width: 20rem;
-    border-right: 1px solid var(--neutral-400);
+    border-right: var(--border-narrow);
     font-weight: var(--weight-medium);
-    color: var(--cyan-300);
+    color: var(--color-primary);
   }
 
   &__profile,
@@ -15,7 +15,7 @@
     display: flex;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-big);
-    background-color: var(--neutral-100);
+    background-color: var(--color-background);
   }
 
   &__profile {

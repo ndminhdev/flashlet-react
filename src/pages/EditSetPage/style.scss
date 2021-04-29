@@ -1,7 +1,7 @@
 .edit-set {
   &__description {
     margin-top: var(--spacing-md);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__cards {
@@ -11,19 +11,19 @@
   &__count {
     font-size: var(--size-xs);
     font-weight: var(--weight-regular);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__cards-title {
     margin-bottom: var(--spacing-md);
     font-weight: var(--weight-medium);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__cards-list {
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-md);
-    border-bottom: 2px solid var(--neutral-400);
+    border-bottom: var(--border);
   }
 
   &__cards-list > *:not(:first-child) {
@@ -31,7 +31,7 @@
   }
 
   &__add-card {
-    border: 2px solid var(--gold-300);
+    border: var(--border);
     border-radius: var(--radius-sm);
   }
 }

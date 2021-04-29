@@ -5,8 +5,8 @@
   width: 100%;
   display: flex;
   height: calc(100h - 6rem);
-  background-color: var(--cyan-500);
-  color: var(--neutral-100);
+  background-color: var(--color-primary-darker);
+  color: var(--color-text);
 
   &--lock {
     width: calc(100% - 15px);
@@ -35,6 +35,7 @@
   &__description {
     font-size: var(--size-lg);
     letter-spacing: 0.15rem;
+    color: var(--neutral-100);
   }
 
   &__carousel {
@@ -57,11 +58,13 @@
     margin-top: var(--spacing-xxl);
     font-weight: var(--weight-medium);
     font-size: var(--size-xl);
+    color: var(--neutral-100);
   }
 
   &__quote {
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-xxl);
     font-size: var(--size-lg);
+    color: var(--neutral-100);
   }
 }

@@ -1,7 +1,7 @@
 .card-overview-item {
   padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--radius-sm);
-  background-color: var(--neutral-100);
+  background-color: var(--color-background);
   box-shadow: var(--shadow);
   transition: all var(--duration-base) ease-out;
 
@@ -24,8 +24,8 @@
     font-size: var(--size-xs);
     font-weight: var(--weight-bold);
     border-radius: 50%;
-    background-color: var(--cyan-300);
-    color: var(--neutral-100);
+    background-color: var(--color-primary);
+    color: var(--color-text);
   }
 
   &__tools {
@@ -44,7 +44,7 @@
 
   &__text {
     flex: 1;
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__term {
@@ -53,6 +53,6 @@
 
   &__attach {
     font-size: var(--size-sm);
-    color: var(--cyan-300);
+    color: var(--color-primary);
   }
 }

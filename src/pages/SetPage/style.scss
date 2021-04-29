@@ -1,7 +1,11 @@
 .set {
+  &__title {
+    color: var(--color-text);
+  }
+
   &__description {
     margin-top: var(--spacing-sm);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__container {
@@ -25,7 +29,7 @@
     align-items: center;
     text-decoration: none;
     border-radius: var(--radius-sm);
-    color: var(--ink-100);
+    color: var(--color-text-light);
     transition: all var(--duration-base) ease-out;
   }
 
@@ -68,7 +72,7 @@
   }
 
   &__user:hover &__name {
-    color: var(--gold-300);
+    color: var(--color-secondary);
   }
 
   &__image-container {
@@ -90,12 +94,12 @@
 
   &__created-by {
     font-size: var(--size-xs);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__name {
     font-weight: var(--weight-medium);
-    color: var(--ink-200);
+    color: var(--cyan-300);
     transition: color var(--duration-short) ease-out;
   }
 

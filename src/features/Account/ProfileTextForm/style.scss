@@ -3,7 +3,7 @@
     padding: var(--spacing-sm);
     display: flex;
     align-items: center;
-    border: 1px solid var(--gold-300);
+    border: var(--border);
     border-radius: var(--radius-sm);
   }
 
@@ -33,16 +33,5 @@
   &__value {
     min-width: 20rem;
     max-width: 26rem;
-  }
-
-  &__change-btn {
-    cursor: pointer;
-    padding: var(--spacing-xxs) var(--spacing-sm);
-    outline: none;
-    border: none;
-    border-radius: var(--radius-sm);
-    background-color: var(--neutral-400);
-    color: var(--ink-100);
-    font-size: var(--size-xs);
   }
 }

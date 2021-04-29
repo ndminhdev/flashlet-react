@@ -28,13 +28,13 @@ const ProgressBar = ({ label, variant, progress, total }) => {
 
 ProgressBar.propTypes = {
   label: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['cyan', 'green', 'coral', 'gold', 'ink']),
+  variant: PropTypes.oneOf(['primary', 'cyan', 'coral', 'gold', 'ink']),
   progress: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired
 };
 
 ProgressBar.defaultProps = {
-  variant: 'cyan'
+  variant: 'primary'
 };
 
 export default ProgressBar;

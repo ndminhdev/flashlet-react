@@ -56,7 +56,7 @@ const SetPage = () => {
         {set && (
           <React.Fragment>
             <div className="set__info">
-              <h1>{set.title}</h1>
+              <h1 className="set__title">{set.title}</h1>
               <p className="set__description">{set.description}</p>
             </div>
             <div className="set__container">

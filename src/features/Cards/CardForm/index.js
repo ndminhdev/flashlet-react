@@ -73,7 +73,7 @@ const CardForm = ({
           <Button loading={loading} size="sm" type="submit">
             {isEditing ? 'Save' : 'Add'}
           </Button>
-          <Button size="sm" variant="neutral" type="button" onClick={onCancel}>
+          <Button size="sm" variant="theme" type="button" onClick={onCancel}>
             Cancel
           </Button>
         </div>

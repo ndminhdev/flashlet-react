@@ -11,6 +11,7 @@
     outline: none;
     border: none;
     background-color: transparent;
+    color: var(--color-text);
   }
 
   &__field--sm {
@@ -29,10 +30,10 @@
     position: relative;
     margin-top: var(--spacing-xs);
     padding-top: var(--spacing-sm);
-    font-size: var(--size-xs);
-    font-weight: var(--weight-medium);
+    font-size: var(--size-xxs);
+    font-weight: var(--weight-bold);
     text-transform: uppercase;
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__label::before {
@@ -40,7 +41,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: var(--ink-100);
+    background-color: var(--color-theme-dark);
     width: 100%;
     height: 2px;
     z-index: 1;

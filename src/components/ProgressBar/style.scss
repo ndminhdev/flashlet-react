@@ -2,20 +2,20 @@
   display: flex;
   flex-direction: column;
 
+  &--primary &__outer {
+    background-color: var(--color-text-light);
+  }
+
+  &--primary &__inner {
+    background-color: var(--color-text);
+  }
+
   &--cyan &__outer {
     background-color: var(--cyan-100);
   }
 
   &--cyan &__inner {
     background-color: var(--cyan-300);
-  }
-
-  &--green &__outer {
-    background-color: var(--green-100);
-  }
-
-  &--green &__inner {
-    background-color: var(--green-300);
   }
 
   &--coral &__outer {
@@ -64,7 +64,7 @@
     justify-content: space-between;
     font-size: var(--size-xs);
     font-weight: var(--weight-medium);
-    color: var(--ink-100);
+    color: var(--color-text-light);
   }
 
   &__label {

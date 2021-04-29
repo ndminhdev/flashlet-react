@@ -24,7 +24,7 @@
     width: 100%;
     height: 100%;
     border-radius: var(--radius-lg);
-    background-color: var(--neutral-100);
+    background-color: var(--color-background);
     box-shadow: var(--shadow-big);
   }
 
@@ -46,7 +46,7 @@
   }
 
   &__result:not(:last-child) {
-    border-bottom: 2px solid var(--neutral-300);
+    border-bottom: var(--border);
   }
 
   &__result--correct {
@@ -71,7 +71,7 @@
     width: 100%;
     height: 5px;
     border-radius: 100px;
-    background-color: var(--cyan-100);
+    background-color: var(--color-progress-outer);
     overflow: hidden;
   }
 
@@ -81,7 +81,7 @@
     left: 0;
     height: 100%;
     border-radius: 100px;
-    background-color: var(--cyan-300);
+    background-color: var(--color-progress-inner);
     transition: width var(--duration-short) linear;
   }
 

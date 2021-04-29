@@ -66,7 +66,7 @@ const LandingPage = () => {
           </span>
           <Button
             size="lg"
-            variant="gold"
+            variant="theme"
             onClick={() => showSignUpOverlay(dispatch)}
           >
             TRY FOR FREE

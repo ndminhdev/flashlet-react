@@ -53,7 +53,7 @@ const WritingCards = ({ set }) => {
               {Math.floor((incorrectProgress / total) * 100)}%
             </span>
           </div>
-          <Button variant="ink" onClick={onResetClick}>
+          <Button variant="primary" onClick={onResetClick}>
             Try again
           </Button>
         </div>
@@ -81,7 +81,7 @@ const WritingCards = ({ set }) => {
       <div className="writing-cards__results">
         <ProgressBar
           label="Remaining"
-          variant="ink"
+          variant="primary"
           progress={remainingProgress}
           total={total}
         />

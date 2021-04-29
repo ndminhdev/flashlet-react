@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-md);
-    background-color: var(--cyan-500);
+    background-color: var(--color-primary-dark);
   }
 
   &__title {
@@ -30,6 +30,6 @@
 
   &__body {
     padding: var(--spacing-lg);
-    background-color: var(--neutral-100);
+    background-color: var(--color-background);
   }
 }

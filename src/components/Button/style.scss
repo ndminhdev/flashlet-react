@@ -8,40 +8,49 @@
   font-weight: var(--weight-medium);
   transition: all var(--duration-short) ease-out;
 
-  &--cyan {
-    background-color: var(--cyan-400);
-    color: var(--neutral-100);
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
   }
 
-  &--cyan:hover {
-    background-color: var(--cyan-300);
+  &--primary:hover {
+    background-color: var(--color-primary-dark);
   }
 
-  &--gold {
-    background-color: var(--gold-300);
-    color: var(--neutral-100);
+  &--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-button-text);
   }
 
-  &--gold:hover {
-    background-color: var(--gold-400);
+  &--secondary:hover {
+    background-color: var(--color-secondary-dark);
   }
 
-  &--neutral {
-    background-color: var(--neutral-300);
-    color: var(--ink-100);
+  &--theme {
+    background-color: var(--color-theme);
+    color: var(--color-text);
   }
 
-  &--neutral:hover {
-    background-color: var(--neutral-400);
+  &--theme:hover {
+    background-color: var(--color-theme-dark);
   }
 
-  &--ink {
-    background-color: var(--ink-300);
-    color: var(--neutral-100);
+  &--none {
+    background-color: transparent;
+    color: var(--color-button-text);
   }
 
-  &--ink:hover {
-    background-color: var(--ink-100);
+  &--none:hover {
+    background-color: var(--color-primary-darker);
+  }
+
+  &--no-outline {
+    background-color: transparent;
+    color: var(--color-text);
+  }
+
+  &--no-outline:hover {
+    color: var(--color-secondary);
   }
 
   &--coral {
@@ -51,24 +60,6 @@
 
   &--coral:hover {
     background-color: var(--coral-500);
-  }
-
-  &--none {
-    background-color: transparent;
-    color: var(--neutral-100);
-  }
-
-  &--none:hover {
-    background-color: rgba(255, 255, 255, 0.35);
-  }
-
-  &--no-outline {
-    background-color: transparent;
-    color: var(--cyan-300);
-  }
-
-  &--no-outline:hover {
-    color: var(--gold-300);
   }
 
   &--block {

@@ -7,13 +7,13 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--radius-lg);
-  background-color: var(--neutral-100);
+  background-color: var(--color-background);
   box-shadow: var(--shadow-big);
 
   &__top {
     margin-bottom: var(--spacing-xxl);
     padding-bottom: var(--spacing-xxl);
-    border-bottom: 2px solid var(--neutral-300);
+    border-bottom: var(--border);
   }
 
   &__prompt {

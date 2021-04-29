@@ -87,7 +87,7 @@ const SetList = ({ title, keyword, fetchData }) => {
               ))}
             </div>
             {hasNextPage ? (
-              <Button size="sm" variant="gold" onClick={handleLoadingMoreClick}>
+              <Button size="sm" onClick={handleLoadingMoreClick}>
                 Load more
               </Button>
             ) : (
