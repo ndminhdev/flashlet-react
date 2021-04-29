@@ -1,16 +1,20 @@
-.account {
+.settings {
   &__heading {
     margin-right: var(--spacing-xxl);
-    padding: var(--spacing-xl);
     min-width: 20rem;
     border-right: var(--border-narrow);
     font-weight: var(--weight-medium);
     color: var(--color-primary);
+    padding: var(--spacing-xl);
   }
 
-  &__profile,
-  &__password,
-  &__security {
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &__field {
     margin: var(--spacing-md) 0;
     padding: var(--spacing-xs);
     display: flex;
@@ -19,20 +23,7 @@
     background-color: var(--color-background);
   }
 
-  &__profile {
-    margin-top: var(--spacing-xxl);
-  }
-
-  &__profile-container {
-    display: flex;
+  &__component {
     padding: var(--spacing-xl);
-  }
-
-  &__profile-fields {
-    margin-left: var(--spacing-lg);
-  }
-
-  &__profile-fields > *:not(:last-child) {
-    margin-bottom: var(--spacing-sm);
   }
 }

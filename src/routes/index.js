@@ -14,7 +14,8 @@ import {
   CreateSetPage,
   EditSetPage,
   AccountPage,
-  SetPage
+  SetPage,
+  SettingsPage
 } from '@/pages';
 import { useAuth } from '@/hooks';
 
@@ -85,6 +86,12 @@ const routes = [
     name: 'set',
     path: '/sets/:setId',
     page: SetPage
+  },
+  {
+    name: 'settings',
+    path: '/settings',
+    page: SettingsPage,
+    isPrivate: true
   }
 ];
 

@@ -1,0 +1,40 @@
+.toggle {
+  user-select: none;
+
+  &__input {
+    display: none;
+  }
+
+  &__input:checked ~ &__label &__thumb {
+    transform: translateX(2.7rem);
+  }
+
+  &__track {
+    position: relative;
+    width: 5rem;
+    height: 2.4rem;
+    padding: var(--spacing-xxs);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cyan-300);
+    border-radius: 100px;
+  }
+
+  &__icon {
+    font-size: var(--size-sm);
+    color: var(--color-text);
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 0.1rem;
+    left: 0;
+    transform: translateX(1px);
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background-color: var(--color-theme);
+    transition: all var(--duration-base) linear;
+  }
+}

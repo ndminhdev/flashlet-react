@@ -162,7 +162,10 @@ const Header = () => {
             <Button variant="none" onClick={() => showSignInOverlay(dispatch)}>
               Sign in
             </Button>
-            <Button variant="theme" onClick={() => showSignUpOverlay(dispatch)}>
+            <Button
+              variant="secondary"
+              onClick={() => showSignUpOverlay(dispatch)}
+            >
               Get started
             </Button>
           </div>
