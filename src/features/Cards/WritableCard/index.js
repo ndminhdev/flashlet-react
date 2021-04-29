@@ -13,6 +13,7 @@ const WritableCard = ({
   definition,
   imageUrl,
   onCardAnswerSubmit,
+  autoFocus,
   ...rest
 }) => {
   const { register, handleSubmit, errors } = useForm({
@@ -56,6 +57,7 @@ const WritableCard = ({
             label="Your answer"
             placeholder={answerShown ? 'Copy answer' : 'Type your answer'}
             error={errors.answer?.message}
+            autoFocus
           />
           <Button type="submit">Next</Button>
         </form>
@@ -69,7 +71,8 @@ WritableCard.propTypes = {
   term: PropTypes.string.isRequired,
   definition: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
-  onCardAnswerSubmit: PropTypes.func.isRequired
+  onCardAnswerSubmit: PropTypes.func.isRequired,
+  autoFocus: PropTypes.bool
 };
 
 export default WritableCard;

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSprings } from '@react-spring/web';
 
 import './style.scss';
 import { ProgressBar, Button } from '@/components';
@@ -8,14 +7,7 @@ import { WritableCard } from '@/features/Cards';
 
 const WritingCards = ({ set }) => {
   const [currentCardId, setCurrentCardId] = useState(0);
-  const [springs, api] = useSprings(set.cards.length, (i) =>
-    currentCardId === i
-      ? {
-          display: 'block',
-          transform: 'perspective(600px) scale(1) rotateY(0)'
-        }
-      : { display: 'none' }
-  );
+
   const total = set.cards.length;
   const [isLastCard, setIsLastCard] = useState(false);
   const [remainingProgress, setRemainingProgress] = useState(total);
@@ -44,27 +36,6 @@ const WritingCards = ({ set }) => {
     setIncorrectProgress(0);
   };
 
-  useEffect(() => {
-    api.start((i) => {
-      if (currentCardId < i) {
-        return {
-          display: 'none',
-          transform: 'perspective(600px) scale(0.2) rotateY(60deg)'
-        };
-      } else if (currentCardId > i) {
-        return {
-          display: 'none',
-          transform: 'perspective(600px) scale(0.2) rotateY(-60deg)'
-        };
-      } else {
-        return {
-          display: 'block',
-          transform: 'perspective(600px) scale(1) rotateY(0)'
-        };
-      }
-    });
-  }, [currentCardId]);
-
   return (
     <div className="writing-cards">
       {isLastCard ? (
@@ -83,19 +54,16 @@ const WritingCards = ({ set }) => {
             </span>
           </div>
           <Button variant="ink" onClick={onResetClick}>
-            Study again
+            Try again
           </Button>
         </div>
       ) : (
         <div className="writing-cards__stack">
-          {springs.map((styles, i) => (
-            <WritableCard
-              style={styles}
-              key={set.cards[i]._id}
-              {...set.cards[i]}
-              onCardAnswerSubmit={onCardAnswerSubmit}
-            />
-          ))}
+          <WritableCard
+            key={set.cards[currentCardId]._id}
+            {...set.cards[currentCardId]}
+            onCardAnswerSubmit={onCardAnswerSubmit}
+          />
         </div>
       )}
 
