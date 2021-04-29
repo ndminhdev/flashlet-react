@@ -33,7 +33,7 @@ const AccountPage = () => {
       <div className="account">
         <h1>Account Settings</h1>
         <div className="account__profile">
-          <h3 className="account__heading">Profile</h3>
+          <h4 className="account__heading">Profile</h4>
           <div className="account__profile-container">
             <ProfileImageForm
               image={user.profileImage || user.profileImageDefault}
@@ -55,13 +55,13 @@ const AccountPage = () => {
           </div>
         </div>
         <div className="account__password">
-          <h3 className="account__heading">Change Password</h3>
+          <h4 className="account__heading">Change Password</h4>
           <div className="account__password-form">
             <PasswordForm />
           </div>
         </div>
         <div className="account__security">
-          <h3 className="account__heading-danger">Security</h3>
+          <h4 className="account__heading">Security</h4>
           <div className="account__security-buttons">
             <SecurityArea />
           </div>

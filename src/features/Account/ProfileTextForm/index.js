@@ -75,7 +75,7 @@ const ProfileTextForm = ({ field, label, value, validationSchema }) => {
         <div className="profile-text-form__field">
           <span className="profile-text-form__label">{label}:</span>
           <span className="profile-text-form__value">{value}</span>
-          <Button size="xs" variant="neutral" onClick={onToggleEditing}>
+          <Button size="xs" variant="no-outline" onClick={onToggleEditing}>
             Change
           </Button>
         </div>

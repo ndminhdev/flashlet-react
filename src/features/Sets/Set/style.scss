@@ -62,8 +62,17 @@
     font-weight: var(--weight-medium);
   }
 
+  &__date {
+    margin-left: auto;
+    color: var(--ink-100);
+  }
+
   &__title {
     margin-top: var(--spacing-sm);
+  }
+
+  &__description {
+    color: var(--neutral-500);
   }
 
   &__preview-terms {

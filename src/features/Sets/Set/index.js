@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
-import { limitString } from '@/utils/string';
 import { useNavigate } from '@/hooks';
+import { limitString } from '@/utils/string';
+import { formatDate } from '@/utils/date';
 
 const Set = ({
   _id,
@@ -40,14 +41,16 @@ const Set = ({
             />
             <span className="set-item__fullname">{user.name}</span>
           </Link>
+          <span className="set-item__date">{formatDate(createdAt)}</span>
         </div>
         <h3 className="set-item__title">{title}</h3>
+        <div className="set-item__description">{description}</div>
       </div>
       <div className="set-item__preview-terms">
         {previewTerms.map((t, index) => (
           <div key={index} className="set-item__term">
             <p className="set-item__text">{t.term}</p>
-            <span className="set-item__description">
+            <span className="set-item__definition">
               {limitString(t.definition, 45)}
             </span>
           </div>

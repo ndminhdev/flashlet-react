@@ -88,12 +88,12 @@ const PasswordForm = () => {
           register={register}
           error={errors.password2?.message}
         />
-        <div className={`password-form__message${message.error && '--error'}`}>
-          {message.text}
-        </div>
         <Button loading={loading} type="submit" size="sm">
           Change
         </Button>
+        <div className={`password-form__message${message.error && '--error'}`}>
+          {message.text}
+        </div>
       </form>
     </div>
   );
