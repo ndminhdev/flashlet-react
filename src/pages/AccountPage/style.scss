@@ -4,13 +4,18 @@
     min-width: 20rem;
     border-right: 1px solid var(--neutral-400);
     font-weight: var(--weight-medium);
+    color: var(--cyan-300);
   }
 
   &__profile,
   &__password,
   &__security {
-    padding: var(--spacing-lg) 0;
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-xl);
     display: flex;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-big);
+    background-color: var(--neutral-100);
   }
 
   &__profile {

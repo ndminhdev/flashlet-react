@@ -1,11 +1,8 @@
 .password-form {
   &__form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__form > *:not(:last-child) {
-    margin-bottom: var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
   }
 
   &__message,
