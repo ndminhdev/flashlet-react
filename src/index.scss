@@ -137,6 +137,7 @@ html {
   --color-header-background: var(--cyan-500);
   --color-progress-outer: var(--cyan-200);
   --color-progress-inner: var(--cyan-400);
+  --color-landing: var(--cyan-500);
 
   // borders
   --border: 2px solid var(--neutral-300);
@@ -166,6 +167,7 @@ html.dark {
   --color-header-background: var(--ink-500);
   --color-progress-outer: var(--cyan-500);
   --color-progress-inner: var(--cyan-300);
+  --color-landing: var(--ink-500);
 
   // borders
   --border: 2px solid var(--ink-500);
