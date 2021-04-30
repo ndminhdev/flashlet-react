@@ -2,7 +2,8 @@ import {
   SIGN_IN,
   SIGN_OUT,
   CHANGE_PROFILE,
-  SET_PREFERENCES
+  SET_PREFERENCES,
+  TOGGLE_DARK_MODE
 } from '../constants/session';
 
 const sessionReducer = (state, action) => {
@@ -38,6 +39,16 @@ const sessionReducer = (state, action) => {
       return {
         ...state,
         preferences: payload.preferences
+      };
+    }
+
+    case TOGGLE_DARK_MODE: {
+      return {
+        ...state,
+        preferences: {
+          ...state.preferences,
+          darkMode: !state.preferences.darkMode
+        }
       };
     }
 

@@ -19,7 +19,7 @@ const CreateSetPage = () => {
       setLoading(true);
       const responseData = await SetAPI.createSet(data, token);
       setLoading(false);
-      navigate(`/sets/${responseData.set._id}/cards`);
+      navigate(`/sets/edit/${responseData.set._id}`);
     } catch (err) {
       setLoading(false);
       handleError(err, setErrMessage);

@@ -9,8 +9,8 @@ import icons from '@/utils/icons';
 import handleError from '@/utils/handleError';
 import { Button, Field, SocialButton } from '@/components';
 import { useDispatch, useNavigate } from '@/hooks';
-import { UserAPI } from '@/api';
-import { signIn } from '@/context/actions/session';
+import { UserAPI, PreferenceAPI } from '@/api';
+import { signIn, setPreferences } from '@/context/actions/session';
 import { hideOverlays } from '@/context/actions/ui';
 
 const schema = Yup.object().shape({
@@ -37,8 +37,12 @@ const SignInForm = () => {
   const onSubmit = async (data) => {
     try {
       setLoading(true);
-      const result = await UserAPI.signIn(data);
-      signIn(dispatch, result);
+      const signInData = await UserAPI.signIn(data);
+      const preferencesData = await PreferenceAPI.getPreferences(
+        signInData.token
+      );
+      setPreferences(dispatch, preferencesData);
+      signIn(dispatch, signInData);
       setLoading(false);
       hideOverlays(dispatch);
       navigate('/dashboard');

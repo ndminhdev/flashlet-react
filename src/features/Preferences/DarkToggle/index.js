@@ -4,7 +4,7 @@ import './style.scss';
 import { Toggle } from '@/components';
 import { useToken, useDispatch, usePreferences } from '@/hooks';
 import { PreferenceAPI } from '@/api';
-import { setPreferences } from '@/context/actions/session';
+import { setPreferences, toggleDarkMode } from '@/context/actions/session';
 
 const html = document.documentElement;
 
@@ -12,14 +12,14 @@ const DarkToggle = () => {
   const token = useToken();
   const dispatch = useDispatch();
   const preferences = usePreferences();
-  const [dark, setDark] = useState(preferences.darkMode);
+  const { darkMode } = preferences;
 
   const onDarkToggle = () => {
-    setDark(!dark);
+    toggleDarkMode(dispatch);
   };
 
   useEffect(() => {
-    if (dark) {
+    if (darkMode) {
       html.className = 'dark';
     } else {
       html.className = '';
@@ -28,20 +28,20 @@ const DarkToggle = () => {
     (async () => {
       const responseData = await PreferenceAPI.changePreferences(
         {
-          darkMode: dark
+          darkMode
         },
         token
       );
       setPreferences(dispatch, responseData);
     })();
-  }, [dark]);
+  }, [darkMode]);
 
   // Dark Toggle🌙🔆
 
   return (
     <Toggle
       name="darkMode"
-      checked={dark}
+      checked={darkMode}
       onChange={onDarkToggle}
       icons={{ checked: '🌙', unchecked: '🔆' }}
     />

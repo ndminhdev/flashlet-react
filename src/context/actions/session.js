@@ -2,7 +2,8 @@ import {
   SIGN_IN,
   SIGN_OUT,
   CHANGE_PROFILE,
-  SET_PREFERENCES
+  SET_PREFERENCES,
+  TOGGLE_DARK_MODE
 } from '../constants/session';
 
 export const signIn = (dispatch, data) =>
@@ -26,4 +27,9 @@ export const setPreferences = (dispatch, data) =>
   dispatch({
     type: SET_PREFERENCES,
     payload: data
+  });
+
+export const toggleDarkMode = (dispatch) =>
+  dispatch({
+    type: TOGGLE_DARK_MODE
   });

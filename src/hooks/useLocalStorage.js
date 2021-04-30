@@ -9,6 +9,7 @@ const useLocalStorage = () => {
     localStorage.setItem('state', JSON.stringify(state));
     setStorage(JSON.parse(localStorage.getItem('state')));
   }, [state]);
+
   return storage;
 };
 

@@ -2,7 +2,11 @@ import useLocalStorage from './useLocalStorage';
 
 const usePreferences = () => {
   const { session } = useLocalStorage();
-  return session.preferences;
+  const defaultPreferences = {
+    darkMode: false
+  };
+
+  return session?.preferences ? session.preferences : defaultPreferences;
 };
 
 export default usePreferences;
