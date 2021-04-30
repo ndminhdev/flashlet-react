@@ -1,7 +1,6 @@
 .account {
   &__heading {
     margin-right: var(--spacing-xxl);
-    padding: var(--spacing-xl);
     min-width: 20rem;
     border-right: var(--border-narrow);
     font-weight: var(--weight-medium);
@@ -12,7 +11,7 @@
   &__password,
   &__security {
     margin: var(--spacing-md) 0;
-    padding: var(--spacing-xs);
+    padding: var(--spacing-lg);
     display: flex;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-big);
@@ -25,7 +24,6 @@
 
   &__profile-container {
     display: flex;
-    padding: var(--spacing-xl);
   }
 
   &__profile-fields {

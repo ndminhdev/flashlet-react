@@ -6,7 +6,7 @@
   --cyan-200: #87e8de;
   --cyan-300: #13c2c2;
   --cyan-400: #08979c;
-  --cyan-500: #00474f;
+  --cyan-500: #006d75;
   --gold-100: #fff1b8;
   --gold-200: #ffd666;
   --gold-300: #d48806;
@@ -14,14 +14,14 @@
   --gold-500: #613400;
   --neutral-100: #fff;
   --neutral-200: #f6f7fb;
-  --neutral-300: #edeff5;
-  --neutral-400: #d9dde8;
-  --neutral-500: #90a4ae;
+  --neutral-300: #d9dbe2;
+  --neutral-400: #b5b8c2;
+  --neutral-500: #9799a3;
   --ink-100: #646f90;
   --ink-200: #303545;
   --ink-300: #282e3e;
-  --ink-400: #1a1d28;
-  --ink-500: #13141b;
+  --ink-400: #1d202c;
+  --ink-500: #14151d;
   --coral-100: #ffccc7;
   --coral-200: #ffa39e;
   --coral-300: #ff4d4f;
@@ -132,45 +132,51 @@ html {
   --color-secondary: var(--gold-300);
   --color-secondary-dark: var(--gold-400);
   --color-theme: var(--neutral-100);
-  --color-theme-dark: var(--neutral-500);
+  --color-theme-dark: var(--neutral-300);
   --color-theme-hover: var(--neutral-300);
-  --color-header-background: var(--cyan-400);
+  --color-header-background: var(--cyan-500);
   --color-progress-outer: var(--cyan-200);
   --color-progress-inner: var(--cyan-400);
 
   // borders
-  --border: 2px solid var(--neutral-400);
-  --border-narrow: 1px solid var(--neutral-400);
+  --border: 2px solid var(--neutral-300);
+  --border-narrow: 1px solid var(--neutral-300);
 
   // shadows
   --shadow: 0.125rem 0.125rem 0.5rem 0.125rem rgba(0, 0, 0, 0.1);
   --shadow-big: 0.5rem 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
+
+  // background
+  --background-dim: rgba(0, 0, 0, 0.5);
 }
 
 html.dark {
-  --color-background: var(--ink-400);
-  --color-background-dark: var(--ink-500);
+  --color-background: var(--ink-300);
+  --color-background-dark: var(--ink-400);
   --color-text: var(--neutral-100);
-  --color-text-light: var(--neutral-500);
-  --color-primary: var(--ink-100);
-  --color-primary-dark: var(--ink-200);
+  --color-text-light: var(--neutral-300);
+  --color-primary: var(--neutral-500);
+  --color-primary-dark: var(--ink-100);
   --color-primary-darker: var(--ink-500);
   --color-secondary: var(--gold-300);
   --color-secondary-dark: var(--gold-400);
-  --color-theme: var(--ink-100);
-  --color-theme-dark: var(--ink-200);
-  --color-theme-hover: var(--ink-100);
-  --color-header-background: var(--ink-300);
+  --color-theme: var(--ink-300);
+  --color-theme-dark: var(--ink-400);
+  --color-theme-hover: var(--ink-500);
+  --color-header-background: var(--ink-500);
   --color-progress-outer: var(--cyan-500);
   --color-progress-inner: var(--cyan-300);
 
   // borders
-  --border: 2px solid var(--ink-100);
-  --border-narrow: 1px solid var(--ink-100);
+  --border: 2px solid var(--ink-500);
+  --border-narrow: 1px solid var(--ink-500);
 
   // shadows
   --shadow: 0;
   --shadow-big: 0;
+
+  // background
+  --background-dim: rgba(0, 0, 0, 0.8);
 }
 
 body {

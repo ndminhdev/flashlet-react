@@ -91,10 +91,10 @@ const PasswordForm = () => {
         <Button loading={loading} type="submit" size="sm">
           Change
         </Button>
-        <div className={`password-form__message${message.error && '--error'}`}>
-          {message.text}
-        </div>
       </form>
+      <div className={`password-form__message${message.error && '--error'}`}>
+        {message.text}
+      </div>
     </div>
   );
 };

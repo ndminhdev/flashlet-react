@@ -33,20 +33,20 @@
   }
 
   &__done-text {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
     text-transform: uppercase;
   }
 
   &__result {
     align-self: stretch;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-lg) 0;
     display: flex;
     font-size: var(--size-xl);
     font-weight: var(--weight-medium);
   }
 
   &__result:not(:last-child) {
-    border-bottom: var(--border);
+    border-bottom: var(--border-narrow);
   }
 
   &__result--correct {
