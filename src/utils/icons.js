@@ -1,35 +1,40 @@
-import Google from '@/assets/icons/google.svg';
-import Facebook from '@/assets/icons/facebook.svg';
-import Close from '@/assets/icons/close.svg';
-import Search from '@/assets/icons/search.svg';
-import Image from '@/assets/icons/image.svg';
-import Set from '@/assets/icons/set.svg';
-import Edit from '@/assets/icons/edit.svg';
-import Delete from '@/assets/icons/delete.svg';
-import Card from '@/assets/icons/card.svg';
-import Write from '@/assets/icons/write.svg';
-import ArrowForward from '@/assets/icons/arrow_forward.svg';
-import ArrowBack from '@/assets/icons/arrow_back.svg';
-import GetLink from '@/assets/icons/get_link.svg';
-import Check from '@/assets/icons/check.svg';
-import Idea from '@/assets/icons/idea.svg';
+import {
+  AiOutlineBulb,
+  AiOutlineDelete,
+  AiOutlineLink,
+  AiOutlineSearch,
+  AiFillCheckCircle
+} from 'react-icons/ai';
+import {
+  BsFillImageFill,
+  BsReverseLayoutSidebarInsetReverse
+} from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc';
+import { ImFacebook2 } from 'react-icons/im';
+import { IoCloseSharp } from 'react-icons/io5';
+import { SiElasticstack } from 'react-icons/si';
+import {
+  HiPencil,
+  HiArrowNarrowLeft,
+  HiArrowNarrowRight
+} from 'react-icons/hi';
 
 const icons = {
-  Google,
-  Facebook,
-  Close,
-  Search,
-  Image,
-  Set,
-  Edit,
-  Delete,
-  Card,
-  Write,
-  ArrowForward,
-  ArrowBack,
-  GetLink,
-  Check,
-  Idea
+  Google: FcGoogle,
+  Facebook: ImFacebook2,
+  Close: IoCloseSharp,
+  Search: AiOutlineSearch,
+  Image: BsFillImageFill,
+  Set: BsReverseLayoutSidebarInsetReverse,
+  Edit: HiPencil,
+  Delete: AiOutlineDelete,
+  Card: SiElasticstack,
+  Write: HiPencil,
+  ArrowForward: HiArrowNarrowRight,
+  ArrowBack: HiArrowNarrowLeft,
+  GetLink: AiOutlineLink,
+  Check: AiFillCheckCircle,
+  Idea: AiOutlineBulb
 };
 
 export default icons;

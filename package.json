@@ -33,6 +33,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.5",
+    "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-use-measure": "^2.0.4",
     "yup": "^0.32.9"
