@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const Toggle = ({ name, checked, icons, ...rest }) => {
+  const { checked: Checked, unchecked: Unchecked } = icons;
+
   return (
     <div className="toggle">
       <input
@@ -18,8 +20,8 @@ const Toggle = ({ name, checked, icons, ...rest }) => {
         <div className="toggle__track">
           {icons && (
             <React.Fragment>
-              <span className="toggle__icon">{icons.checked}</span>
-              <span className="toggle__icon">{icons.unchecked}</span>
+              <Checked className="toggle__icon" />
+              <Unchecked className="toggle__icon" />
             </React.Fragment>
           )}
           <span className="toggle__thumb">&nbsp;</span>
@@ -33,8 +35,8 @@ Toggle.propTypes = {
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   icons: PropTypes.shape({
-    checked: PropTypes.string.isRequired,
-    unchecked: PropTypes.string.isRequired
+    checked: PropTypes.func.isRequired,
+    unchecked: PropTypes.func.isRequired
   })
 };
 

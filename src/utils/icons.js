@@ -5,6 +5,7 @@ import {
   AiOutlineSearch,
   AiFillCheckCircle
 } from 'react-icons/ai';
+import { BiMoon, BiSun } from 'react-icons/bi';
 import {
   BsFillImageFill,
   BsReverseLayoutSidebarInsetReverse
@@ -34,7 +35,9 @@ const icons = {
   ArrowBack: HiArrowNarrowLeft,
   GetLink: AiOutlineLink,
   Check: AiFillCheckCircle,
-  Idea: AiOutlineBulb
+  Idea: AiOutlineBulb,
+  Moon: BiMoon,
+  Sun: BiSun
 };
 
 export default icons;

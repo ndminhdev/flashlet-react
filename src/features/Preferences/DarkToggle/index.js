@@ -4,6 +4,7 @@ import './style.scss';
 import { Toggle } from '@/components';
 import { useToken, useDispatch, usePreferences } from '@/hooks';
 import { PreferenceAPI } from '@/api';
+import icons from '@/utils/icons';
 import { setPreferences, toggleDarkMode } from '@/context/actions/session';
 
 const html = document.documentElement;
@@ -36,14 +37,17 @@ const DarkToggle = () => {
     })();
   }, [darkMode]);
 
-  // Dark Toggle🌙🔆
+  // Dark Toggle
 
   return (
     <Toggle
       name="darkMode"
       checked={darkMode}
       onChange={onDarkToggle}
-      icons={{ checked: '🌙', unchecked: '🔆' }}
+      icons={{
+        checked: icons.Sun,
+        unchecked: icons.Moon
+      }}
     />
   );
 };
