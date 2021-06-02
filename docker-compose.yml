@@ -1,0 +1,14 @@
+version: "3.0"
+
+services:
+  app:
+    container_name: flashlet-react
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      # - /app/node_modules
+    ports:
+      - "8080:8080"
+    restart: "unless-stopped"
