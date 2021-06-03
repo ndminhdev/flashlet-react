@@ -5,13 +5,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import './style.scss';
-import icons from '@/utils/icons';
 import handleError from '@/utils/handleError';
-import { Button, Field, SocialButton } from '@/components';
+import { Button, Field } from '@/components';
 import { useDispatch, useNavigate } from '@/hooks';
 import { UserAPI, PreferenceAPI } from '@/api';
 import { signIn, setPreferences } from '@/context/actions/session';
 import { hideOverlays } from '@/context/actions/ui';
+
+import GoogleAuthButton from '../GoogleAuthButton';
+import FacebookAuthButton from '../FacebookAuthButton';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Email is incorrect').required('Email is required'),
@@ -55,8 +57,8 @@ const SignInForm = () => {
   return (
     <div className="signin-form">
       <div className="signin-form__social">
-        <SocialButton icon={icons.Google}>Sign in with Google</SocialButton>
-        <SocialButton icon={icons.Facebook}>Sign in with Facebook</SocialButton>
+        <GoogleAuthButton />
+        <FacebookAuthButton />
       </div>
 
       <form className="signin-form__form" onSubmit={handleSubmit(onSubmit)}>

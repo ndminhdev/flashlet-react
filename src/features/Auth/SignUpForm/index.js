@@ -5,11 +5,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import './style.scss';
-import icons from '@/utils/icons';
-import { Button, Field, SocialButton } from '@/components';
+import { Button, Field } from '@/components';
 import { useNavigate } from '@/hooks';
 import { UserAPI } from '@/api';
 import handleError from '@/utils/handleError';
+
+import GoogleAuthButton from '../GoogleAuthButton';
+import FacebookAuthButton from '../FacebookAuthButton';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Email is incorrect').required('Email is required'),
@@ -46,12 +48,8 @@ const SignUpForm = ({ swapSignIn }) => {
   return (
     <div className="signup-form">
       <div className="signup-form__social">
-        <SocialButton size="sm" icon={icons.Google}>
-          Continue with Google
-        </SocialButton>
-        <SocialButton size="sm" icon={icons.Facebook}>
-          Continue with Facebook
-        </SocialButton>
+        <GoogleAuthButton size="sm" />
+        <FacebookAuthButton size="sm" />
       </div>
 
       <div className="signup-form__line">

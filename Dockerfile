@@ -1,6 +1,6 @@
 FROM node:15-alpine
 RUN mkdir -p app
-WORKDIR /app
+WORKDIR /usr/src/app
 
 RUN apk add --no-cache \
   autoconf \
