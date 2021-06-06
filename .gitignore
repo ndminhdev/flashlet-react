@@ -44,3 +44,6 @@ yarn.lock
 
 # Ignore eslintcache
 .eslintcache
+
+# Ignore env files
+*.env*

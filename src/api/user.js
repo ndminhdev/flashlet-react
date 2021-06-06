@@ -18,6 +18,15 @@ export const signIn = async (data) => {
   return responseData;
 };
 
+export const signInWithGoogle = async (data) => {
+  const responseData = await sendRequest({
+    method: 'post',
+    url: '/users/signin/google',
+    data
+  });
+  return responseData;
+}
+
 export const signOut = async (token) => {
   const responseData = await sendRequest({
     method: 'delete',
@@ -80,13 +89,13 @@ export const getUserProfile = async (username) => {
 
 export const getPublicSetsOfAnUser =
   (username) =>
-  async ({ page = 1, sortBy = 'title', orderBy = 1, limit = 8 }) => {
-    const responseData = await sendRequest({
-      method: 'get',
-      url: `/users/${username}/sets?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
-    });
-    return responseData;
-  };
+    async ({ page = 1, sortBy = 'title', orderBy = 1, limit = 8 }) => {
+      const responseData = await sendRequest({
+        method: 'get',
+        url: `/users/${username}/sets?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
+      });
+      return responseData;
+    };
 
 export const changeProfile = async (data, token) => {
   const responseData = await sendRequest({

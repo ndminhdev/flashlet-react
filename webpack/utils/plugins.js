@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const DotenvPlugin = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
@@ -31,6 +32,11 @@ exports.copyPlugin = new CopyWebpackPlugin({
   ]
 });
 
+// dotenv plugin
+exports.dotenvPlugin = new DotenvPlugin({
+  path: paths.root + '/.env.development'
+});
+
 // mini css extract plugin
 exports.miniCssExtractPlugin = new MiniCssExtractPlugin({
   filename: '[name].[contenthash].css',
@@ -39,9 +45,7 @@ exports.miniCssExtractPlugin = new MiniCssExtractPlugin({
 
 // define plugin
 exports.definePlugin = new webpack.DefinePlugin({
-  'process.env': {
-    NODE_ENV: JSON.stringify(mode)
-  },
+  'process.env.NODE_ENV': JSON.stringify(mode),
   IS_PROD: isProd,
   IS_DEV: isDev
 });

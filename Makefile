@@ -3,6 +3,9 @@ CONTAINER_NAME=flashlet-react
 start:
 	docker-compose up
 
+rebuild:
+	docker-compose up --build
+
 stop:
 	docker-compose stop
 

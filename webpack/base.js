@@ -33,6 +33,7 @@ module.exports = {
     plugins.htmlPlugin,
     plugins.definePlugin,
     plugins.esLintPlugin,
+    plugins.dotenvPlugin
     // Turn on next line if you want to use CopyWebpackPlugin
     // plugins.copyPlugin
   ],
