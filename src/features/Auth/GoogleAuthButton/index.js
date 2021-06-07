@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useGoogleLogin, GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 
 import { SocialButton } from '@/components';
 import { useDispatch } from '@/hooks';
@@ -14,21 +14,24 @@ const GoogleAuthButton = ({ size }) => {
   const dispatch = useDispatch();
 
   const onGoogleAuthSuccess = async (data) => {
-    const googleId = data.googleId;
-    const googleAccessToken = data.accessToken;
-    const googleProfile = data.profileObj;
-    console.log(googleAccessToken);
-    const signInData = await UserAPI.signInWithGoogle({
-      googleId,
-      googleAccessToken,
-      googleProfile
-    });
-    const preferencesData = await PreferenceAPI.getPreferences(
-      signInData.token
-    );
-    setPreferences(dispatch, preferencesData);
-    signIn(dispatch, signInData);
-    hideOverlays(dispatch);
+    try {
+      const googleId = data.googleId;
+      const googleAccessToken = data.accessToken;
+      const googleProfile = data.profileObj;
+      const signInData = await UserAPI.signInWithGoogle({
+        googleId,
+        googleAccessToken,
+        googleProfile
+      });
+      const preferencesData = await PreferenceAPI.getPreferences(
+        signInData.token
+      );
+      setPreferences(dispatch, preferencesData);
+      signIn(dispatch, signInData);
+      hideOverlays(dispatch);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onGoogleAuthFailure = (error) => {
@@ -36,21 +39,23 @@ const GoogleAuthButton = ({ size }) => {
     console.log(error);
   }
 
-  const { signIn } = useGoogleLogin({
-    clientId: GOOGLE_CLIENT_ID,
-    onSuccess: onGoogleAuthSuccess,
-    onFailure: onGoogleAuthFailure,
-    cookiePolicy: 'single_host_origin'
-  });
-
   return (
-    <SocialButton
-      size={size}
-      icon={icons.Google}
-      onClick={signIn}
-    >
-      Continue with Google
-    </SocialButton >
+    <GoogleLogin
+      clientId={GOOGLE_CLIENT_ID}
+      render={renderProps => (
+        <SocialButton
+          size={size}
+          icon={icons.Google}
+          onClick={renderProps.onClick}
+          disabled={renderProps.disabled}
+        >
+          Continue with Google
+        </SocialButton >
+      )}
+      onSuccess={onGoogleAuthSuccess}
+      onFailure={onGoogleAuthFailure}
+      cookiePolicy={'single_host_origin'}
+    />
   );
 };
 
