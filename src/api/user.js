@@ -27,6 +27,15 @@ export const signInWithGoogle = async (data) => {
   return responseData;
 }
 
+export const signInWithFacebook = async (data) => {
+  const responseData = await sendRequest({
+    method: 'post',
+    url: '/users/signin/facebook',
+    data
+  });
+  return responseData;
+}
+
 export const signOut = async (token) => {
   const responseData = await sendRequest({
     method: 'delete',

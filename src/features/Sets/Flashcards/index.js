@@ -12,18 +12,18 @@ const Flashcards = ({ set }) => {
   const [springs, api] = useSprings(set.cards.length, (i) =>
     currentCardId === i
       ? {
-          display: 'block',
-          transform: 'perspective(600px) scale(1) rotateY(0)',
-          config: {
-            duration: 250
-          }
+        display: 'block',
+        transform: 'perspective(600px) scale(1) rotateY(0)',
+        config: {
+          duration: 250
         }
+      }
       : {
-          display: 'none',
-          config: {
-            duration: 250
-          }
+        display: 'none',
+        config: {
+          duration: 250
         }
+      }
   );
 
   const onCardPrevClick = () => {

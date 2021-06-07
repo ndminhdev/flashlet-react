@@ -15,13 +15,10 @@ const GoogleAuthButton = ({ size }) => {
 
   const onGoogleAuthSuccess = async (data) => {
     try {
-      const googleId = data.googleId;
-      const googleAccessToken = data.accessToken;
-      const googleProfile = data.profileObj;
       const signInData = await UserAPI.signInWithGoogle({
-        googleId,
-        googleAccessToken,
-        googleProfile
+        googleId: data.googleId,
+        googleAccessToken: data.accessToken,
+        googleProfile: data.profileObj
       });
       const preferencesData = await PreferenceAPI.getPreferences(
         signInData.token
