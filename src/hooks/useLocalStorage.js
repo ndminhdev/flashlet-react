@@ -2,15 +2,22 @@ import { useEffect, useState } from 'react';
 import useStore from './useStore';
 
 const useLocalStorage = () => {
-  const { state } = useStore();
-  const [storage, setStorage] = useState(state);
+  const isBrowser = typeof window !== 'undefined';
+  const { state: stateFromStore } = useStore();
+  const [state, setState] = useState(isBrowser ? JSON.parse(window.localStorage.getItem('state')) || stateFromStore : stateFromStore);
+
+  const setLocalStorage = (state) => {
+    if (isBrowser) {
+      window.localStorage.setItem(state, JSON.stringify(state));
+    }
+  }
 
   useEffect(() => {
-    localStorage.setItem('state', JSON.stringify(state));
-    setStorage(JSON.parse(localStorage.getItem('state')));
-  }, [state]);
+    setLocalStorage(stateFromStore);
+    setState(stateFromStore);
+  }, [stateFromStore]);
 
-  return storage;
+  return state;
 };
 
 export default useLocalStorage;

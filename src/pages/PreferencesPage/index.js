@@ -17,16 +17,6 @@ const preferenceItems = [
 ];
 
 const PreferencesPage = () => {
-  const token = useToken();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    (async () => {
-      const responseData = await PreferenceAPI.getPreferences(token);
-      setPreferences(dispatch, responseData);
-    })();
-  }, []);
-
   return (
     <Layout>
       <Helmet>
