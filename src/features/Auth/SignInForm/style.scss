@@ -23,11 +23,11 @@
   &__link,
   &__link:active {
     text-decoration: none;
-    color: var(--cyan-300);
+    color: var(--teal-300);
     font-weight: var(--weight-medium);
   }
 
   &__link:hover {
-    color: var(--cyan-400);
+    color: var(--teal-400);
   }
 }

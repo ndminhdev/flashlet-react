@@ -9,6 +9,7 @@
   align-items: center;
   background-color: var(--color-header-background);
   z-index: var(--z-index-2);
+  border-bottom: var(--border);
 
   &--lock {
     right: 15px;

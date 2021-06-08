@@ -2,23 +2,23 @@
 
 :root {
   // colors
-  --cyan-100: #b5f5ec;
-  --cyan-200: #87e8de;
-  --cyan-300: #13c2c2;
-  --cyan-400: #08979c;
-  --cyan-500: #006d75;
+  --teal-100: #b2dfdb;
+  --teal-200: #80cbc4;
+  --teal-300: #26a69a;
+  --teal-400: #00897b;
+  --teal-500: #00695c;
   --gold-100: #fff1b8;
   --gold-200: #ffd666;
   --gold-300: #d48806;
   --gold-400: #ad6800;
   --gold-500: #613400;
   --neutral-100: #ffffff;
-  --neutral-200: #f5f5f5;
+  --neutral-200: #fafafa;
   --neutral-300: #d9d9d9;
   --neutral-400: #bfbfbf;
-  --neutral-500: #8c8c8c;
-  --ink-100: #595959;
-  --ink-200: #434343;
+  --neutral-500: #9f9f9f;
+  --ink-100: #606060;
+  --ink-200: #343434;
   --ink-300: #262626;
   --ink-400: #1f1f1f;
   --ink-500: #141414;
@@ -27,11 +27,6 @@
   --coral-300: #ff4d4f;
   --coral-400: #a8071a;
   --coral-500: #5c0011;
-  // --green-100: #d9f7be;
-  // --green-200: #b7eb8f;
-  // --green-300: #52c41a;
-  // --green-400: #389e0d;
-  // --green-500: #135200;
 
   // spacings
   --spacing-xxs: 0.375rem;
@@ -42,6 +37,9 @@
   --spacing-xl: 3.25rem;
   --spacing-xxl: 4.25rem;
   --spacing-page-h: 320px;
+  @include small-desktop {
+    --spacing-page-h: 10px;
+  }
 
   // fonts
   --size-xxs: 1.2rem;
@@ -56,7 +54,7 @@
   --weight-bold: 700;
 
   // borders
-  --border-cyan: 2px solid var(--cyan-300);
+  --border-cyan: 2px solid var(--teal-300);
   --border-gold: 2px solid var(--gold-300);
   --border-neutral: 2px solid var(--neutral-400);
 
@@ -126,52 +124,47 @@ html {
   --color-background-dark: var(--neutral-200);
   --color-text: var(--ink-200);
   --color-text-light: var(--ink-100);
-  --color-primary: var(--cyan-300);
-  --color-primary-dark: var(--cyan-400);
-  --color-primary-darker: var(--cyan-500);
+  --color-primary: var(--teal-300);
+  --color-primary-dark: var(--teal-400);
+  --color-primary-darker: var(--teal-500);
   --color-secondary: var(--gold-300);
   --color-secondary-dark: var(--gold-400);
   --color-theme: var(--neutral-100);
   --color-theme-dark: var(--neutral-400);
   --color-theme-hover: var(--neutral-300);
-  --color-header-background: var(--cyan-500);
-  --color-progress-outer: var(--cyan-200);
-  --color-progress-inner: var(--cyan-400);
-  --color-landing: var(--cyan-500);
+  --color-header-background: var(--teal-300);
+  --color-progress-outer: var(--teal-200);
+  --color-progress-inner: var(--teal-400);
+  --color-landing: var(--teal-400);
 
   // borders
   --border: 2px solid var(--neutral-300);
   --border-narrow: 1px solid var(--neutral-300);
 
   // shadows
-  --shadow: 0.125rem 0.125rem 0.5rem 0.125rem rgba(0, 0, 0, 0.1);
-  --shadow-big: 0.5rem 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
+  --shadow: 0.25rem 0.25rem 1.5rem 0.25rem rgba(0, 0, 0, 0.2);
+  --shadow-big: 0.5rem 0.5rem 5rem 0.5rem rgba(0, 0, 0, 0.2);
 
   // background
   --background-dim: rgba(0, 0, 0, 0.5);
 }
 
 html.dark {
-  --color-background: var(--ink-300);
-  --color-background-dark: var(--ink-400);
+  --color-background: var(--ink-200);
+  --color-background-dark: var(--ink-300);
   --color-text: var(--neutral-100);
   --color-text-light: var(--neutral-300);
-  --color-primary: var(--neutral-500);
-  --color-primary-dark: var(--ink-100);
-  --color-primary-darker: var(--ink-500);
-  --color-secondary: var(--gold-300);
-  --color-secondary-dark: var(--gold-400);
-  --color-theme: var(--ink-100);
-  --color-theme-dark: var(--ink-200);
-  --color-theme-hover: var(--ink-500);
-  --color-header-background: var(--ink-500);
-  --color-progress-outer: var(--cyan-500);
-  --color-progress-inner: var(--cyan-300);
+  --color-theme: var(--neutral-500);
+  --color-theme-dark: var(--ink-100);
+  --color-theme-hover: var(--ink-300);
+  --color-header-background: var(--ink-300);
+  --color-progress-outer: var(--teal-500);
+  --color-progress-inner: var(--teal-300);
   --color-landing: var(--ink-500);
 
   // borders
-  --border: 2px solid var(--ink-200);
-  --border-narrow: 1px solid var(--ink-200);
+  --border: 2px solid var(--ink-100);
+  --border-narrow: 1px solid var(--ink-100);
 
   // shadows
   --shadow: 0;
@@ -218,6 +211,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-bold);
   color: var(--color-text-light);
 }

@@ -1,4 +1,24 @@
 .edit-set {
+  &__set {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  &__set-top {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-right: var(--spacing-md);
+  }
+
+  &__privacy {
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+  }
+
   &__description {
     margin-top: var(--spacing-md);
     color: var(--color-text-light);
@@ -31,7 +51,7 @@
   }
 
   &__add-card {
-    border: var(--border);
+    margin-top: var(--spacing-xxl);
     border-radius: var(--radius-sm);
   }
 }

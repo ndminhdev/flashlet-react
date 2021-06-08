@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-import './style.scss';
-import { Toggle } from '@/components';
+import { Switch } from '@/components';
 import { useToken, useDispatch, usePreferences } from '@/hooks';
 import { PreferenceAPI } from '@/api';
 import icons from '@/utils/icons';
@@ -9,13 +8,13 @@ import { setPreferences, toggleDarkMode } from '@/context/actions/session';
 
 const html = document.documentElement;
 
-const DarkToggle = () => {
+const DarkSwitch = () => {
   const token = useToken();
   const dispatch = useDispatch();
   const preferences = usePreferences();
   const { darkMode } = preferences;
 
-  const onDarkToggle = () => {
+  const onDarkSwitch = () => {
     toggleDarkMode(dispatch);
   };
 
@@ -37,13 +36,13 @@ const DarkToggle = () => {
     })();
   }, [darkMode]);
 
-  // Dark Toggle
+  // Dark Switch
 
   return (
-    <Toggle
+    <Switch
       name="darkMode"
       checked={darkMode}
-      onChange={onDarkToggle}
+      onChange={onDarkSwitch}
       icons={{
         checked: icons.Sun,
         unchecked: icons.Moon
@@ -52,4 +51,4 @@ const DarkToggle = () => {
   );
 };
 
-export default DarkToggle;
+export default DarkSwitch;

@@ -48,6 +48,7 @@
     left: 50%;
     padding: var(--spacing-xxs) var(--spacing-xs);
     display: block;
+    min-width: 8rem;
     transform: translateX(-50%);
     font-size: var(--size-xs);
     font-weight: var(--weight-medium);

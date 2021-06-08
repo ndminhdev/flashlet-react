@@ -34,19 +34,19 @@
   }
 
   &__sidebar-item:hover {
-    background-color: var(--neutral-400);
+    background-color: var(--neutral-300);
     color: var(--ink-200);
   }
 
   &__sidebar-item--active {
-    background-color: var(--cyan-200);
+    background-color: var(--teal-200);
   }
 
   &__sidebar-icon {
     margin-right: var(--spacing-sm);
     width: 24px;
     height: 24px;
-    fill: var(--cyan-400);
+    fill: var(--teal-400);
   }
 
   &__sidebar-label {
@@ -99,7 +99,7 @@
 
   &__name {
     font-weight: var(--weight-medium);
-    color: var(--cyan-300);
+    color: var(--teal-300);
     transition: color var(--duration-short) ease-out;
   }
 

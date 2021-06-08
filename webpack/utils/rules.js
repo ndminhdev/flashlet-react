@@ -1,3 +1,5 @@
+const paths = require('./paths');
+
 // Javascript rules
 exports.jsRules = {
   test: /\.(js|jsx)$/,
@@ -41,6 +43,12 @@ exports.sassRules = {
       loader: 'sass-loader',
       options: {
         sourceMap: true
+      }
+    },
+    {
+      loader: 'sass-resources-loader',
+      options: {
+        resources: paths.src + '/assets/styles/resources.scss'
       }
     }
   ]

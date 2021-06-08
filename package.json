@@ -15,8 +15,8 @@
   },
   "license": "ISC",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --config webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "start": "cross-env NODE_ENV=development NODE_OPTIONS=--max_old_space_size=4096 webpack serve --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production NODE_OPTIONS=--max_old_space_size=4096 webpack --config webpack.config.js",
     "patch": "npm version patch",
     "profile": "cross-env NODE_ENV=production webpack --profile --json --config webpack.config.js > ./dist/profile.json && webpack-bundle-analyzer ./dist/profile.json",
     "lint": "eslint --cache --fix",

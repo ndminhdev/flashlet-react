@@ -13,7 +13,7 @@ const schema = Yup.object().shape({
   isPublic: Yup.bool()
 });
 
-const SetForm = ({ loading, set, onSubmit, error }) => {
+const SetForm = ({ loading, set, onSubmit, onCancel, error }) => {
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -43,15 +43,18 @@ const SetForm = ({ loading, set, onSubmit, error }) => {
         />
         <Checkbox
           name="isPublic"
-          label="Share it with everyone"
-          optionWhenCheck="Yes"
-          optionWhenUncheck="No"
+          label="Privacy"
+          optionWhenCheck="Public"
+          optionWhenUncheck="Only me"
           register={register}
           defaultChecked={set?.isPublic || false}
         />
-        <Button loading={loading} size="sm" type="submit">
-          {set ? 'Change' : 'Create'}
-        </Button>
+        <div className="set-form__buttons">
+          <Button loading={loading} size="sm" type="submit">
+            {set ? 'Change' : 'Create'}
+          </Button>
+          <Button size="sm" variant="none" type="button" onClick={onCancel}>Cancel</Button>
+        </div>
       </form>
       {error && <div className="set-form__error">{error}</div>}
     </div>
@@ -77,6 +80,7 @@ SetForm.propTypes = {
     createdAt: PropTypes.string.isRequired
   }),
   onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired
 };
 

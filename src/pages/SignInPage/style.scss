@@ -12,7 +12,7 @@
     font-size: var(--size-xxl);
     font-weight: '900';
     text-decoration: none;
-    color: var(--cyan-300);
+    color: var(--teal-300);
   }
 
   &__title {
@@ -43,11 +43,11 @@
   &__bottom-link {
     cursor: pointer;
     text-decoration: none;
-    color: var(--cyan-300);
+    color: var(--teal-300);
     font-weight: var(--weight-medium);
   }
 
   &__bottom-link:hover {
-    color: var(--cyan-400);
+    color: var(--teal-400);
   }
 }

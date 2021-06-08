@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import './style.scss';
@@ -11,6 +12,7 @@ import handleError from '@/utils/handleError';
 const CreateSetPage = () => {
   const token = useToken();
   const navigate = useNavigate();
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [errMessage, setErrMessage] = useState('');
 
@@ -32,7 +34,7 @@ const CreateSetPage = () => {
         <title>Create a new study set | Flashlet</title>
       </Helmet>
       <div className="create-set-page">
-        <SetForm loading={loading} onSubmit={onSetAdd} error={errMessage} />
+        <SetForm loading={loading} onSubmit={onSetAdd} onCancel={() => history.goBack()} error={errMessage} />
       </div>
     </Layout>
   );

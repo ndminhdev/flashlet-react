@@ -11,11 +11,11 @@
   }
 
   &--cyan &__outer {
-    background-color: var(--cyan-100);
+    background-color: var(--teal-100);
   }
 
   &--cyan &__inner {
-    background-color: var(--cyan-300);
+    background-color: var(--teal-300);
   }
 
   &--coral &__outer {
@@ -35,11 +35,11 @@
   }
 
   &--ink &__outer {
-    background-color: var(--neutral-400);
+    background-color: var(--neutral-300);
   }
 
   &--ink &__inner {
-    background-color: var(--ink-300);
+    background-color: var(--ink-200);
   }
 
   &__outer {

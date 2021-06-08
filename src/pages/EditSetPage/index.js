@@ -6,9 +6,11 @@ import './style.scss';
 import { Layout } from '@/layouts';
 import { SetForm } from '@/features/Sets';
 import { CardOverviewItem, CardForm } from '@/features/Cards';
+import { IconButton } from '@/components';
 import { useToken, useNavigate } from '@/hooks';
 import { SetAPI } from '@/api';
 import handleError from '@/utils/handleError';
+import icons from '@/utils/icons';
 
 const EditSetPage = () => {
   const { setId } = useParams();
@@ -28,6 +30,7 @@ const EditSetPage = () => {
   })();
 
   const [set, setSet] = useState(null);
+  const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(false);
   const [addLoading, setAddLoading] = useState(false);
   const [editLoading, setEditLoading] = useState(false);
@@ -37,12 +40,18 @@ const EditSetPage = () => {
     try {
       setLoading(true);
       await SetAPI.updateSet(set._id, data, token);
+      setSet({ ...set, ...data });
       setLoading(false);
+      setEditMode(false);
     } catch (err) {
       setLoading(false);
       handleError(err, setErrMessage);
     }
   };
+
+  const onSetCancel = () => {
+    setEditMode(false);
+  }
 
   const onCardAdd = async (data) => {
     try {
@@ -119,13 +128,32 @@ const EditSetPage = () => {
       </Helmet>
       {set && (
         <div className="edit-set">
-          <div className="edit-set__set">
-            <SetForm
-              loading={loading}
-              set={set}
-              onSubmit={onSetEdit}
-              error={errMessage}
-            />
+          <div className="edit-set__edit">
+            {
+              editMode ? (
+                <SetForm
+                  loading={loading}
+                  set={set}
+                  onSubmit={onSetEdit}
+                  onCancel={onSetCancel}
+                  error={errMessage}
+                />
+              ) : (
+                <div className="edit-set__set">
+                  <div className="edit-set__set-top">
+                    <h3 className="edit-set__title">{set.title}</h3>
+                    <IconButton
+                      size="sm"
+                      icon={icons.Edit}
+                      label="Edit set"
+                      onClick={() => setEditMode(true)}
+                    />
+                  </div>
+                  <p>{set.description}</p>
+                  <p>Privary: <span className="edit-set__privacy">{set.isPublic ? 'Public' : 'Only me'}</span></p>
+                </div>
+              )
+            }
           </div>
           <div className="edit-set__cards">
             <div className="edit-set__cards-title">

@@ -1,1 +1,1 @@
-export { default as DarkToggle } from './DarkToggle';
+export { default as DarkSwitch } from './DarkSwitch';

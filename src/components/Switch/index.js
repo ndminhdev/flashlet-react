@@ -3,35 +3,35 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const Toggle = ({ name, checked, icons, ...rest }) => {
+const Switch = ({ name, checked, icons, ...rest }) => {
   const { checked: Checked, unchecked: Unchecked } = icons;
 
   return (
-    <div className="toggle">
+    <div className="switch">
       <input
         id={name}
         name={name}
         type="checkbox"
-        className="toggle__input"
+        className="switch__input"
         defaultChecked={checked}
         {...rest}
       />
-      <label className="toggle__label" htmlFor={name}>
-        <div className="toggle__track">
+      <label className="switch__label" htmlFor={name}>
+        <div className="switch__track">
           {icons && (
             <React.Fragment>
-              <Checked className="toggle__icon" />
-              <Unchecked className="toggle__icon" />
+              <Checked className="switch__icon" />
+              <Unchecked className="switch__icon" />
             </React.Fragment>
           )}
-          <span className="toggle__thumb">&nbsp;</span>
+          <span className="switch__thumb">&nbsp;</span>
         </div>
       </label>
     </div>
   );
 };
 
-Toggle.propTypes = {
+Switch.propTypes = {
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   icons: PropTypes.shape({
@@ -40,8 +40,8 @@ Toggle.propTypes = {
   })
 };
 
-Toggle.defaultProps = {
+Switch.defaultProps = {
   checked: false
 };
 
-export default Toggle;
+export default Switch;

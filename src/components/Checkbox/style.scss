@@ -1,10 +1,10 @@
 .checkbox {
   font-size: var(--size-xs);
-  font-weight: var(--weight-medium);
-  text-transform: uppercase;
+  font-weight: var(--weight-bold);
 
   &__label {
     color: var(--color-text-light);
+    text-transform: uppercase;
   }
 
   &__input {
@@ -14,7 +14,7 @@
   &__option {
     user-select: none;
     cursor: pointer;
-    color: var(--cyan-300);
+    color: var(--teal-300);
     font-size: var(--weight-bold);
   }
 

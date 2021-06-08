@@ -37,11 +37,7 @@
 
   &--none {
     background-color: transparent;
-    color: var(--color-button-text);
-  }
-
-  &--none:hover {
-    background-color: var(--color-primary-darker);
+    color: var(--color-text-light);
   }
 
   &--no-outline {
