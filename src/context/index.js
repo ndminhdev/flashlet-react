@@ -5,7 +5,7 @@ import { useLocalStorage } from '@/hooks';
 
 const StateContext = React.createContext({
   state: {},
-  dispatch: () => {}
+  dispatch: () => { }
 });
 
 const initialState = {
@@ -23,7 +23,7 @@ const initialState = {
 
 export const StateProvider = ({ children }) => {
   const { state: localState } = useLocalStorage();
-  const [state, dispatch] = useReducer(appReducer, localState || initialState);
+  const [state, dispatch] = useReducer(appReducer, Object.keys(localState).length > 0 ? localState : initialState);
 
   // save state to local storage in the first rendering
   const isBrowser = typeof window !== 'undefined';

@@ -73,9 +73,8 @@ const Header = () => {
   return (
     <React.Fragment>
       <div
-        className={`header ${
-          signInOverlayShown || signUpOverlayShown ? 'header--lock' : ''
-        }`}
+        className={`header ${signInOverlayShown || signUpOverlayShown ? 'header--lock' : ''
+          }`}
       >
         <Link to="/" className="header__logo">
           Flashlet
@@ -104,10 +103,7 @@ const Header = () => {
         {isAuth ? (
           <div className="header__user">
             <div
-              style={{
-                boxShadow: showUserList ? 'var(--shadow-light)' : null
-              }}
-              className="header__profile-image"
+              className={`header__profile-image${showUserList ? ' header__profile-image--active' : ''}`}
               onClick={() => setShowUserList(!showUserList)}
             >
               <img
@@ -159,7 +155,7 @@ const Header = () => {
           </div>
         ) : (
           <div className="header__buttons">
-            <Button variant="none" onClick={() => showSignInOverlay(dispatch)}>
+            <Button variant="primary" onClick={() => showSignInOverlay(dispatch)}>
               Sign in
             </Button>
             <Button

@@ -54,9 +54,10 @@
   --weight-bold: 700;
 
   // borders
-  --border-cyan: 2px solid var(--teal-300);
+  --border-teal: 2px solid var(--teal-300);
   --border-gold: 2px solid var(--gold-300);
   --border-neutral: 2px solid var(--neutral-400);
+  --border-transparent: 2px solid transparent;
 
   // buttons
   --button-padding-v-xs: 0.5rem;
@@ -157,7 +158,7 @@ html.dark {
   --color-theme: var(--neutral-500);
   --color-theme-dark: var(--ink-100);
   --color-theme-hover: var(--ink-300);
-  --color-header-background: var(--ink-300);
+  --color-header-background: var(--ink-200);
   --color-progress-outer: var(--teal-500);
   --color-progress-inner: var(--teal-300);
   --color-landing: var(--ink-500);

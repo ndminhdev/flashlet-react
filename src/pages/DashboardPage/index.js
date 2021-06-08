@@ -25,7 +25,7 @@ const DashboardPage = () => {
       <div className="dashboard">
         <div className="dashboard__sidebar">
           <Link className="dashboard__create-btn" to="/create-set">
-            + Create
+            + Create Set
           </Link>
           <ul className="dashboard__sidebar-list">
             {sidebarItems.map(({ name, label, icon: Icon }) => (
