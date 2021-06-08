@@ -130,13 +130,15 @@ const EditSetPage = () => {
         <div className="edit-set">
           <div className="edit-set__edit">
             {editMode ? (
-              <SetForm
-                loading={loading}
-                set={set}
-                onSubmit={onSetEdit}
-                onCancel={onSetCancel}
-                error={errMessage}
-              />
+              <div className="edit-set__form">
+                <SetForm
+                  loading={loading}
+                  set={set}
+                  onSubmit={onSetEdit}
+                  onCancel={onSetCancel}
+                  error={errMessage}
+                />
+              </div>
             ) : (
               <div className="edit-set__set">
                 <div className="edit-set__set-top">

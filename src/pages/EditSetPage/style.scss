@@ -24,6 +24,13 @@
     color: var(--color-text-light);
   }
 
+  &__form {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-background);
+    box-shadow: var(--shadow);
+  }
+
   &__cards {
     margin-top: var(--spacing-xl);
   }

@@ -14,6 +14,7 @@ import { IconButton } from '@/components';
 import { Flashcards, WritingCards } from '@/features/Sets';
 import { useAuth, useNavigate, useClipboard } from '@/hooks';
 import icons from '@/utils/icons';
+import { PUBLIC_URI } from '@/utils/secrets';
 import { SetAPI } from '@/api';
 
 const sidebarItems = [
@@ -40,7 +41,7 @@ const SetPage = () => {
   const { success, copy } = useClipboard();
 
   const onLinkCopy = () => {
-    copy(`http://localhost:8080/sets/${set._id}`);
+    copy(`${PUBLIC_URI}/sets/${set._id}`);
   };
 
   useEffect(() => {
