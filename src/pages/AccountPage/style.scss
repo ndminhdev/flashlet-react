@@ -26,7 +26,7 @@
     display: flex;
     gap: var(--spacing-md);
     
-    @include small-desktop {
+    @include desktop-sm {
       flex-direction: column;
     }
   }

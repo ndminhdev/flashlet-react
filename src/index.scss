@@ -36,10 +36,6 @@
   --spacing-lg: 2.25rem;
   --spacing-xl: 3.25rem;
   --spacing-xxl: 4.25rem;
-  --spacing-page-h: 446px;
-  @include small-desktop {
-    --spacing-page-h: 10px;
-  }
 
   // fonts
   --size-xxs: 1.2rem;

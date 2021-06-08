@@ -1,7 +1,42 @@
-$breakpoint-small-desktop: 1280px;
+$breakpoint-tablet-sm: 768px;
+$breakpoint-tablet-lg: 1024px;
+$breakpoint-desktop-sm: 1280px;
+$breakpoint-desktop-md: 1400px;
+$breakpoint-desktop-lg: 1920px;
 
-@mixin small-desktop {
-  @media only screen and (max-width: #{$breakpoint-small-desktop}) {
+
+@mixin tablet-sm {
+  @media only screen and (max-width: #{$breakpoint-tablet-sm}) {
+    @content
+  }
+}
+
+@mixin tablet-lg {
+  @media only screen and (max-width: #{$breakpoint-tablet-lg}) {
+    @content
+  }
+}
+
+@mixin desktop-sm {
+  @media only screen and (max-width: #{$breakpoint-desktop-sm}) {
+    @content
+  }
+}
+
+@mixin desktop-md {
+  @media only screen and (max-width: #{$breakpoint-desktop-md}) {
+    @content
+  }
+}
+
+@mixin desktop-lg {
+  @media only screen and (max-width: #{$breakpoint-desktop-lg}) {
+    @content
+  }
+}
+
+@mixin desktop-xl {
+  @media only screen and (min-width: #{$breakpoint-desktop-lg}) {
     @content
   }
 }
