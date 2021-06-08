@@ -5,7 +5,7 @@ import { useLocalStorage } from '@/hooks';
 
 const StateContext = React.createContext({
   state: {},
-  dispatch: () => { }
+  dispatch: () => {}
 });
 
 const initialState = {

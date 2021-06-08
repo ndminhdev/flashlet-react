@@ -53,7 +53,9 @@ const SetForm = ({ loading, set, onSubmit, onCancel, error }) => {
           <Button loading={loading} size="sm" type="submit">
             {set ? 'Change' : 'Create'}
           </Button>
-          <Button size="sm" variant="none" type="button" onClick={onCancel}>Cancel</Button>
+          <Button size="sm" variant="none" type="button" onClick={onCancel}>
+            Cancel
+          </Button>
         </div>
       </form>
       {error && <div className="set-form__error">{error}</div>}

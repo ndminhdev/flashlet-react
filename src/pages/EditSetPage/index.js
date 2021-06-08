@@ -51,7 +51,7 @@ const EditSetPage = () => {
 
   const onSetCancel = () => {
     setEditMode(false);
-  }
+  };
 
   const onCardAdd = async (data) => {
     try {
@@ -129,31 +129,34 @@ const EditSetPage = () => {
       {set && (
         <div className="edit-set">
           <div className="edit-set__edit">
-            {
-              editMode ? (
-                <SetForm
-                  loading={loading}
-                  set={set}
-                  onSubmit={onSetEdit}
-                  onCancel={onSetCancel}
-                  error={errMessage}
-                />
-              ) : (
-                <div className="edit-set__set">
-                  <div className="edit-set__set-top">
-                    <h3 className="edit-set__title">{set.title}</h3>
-                    <IconButton
-                      size="sm"
-                      icon={icons.Edit}
-                      label="Edit set"
-                      onClick={() => setEditMode(true)}
-                    />
-                  </div>
-                  <p>{set.description}</p>
-                  <p>Privary: <span className="edit-set__privacy">{set.isPublic ? 'Public' : 'Only me'}</span></p>
+            {editMode ? (
+              <SetForm
+                loading={loading}
+                set={set}
+                onSubmit={onSetEdit}
+                onCancel={onSetCancel}
+                error={errMessage}
+              />
+            ) : (
+              <div className="edit-set__set">
+                <div className="edit-set__set-top">
+                  <h3 className="edit-set__title">{set.title}</h3>
+                  <IconButton
+                    size="sm"
+                    icon={icons.Edit}
+                    label="Edit set"
+                    onClick={() => setEditMode(true)}
+                  />
                 </div>
-              )
-            }
+                <p>{set.description}</p>
+                <p>
+                  Privary:{' '}
+                  <span className="edit-set__privacy">
+                    {set.isPublic ? 'Public' : 'Only me'}
+                  </span>
+                </p>
+              </div>
+            )}
           </div>
           <div className="edit-set__cards">
             <div className="edit-set__cards-title">

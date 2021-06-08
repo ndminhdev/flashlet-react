@@ -25,7 +25,7 @@ export const signInWithGoogle = async (data) => {
     data
   });
   return responseData;
-}
+};
 
 export const signInWithFacebook = async (data) => {
   const responseData = await sendRequest({
@@ -34,7 +34,7 @@ export const signInWithFacebook = async (data) => {
     data
   });
   return responseData;
-}
+};
 
 export const signOut = async (token) => {
   const responseData = await sendRequest({
@@ -98,13 +98,13 @@ export const getUserProfile = async (username) => {
 
 export const getPublicSetsOfAnUser =
   (username) =>
-    async ({ page = 1, sortBy = 'title', orderBy = 1, limit = 8 }) => {
-      const responseData = await sendRequest({
-        method: 'get',
-        url: `/users/${username}/sets?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
-      });
-      return responseData;
-    };
+  async ({ page = 1, sortBy = 'title', orderBy = 1, limit = 8 }) => {
+    const responseData = await sendRequest({
+      method: 'get',
+      url: `/users/${username}/sets?limit=${limit}&page=${page}&sortBy=${sortBy}&orderBy=${orderBy}`
+    });
+    return responseData;
+  };
 
 export const changeProfile = async (data, token) => {
   const responseData = await sendRequest({

@@ -33,11 +33,11 @@ const FacebookAuthButton = ({ size }) => {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   const onFacebookAuthFailure = (error) => {
     console.log(error);
-  }
+  };
 
   return (
     <FacebookLogin

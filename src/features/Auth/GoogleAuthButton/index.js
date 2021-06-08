@@ -34,12 +34,12 @@ const GoogleAuthButton = ({ size }) => {
   const onGoogleAuthFailure = (error) => {
     console.log('failure');
     console.log(error);
-  }
+  };
 
   return (
     <GoogleLogin
       clientId={GOOGLE_CLIENT_ID}
-      render={renderProps => (
+      render={(renderProps) => (
         <SocialButton
           size={size}
           icon={icons.Google}
@@ -47,7 +47,7 @@ const GoogleAuthButton = ({ size }) => {
           disabled={renderProps.disabled}
         >
           Continue with Google
-        </SocialButton >
+        </SocialButton>
       )}
       onSuccess={onGoogleAuthSuccess}
       onFailure={onGoogleAuthFailure}
