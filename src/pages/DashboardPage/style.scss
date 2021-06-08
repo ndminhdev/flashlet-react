@@ -3,7 +3,7 @@
 
   &__sidebar {
     min-width: 18rem;
-    width: 26rem;
+    width: 20rem;
     padding-right: var(--spacing-md);
     display: flex;
     flex-direction: column;
@@ -13,6 +13,7 @@
   &__create-btn,
   &__create-btn:link,
   &__create-btn:active {
+    width: 100%;
     padding: var(--spacing-sm) 0;
     text-decoration: none;
     text-transform: uppercase;
@@ -36,7 +37,7 @@
     align-items: center;
     border-radius: var(--radius-sm);
     color: var(--color-text-light);
-    transition: all var(--duration-base) ease-out;
+    transition: all var(--duration-short) ease-out;
   }
 
   &__sidebar-item:hover {
