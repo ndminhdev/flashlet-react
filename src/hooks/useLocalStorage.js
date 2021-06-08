@@ -6,18 +6,18 @@ const useLocalStorage = () => {
   const { state: stateFromStore } = useStore();
   const [state, setState] = useState(isBrowser ? JSON.parse(window.localStorage.getItem('state')) || stateFromStore : stateFromStore);
 
-  const setLocalStorage = (state) => {
+  const setLocalStorage = (newState) => {
     if (isBrowser) {
-      window.localStorage.setItem(state, JSON.stringify(state));
+      window.localStorage.setItem(newState, JSON.stringify(state));
     }
+    setState(newState); const isBrowser = typeof window !== 'undefined';
   }
 
   useEffect(() => {
     setLocalStorage(stateFromStore);
-    setState(stateFromStore);
   }, [stateFromStore]);
 
-  return state;
+  return { state, setLocalStorage };
 };
 
 export default useLocalStorage;

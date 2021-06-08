@@ -1,10 +1,11 @@
 import React, { useReducer, useEffect } from 'react';
 
 import appReducer from './reducers';
+import { useLocalStorage } from '@/hooks';
 
 const StateContext = React.createContext({
   state: {},
-  dispatch: () => {}
+  dispatch: () => { }
 });
 
 const initialState = {
@@ -21,13 +22,14 @@ const initialState = {
 };
 
 export const StateProvider = ({ children }) => {
-  const localState = JSON.parse(localStorage.getItem('state'));
+  const { state: localState } = useLocalStorage();
   const [state, dispatch] = useReducer(appReducer, localState || initialState);
-  localStorage.setItem('state', JSON.stringify(localState || initialState));
 
-  useEffect(() => {
-    localStorage.setItem('state', JSON.stringify(state));
-  }, [state]);
+  // save state to local storage in the first rendering
+  const isBrowser = typeof window !== 'undefined';
+  if (isBrowser) {
+    window.localStorage.setItem('state', JSON.stringify(state));
+  }
 
   return (
     <StateContext.Provider value={{ state, dispatch }}>

@@ -1,8 +1,7 @@
 import useLocalStorage from './useLocalStorage';
 
 const useAuth = () => {
-  const { session } = useLocalStorage();
-  return session;
+  return useLocalStorage().state.session;
 };
 
 export default useAuth;
