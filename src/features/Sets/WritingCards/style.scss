@@ -67,9 +67,9 @@
     position: relative;
     align-items: stretch;
     width: 100%;
-    height: 5px;
+    height: 6px;
     border-radius: 100px;
-    background-color: var(--color-progress-outer);
+    background-color: var(--teal-200);
     overflow: hidden;
   }
 
@@ -79,7 +79,7 @@
     left: 0;
     height: 100%;
     border-radius: 100px;
-    background-color: var(--color-progress-inner);
+    background-color: var(--teal-500);
     transition: width var(--duration-short) linear;
   }
 
