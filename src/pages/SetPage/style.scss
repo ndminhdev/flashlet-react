@@ -14,7 +14,7 @@
   }
 
   &__sidebar {
-    min-width: 24rem;
+    min-width: 18rem;
     width: 26rem;
     padding-right: var(--spacing-md);
     display: flex;
@@ -54,10 +54,12 @@
   }
 
   &__main {
+    width: 100%;
     height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: calc(2 * var(--spacing-xxl));
   }
 
   &__bottom {

@@ -26,7 +26,7 @@ const WritableCard = ({
   };
 
   const onSubmit = (data) => {
-    if (data.answer !== term) {
+    if (data.answer.toLowerCase() !== term.toLowerCase()) {
       return setAnswerShown(true);
     }
 
@@ -35,7 +35,7 @@ const WritableCard = ({
 
   const onCopyChange = (event) => {
     const answer = event.target.value;
-    if (answer === term) {
+    if (answer.toLowerCase() === term.toLowerCase()) {
       onCardAnswerSubmit({ answer }, answerShown);
     }
   };

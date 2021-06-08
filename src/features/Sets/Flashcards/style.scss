@@ -2,10 +2,7 @@
   user-select: none;
   display: flex;
   flex-direction: column;
-  max-width: 80rem;
-  max-height: 60rem;
-  width: 76rem;
-  height: 42.75rem;
+  min-height: 60vh;
 
   &__stack {
     position: relative;

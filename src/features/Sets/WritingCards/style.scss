@@ -2,10 +2,8 @@
   user-select: none;
   display: flex;
   flex-direction: column;
-  max-width: 80rem;
-  max-height: 60rem;
-  width: 76rem;
-  height: 42.75rem;
+  width: 100%;
+  min-height: 50vh;
 
   &__stack {
     position: relative;
@@ -86,7 +84,7 @@
   }
 
   &__results {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-xl);
     display: flex;
     align-items: center;
     justify-content: space-between;

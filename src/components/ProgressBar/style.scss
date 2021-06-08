@@ -3,23 +3,23 @@
   flex-direction: column;
 
   &--primary &__outer {
-    background-color: var(--color-text-light);
+    background-color: var(--color-progress-outer);
   }
 
   &--primary &__inner {
-    background-color: var(--color-text);
+    background-color: var(--color-progress-inner);
   }
 
   &--cyan &__outer {
-    background-color: var(--teal-100);
+    background-color: var(--teal-200);
   }
 
   &--cyan &__inner {
-    background-color: var(--teal-300);
+    background-color: var(--teal-400);
   }
 
   &--coral &__outer {
-    background-color: var(--coral-100);
+    background-color: var(--coral-200);
   }
 
   &--coral &__inner {

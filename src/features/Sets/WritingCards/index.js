@@ -17,7 +17,7 @@ const WritingCards = ({ set }) => {
   const onCardAnswerSubmit = (data, answerShown) => {
     setCurrentCardId((id) => (id + 1 > total - 1 ? id : id + 1));
     setRemainingProgress((state) => (state - 1 < 0 ? state : state - 1));
-    if (data.answer === set.cards[currentCardId].term && !answerShown) {
+    if (data.answer.toLowerCase() === set.cards[currentCardId].term.toLowerCase() && !answerShown) {
       setCorrectProgress((state) => (state + 1 > total ? state : state + 1));
     } else {
       setIncorrectProgress((state) => (state + 1 > total ? state : state + 1));

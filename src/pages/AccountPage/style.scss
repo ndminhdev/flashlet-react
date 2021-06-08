@@ -24,13 +24,10 @@
 
   &__profile-container {
     display: flex;
-  }
-
-  &__profile-fields {
-    margin-left: var(--spacing-lg);
-  }
-
-  &__profile-fields > *:not(:last-child) {
-    margin-bottom: var(--spacing-sm);
+    gap: var(--spacing-md);
+    
+    @include small-desktop {
+      flex-direction: column;
+    }
   }
 }

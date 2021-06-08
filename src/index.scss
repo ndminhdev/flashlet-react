@@ -36,7 +36,7 @@
   --spacing-lg: 2.25rem;
   --spacing-xl: 3.25rem;
   --spacing-xxl: 4.25rem;
-  --spacing-page-h: 320px;
+  --spacing-page-h: 446px;
   @include small-desktop {
     --spacing-page-h: 10px;
   }
@@ -134,8 +134,8 @@ html {
   --color-theme-dark: var(--neutral-400);
   --color-theme-hover: var(--neutral-300);
   --color-header-background: var(--teal-300);
-  --color-progress-outer: var(--teal-200);
-  --color-progress-inner: var(--teal-400);
+  --color-progress-outer: var(--neutral-500);
+  --color-progress-inner: var(--ink-200);
   --color-landing: var(--teal-400);
 
   // borders
@@ -143,8 +143,8 @@ html {
   --border-narrow: 1px solid var(--neutral-300);
 
   // shadows
-  --shadow: 0.25rem 0.25rem 1.5rem 0.25rem rgba(0, 0, 0, 0.2);
-  --shadow-big: 0.5rem 0.5rem 5rem 0.5rem rgba(0, 0, 0, 0.2);
+  --shadow: 0.125rem 0.125rem 1rem 0.125rem rgba(0, 0, 0, 0.2);
+  --shadow-big: 0.25rem 0.25rem 2rem 0.25rem rgba(0, 0, 0, 0.2);
 
   // background
   --background-dim: rgba(0, 0, 0, 0.5);
@@ -159,17 +159,13 @@ html.dark {
   --color-theme-dark: var(--ink-100);
   --color-theme-hover: var(--ink-300);
   --color-header-background: var(--ink-200);
-  --color-progress-outer: var(--teal-500);
-  --color-progress-inner: var(--teal-300);
+  --color-progress-outer: var(--neutral-500);
+  --color-progress-inner: var(--neutral-100);
   --color-landing: var(--ink-500);
 
   // borders
   --border: 2px solid var(--ink-100);
   --border-narrow: 1px solid var(--ink-100);
-
-  // shadows
-  --shadow: 0.25rem 0.25rem 1.5rem 0.25rem rgba(0, 0, 0, 0.2);
-  --shadow-big: 0.5rem 0.5rem 5rem 0.5rem rgba(0, 0, 0, 0.2);
 
   // background
   --background-dim: rgba(0, 0, 0, 0.8);
@@ -181,6 +177,7 @@ body {
   font-size: var(--size-md);
   color: var(--color-text);
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .lock {
