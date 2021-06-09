@@ -72,8 +72,9 @@ const Header = () => {
   return (
     <React.Fragment>
       <div
-        className={`header ${signInOverlayShown || signUpOverlayShown ? 'header--lock' : ''
-          }`}
+        className={`header ${
+          signInOverlayShown || signUpOverlayShown ? 'header--lock' : ''
+        }`}
       >
         <Link to="/" className="header__logo">
           Flashlet
@@ -102,8 +103,9 @@ const Header = () => {
         {isAuth ? (
           <div className="header__user">
             <div
-              className={`header__profile-image${showUserList ? ' header__profile-image--active' : ''
-                }`}
+              className={`header__profile-image${
+                showUserList ? ' header__profile-image--active' : ''
+              }`}
               onClick={() => setShowUserList(!showUserList)}
             >
               <img

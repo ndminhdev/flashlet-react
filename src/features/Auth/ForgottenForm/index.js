@@ -40,28 +40,32 @@ const ForgottenForm = () => {
         Enter your email address you signed up with. We&apos;ll send you a email
         that you can reset your password.
       </p>
-      {
-        success
-          ? (
-            <p className="forgotten-form__message">Please check your inbox and follow the instructions.</p>
-          ) : (
-            <p>
-              <form className="forgotten-form__form" onSubmit={handleSubmit(onSubmit)}>
-                <Field
-                  size="lg"
-                  name="email"
-                  label="Email address"
-                  register={register}
-                  placeholder="Type your email address"
-                  error={errors.email?.message}
-                />
-                <Button type="submit" loading={loading} size="sm">Submit</Button>
-              </form>
-              { errMessage && <span className="error-message">{errMessage}</span>}
-            </p>
-          )
-      }
-    </div >
+      {success ? (
+        <p className="forgotten-form__message">
+          Please check your inbox and follow the instructions.
+        </p>
+      ) : (
+        <>
+          <form
+            className="forgotten-form__form"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <Field
+              size="lg"
+              name="email"
+              label="Email address"
+              register={register}
+              placeholder="Type your email address"
+              error={errors.email?.message}
+            />
+            <Button type="submit" loading={loading} size="sm">
+              Submit
+            </Button>
+          </form>
+          {errMessage && <span className="error-message">{errMessage}</span>}
+        </>
+      )}
+    </div>
   );
 };
 
