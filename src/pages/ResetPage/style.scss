@@ -1,6 +1,6 @@
 .reset {
   height: 90vh;
-  padding-top: 16rem;
+  padding-top: 12rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -12,10 +12,10 @@
   }
 
   &__left {
-    left: var(--spacing-xxl);
+    left: var(--spacing-xl);
   }
 
   &__right {
-    right: var(--spacing-xxl);
+    right: var(--spacing-xl);
   }
 }

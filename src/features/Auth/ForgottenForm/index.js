@@ -34,7 +34,7 @@ const ForgottenForm = () => {
           placeholder="Type your email address"
           error={errors.email?.message}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" size="sm">Submit</Button>
       </form>
     </div>
   );

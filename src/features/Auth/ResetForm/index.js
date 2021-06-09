@@ -54,7 +54,7 @@ const ResetForm = () => {
           placeholder="Confirm your new password"
           error={errors.email?.password2}
         />
-        <Button type="submit">Reset My Password</Button>
+        <Button type="submit" size="sm">Reset My Password</Button>
       </form>
     </div>
   );
