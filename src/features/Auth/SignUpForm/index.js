@@ -88,7 +88,7 @@ const SignUpForm = ({ swapSignIn }) => {
           Sign up
         </Button>
       </form>
-      {errMessage && <span className="signup-form__error">{errMessage}</span>}
+      {errMessage && <span className="error-message">{errMessage}</span>}
       <div className="signup-form__bottom">
         <p className="signup-form__bottom-text">Already have account?</p>
         <span className="signup-form__bottom-link" onClick={swapSignIn}>

@@ -83,7 +83,7 @@ const SignInForm = () => {
           Continue
         </Button>
       </form>
-      {errMessage && <span className="signin-form__error">{errMessage}</span>}
+      {errMessage && <span className="error-message">{errMessage}</span>}
       <Link
         className="signin-form__link"
         to="/forgotten"

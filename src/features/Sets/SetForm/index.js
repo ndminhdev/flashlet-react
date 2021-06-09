@@ -58,7 +58,7 @@ const SetForm = ({ loading, set, onSubmit, onCancel, error }) => {
           </Button>
         </div>
       </form>
-      {error && <div className="set-form__error">{error}</div>}
+      {error && <div className="error-message">{error}</div>}
     </div>
   );
 };

@@ -208,3 +208,9 @@ h6 {
   font-weight: var(--weight-bold);
   color: var(--color-text-light);
 }
+
+.error-message {
+  display: block;
+  color: var(--coral-300);
+  margin-bottom: var(--spacing-lg);
+}
