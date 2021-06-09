@@ -60,14 +60,14 @@ const SetList = ({ title, keyword, fetchData }) => {
 
   return (
     <div className="set-list">
-      <h1 className="set-list__keyword">
+      <h3 className="set-list__keyword">
         {keyword || title}{' '}
         <span className="set-list__count">({setsCount})</span>
-      </h1>
+      </h3>
       {setsCount ? (
         <React.Fragment>
           <div className="set-list__top">
-            <h3 className="set-list__title">Sets</h3>
+            <h4 className="set-list__title">Sets</h4>
             <div className="set-list__sorts">
               {sorts.map(({ id, sortBy, orderBy, label }) => (
                 <button
