@@ -56,7 +56,7 @@ const SetList = ({ title, keyword, fetchData }) => {
       setSets(data.sets);
       setHasNextPage(data.hasNextPage);
     })();
-  }, [sort]);
+  }, [sort, keyword]);
 
   return (
     <div className="set-list">

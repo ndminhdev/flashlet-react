@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 
@@ -9,16 +9,21 @@ import { SetAPI } from '@/api';
 
 const SearchPage = () => {
   const { keyword } = useParams();
+  const [key, setKey] = useState(keyword);
+
+  useEffect(() => {
+    setKey(keyword);
+  }, [keyword]);
 
   return (
     <Layout>
       <Helmet>
-        <title>Subject: {keyword} | Flashlet</title>
+        <title>Subject: {key} | Flashlet</title>
       </Helmet>
       <div className="search">
         <SetList
           title="Your sets"
-          keyword={keyword}
+          keyword={key}
           fetchData={SetAPI.searchSets}
         />
       </div>
