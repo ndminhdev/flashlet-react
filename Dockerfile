@@ -1,5 +1,6 @@
 FROM node:15-alpine
-RUN mkdir -p app
+LABEL maintainer="Allan Wu <wuallanx@gmail.com>"
+LABEL description="Dockerize Flashlet React client application"
 WORKDIR /usr/src/app
 
 RUN apk add --no-cache \
@@ -13,7 +14,7 @@ RUN apk add --no-cache \
   make \
   nasm
 COPY . ./
-RUN npm install --silent
+RUN npm install --legacy-peer-deps --silent
 
 RUN chown -R node node_modules
 
