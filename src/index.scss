@@ -178,7 +178,27 @@ body {
 
 .lock {
   overflow: hidden;
-  padding-right: 15px;
+  padding-right: 4px;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--teal-300) var(--neutral-300);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-300);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--teal-300) ;
+  border-radius: 5px;
+  border: 2px solid var(--neutral-300);
 }
 
 input,
