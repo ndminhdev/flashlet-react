@@ -45,10 +45,6 @@
     transition: background-color var(--duration-short) ease-out;
   }
 
-  &__search-input::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.35);
-  }
-
   &__search-input:focus {
     background-color: var(--neutral-100);
   }
