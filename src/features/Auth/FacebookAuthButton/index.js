@@ -24,9 +24,11 @@ const FacebookAuthButton = ({ size }) => {
           imageUrl: data.picture.data.url
         }
       });
+      console.log(signInData);
       const preferencesData = await PreferenceAPI.getPreferences(
         signInData.token
       );
+      console.log(preferencesData);
       setPreferences(dispatch, preferencesData);
       signIn(dispatch, signInData);
       hideOverlays(dispatch);
