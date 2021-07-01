@@ -1,6 +1,10 @@
 .dashboard {
   display: flex;
 
+  @include tablet-lg {
+    flex-direction: column;
+  }
+
   &__sidebar {
     min-width: 18rem;
     width: 20rem;
@@ -8,6 +12,11 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+
+    @include tablet-lg {
+      width: 100%;
+      padding-right: 0;
+    }
   }
 
   &__create-btn,
@@ -22,12 +31,24 @@
     border-radius: var(--radius-sm);
     background-color: var(--color-primary);
     color: var(--color-button-text);
+
+    @include tablet-lg {
+      padding: var(--spacing-md) 0;
+      font-size: var(--size-lg);
+    }
   }
 
   &__sidebar-list {
+    display: flex;
+    flex-direction: column;
     margin-top: var(--spacing-xs);
     list-style: none;
     font-weight: var(--weight-bold);
+
+    @include tablet-lg {
+      flex-direction: row;
+      margin: var(--spacing-xl) 0;
+    }
   }
 
   &__sidebar-item {
@@ -38,6 +59,10 @@
     border-radius: var(--radius-sm);
     color: var(--color-text-light);
     transition: all var(--duration-short) ease-out;
+
+    @include tablet-lg {
+      font-size: var(--size-lg);
+    }
   }
 
   &__sidebar-item:hover {
@@ -59,5 +84,9 @@
   &__main {
     flex: 1;
     padding-left: var(--spacing-md);
+
+    @include tablet-lg {
+      padding-left: 0;
+    }
   }
 }

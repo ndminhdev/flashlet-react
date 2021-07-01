@@ -5,6 +5,11 @@
     align-items: center;
     border: var(--border);
     border-radius: var(--radius-sm);
+
+    @include tablet-lg {
+      margin-top: var(--spacing-xxl);
+      flex-direction: column;
+    }
   }
 
   &__form > *:last-child {
@@ -14,6 +19,11 @@
   &__buttons {
     display: flex;
     flex-direction: column;
+
+    @include tablet-lg {
+      margin-top: var(--spacing-lg);
+      flex-direction: row;
+    }
   }
 
   &__buttons > *:last-child {
@@ -23,6 +33,18 @@
   &__field {
     display: flex;
     align-items: center;
+
+    @include tablet-lg {
+      margin-top: var(--spacing-xxl);
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__field > *:not(:first-child) {
+    @include tablet-lg {
+      margin-top: var(--spacing-xs);
+    }
   }
 
   &__label {
@@ -33,5 +55,10 @@
   &__value {
     min-width: 20rem;
     max-width: 26rem;
+
+    @include tablet-lg {
+      width: 100%;
+      font-size: var(--size-lg);
+    }
   }
 }

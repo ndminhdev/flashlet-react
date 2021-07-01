@@ -2,12 +2,29 @@
   min-width: 60rem;
   background-color: var(--color-background);
 
+  @include tablet-lg {
+    min-width: 100%;
+    height: 100vh;
+  }
+
   &__social {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
     margin-bottom: var(--spacing-lg);
+
+    @include tablet-lg {
+      flex-direction: column;
+    }
+  }
+
+  &__social > *:first-child {
+    margin-left: 1rem;
+
+    @include tablet-lg {
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
   }
 
   &__line {
@@ -19,7 +36,7 @@
   }
 
   &__line-text {
-    flex: 20%;
+    width: 20rem;
     text-align: center;
     font-weight: var(--weight-medium);
     color: var(--color-text-light);

@@ -1,5 +1,17 @@
 .security-area {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet-lg {
+    flex-direction: row;
+  }
+
   & > *:not(:last-child) {
     margin-bottom: var(--spacing-sm);
+
+    @include tablet-lg {
+      margin-bottom: 0;
+      margin-right: var(--spacing-md);
+    }
   }
 }

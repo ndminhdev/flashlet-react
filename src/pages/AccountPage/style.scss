@@ -5,6 +5,15 @@
     border-right: var(--border-narrow);
     font-weight: var(--weight-medium);
     color: var(--color-text);
+
+    @include tablet-lg {
+      padding-bottom: var(--spacing-md);
+      margin-right: 0;
+      margin-bottom: var(--spacing-md);
+      border-right: none;
+      border-bottom: var(--border-narrow);
+      font-size: var(--size-xl);
+    }
   }
 
   &__profile,
@@ -16,6 +25,10 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-big);
     background-color: var(--color-background);
+
+    @include tablet-lg {
+      flex-direction: column;
+    }
   }
 
   &__profile {
@@ -25,7 +38,7 @@
   &__profile-container {
     display: flex;
     gap: var(--spacing-md);
-    
+
     @include desktop-sm {
       flex-direction: column;
     }

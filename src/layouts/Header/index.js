@@ -49,6 +49,7 @@ const Header = () => {
 
   const onSubmit = (data) => {
     navigate(`/subject/${data.keyword}`);
+    toggleMobileNav();
   };
 
   const clearSearchInput = () => {

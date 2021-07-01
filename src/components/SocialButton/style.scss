@@ -36,5 +36,9 @@
     left: 6rem;
     width: 3.2rem;
     height: 3.2rem;
+
+    @include mobile-lg {
+      left: 3rem;
+    }
   }
 }

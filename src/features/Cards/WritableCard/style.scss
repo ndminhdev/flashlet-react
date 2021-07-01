@@ -10,6 +10,10 @@
   background-color: var(--color-background);
   box-shadow: var(--shadow-big);
 
+  @include tablet-lg {
+    padding: var(--spacing-lg);
+  }
+
   &__top {
     margin-bottom: var(--spacing-xxl);
     padding-bottom: var(--spacing-md);
@@ -38,8 +42,13 @@
   }
 
   &__definition {
+    flex: 80%;
     margin-right: auto;
     font-size: var(--size-lg);
+
+    @include mobile-lg {
+      font-size: var(--size-md);
+    }
   }
 
   &__bottom {
@@ -49,9 +58,19 @@
   &__form {
     display: flex;
     align-items: center;
+
+    @include mobile-lg {
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
 
   &__form > *:not(:last-child) {
     margin-right: var(--spacing-md);
+
+    @include mobile-lg {
+      margin-right: 0;
+      margin-bottom: var(--spacing-md);
+    }
   }
 }
