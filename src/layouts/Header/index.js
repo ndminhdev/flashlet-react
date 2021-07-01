@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSpring, a } from '@react-spring/web';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 import './style.scss';
 import { Button } from '@/components';
@@ -21,12 +22,14 @@ import { UserAPI } from '@/api';
 
 const SearchIcon = icons.Search;
 const ClearIcon = icons.Close;
+const MenuIcon = icons.Menu;
 
 const Header = () => {
   const { register, watch, setValue, handleSubmit } = useForm({
     mode: 'onChange'
   });
   const dispatch = useDispatch();
+  const [mobileNavShown, setMobileNavShown] = useState(false);
   const { signInOverlayShown, signUpOverlayShown } = useOverlay();
   const [showUserList, setShowUserList] = useState(false);
   const springProps = useSpring({
@@ -39,6 +42,10 @@ const Header = () => {
   const navigate = useNavigate();
 
   const infoDropdownRef = useRef(null);
+
+  const toggleMobileNav = () => {
+    setMobileNavShown(!mobileNavShown);
+  }
 
   const onSubmit = (data) => {
     navigate(`/subject/${data.keyword}`);
@@ -79,6 +86,11 @@ const Header = () => {
         <Link to="/" className="header__logo">
           Flashlet
         </Link>
+
+        <button className="header__menu-icon" onClick={toggleMobileNav}>
+          {mobileNavShown ? <ClearIcon /> : <MenuIcon />}
+        </button>
+        <div className="header__nav" style={{left: mobileNavShown ? 0 : '-100%'}}>
         <div className="header__search">
           <form
             className="header__search-form"
@@ -171,6 +183,7 @@ const Header = () => {
             </Button>
           </div>
         )}
+      </div>
       </div>
       <Overlay component={SignInBox} overlayShown={signInOverlayShown} />
       <Overlay

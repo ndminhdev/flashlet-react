@@ -13,6 +13,7 @@ exports.devServer = {
   https: true,
   host,
   port,
+  disableHostCheck: true,
   publicPath: '/',
   historyApiFallback: true,
   compress: true,

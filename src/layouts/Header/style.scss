@@ -10,9 +10,18 @@
   background-color: var(--color-header-background);
   z-index: var(--z-index-2);
 
+  @include tablet-lg {
+    padding: 0 var(--spacing-md);
+  }
+
   &--lock {
     right: 15px;
     width: calc(100% - 15px);
+
+    @include tablet-lg {
+      right: 0;
+      width: 100%;
+    }
   }
 
   &__logo,
@@ -24,14 +33,57 @@
     color: var(--neutral-100);
   }
 
+  &__menu-icon {
+    display: none;
+
+    @include tablet-lg {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      padding: 0;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      font-size: var(--size-xxl);
+      color: var(--neutral-100);
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    transition: left 0.3s ease-out;
+
+    @include tablet-lg {
+      position: fixed;
+      top: 6rem;
+      width: 100%;
+      height: 100vh;
+      padding: var(--spacing-md) var(--spacing-xxl);
+      flex-direction: column;
+      align-items: stretch;
+      background-color: var(--color-primary-dark);
+    }
+  }
+
   &__search {
     position: relative;
+
+    @include tablet-lg {
+      margin-bottom: var(--spacing-md);
+    }
   }
 
   &__search-form {
     position: relative;
     width: 28rem;
     margin-left: var(--spacing-lg);
+
+    @include tablet-lg {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 
   &__search-input {
@@ -43,6 +95,10 @@
     border: none;
     background-color: rgba(255, 255, 255, 0.35);
     transition: background-color var(--duration-short) ease-out;
+
+    @include tablet-lg {
+      font-size: var(--size-xl);
+    }
   }
 
   &__search-input:focus {
@@ -87,10 +143,21 @@
   &__buttons {
     margin-left: auto;
     display: flex;
+
+    @include tablet-lg {
+      flex-direction: column;
+      align-items: center;
+      margin-left: 0;
+    }
   }
 
   &__buttons > *:first-child {
     margin-right: var(--spacing-md);
+
+    @include tablet-lg {
+      margin-right: 0;
+      margin-bottom: var(--spacing-md);
+    }
   }
 
   &__user {

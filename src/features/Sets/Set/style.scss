@@ -79,8 +79,18 @@
 
   &__preview-terms {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     border-top: var(--border-narrow);
+
+    @include tablet-sm {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-lg {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__preview {
@@ -94,6 +104,10 @@
 
   &__preview:not(:last-child) {
     border-right: var(--border-narrow);
+
+    @include tablet-sm {
+      border-right: none;
+    }
   }
 
   &__term {

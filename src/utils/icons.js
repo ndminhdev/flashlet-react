@@ -19,6 +19,7 @@ import {
   HiArrowNarrowLeft,
   HiArrowNarrowRight
 } from 'react-icons/hi';
+import {GiHamburgerMenu} from 'react-icons/gi';
 
 const icons = {
   Google: FcGoogle,
@@ -37,7 +38,8 @@ const icons = {
   Check: AiFillCheckCircle,
   Idea: AiOutlineBulb,
   Moon: BiMoon,
-  Sun: BiSun
+  Sun: BiSun,
+  Menu: GiHamburgerMenu
 };
 
 export default icons;

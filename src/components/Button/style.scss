@@ -61,6 +61,10 @@
   &--block {
     max-width: 60rem;
     width: 100%;
+
+    @include tablet-lg {
+      max-width: 100%;
+    }
   }
 
   &--xs {

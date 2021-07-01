@@ -4,9 +4,14 @@
   left: 0;
   width: 100%;
   display: flex;
-  height: calc(100h - 6rem);
+  height: calc(100vh - 6rem);
   background-color: var(--color-landing);
   color: var(--color-text);
+
+  @include tablet-lg {
+    flex-direction: column;
+    height: auto;
+  }
 
   &--lock {
     width: calc(100% - 15px);
@@ -19,6 +24,12 @@
     align-items: flex-start;
     padding-top: 16rem;
     padding-left: 16rem;
+
+    @include tablet-sm {
+      padding-top: 8rem;
+      padding-left: 4rem;
+      padding-bottom: var(--spacing-xxl);
+    }
   }
 
   &__hero > *:not(:last-child) {

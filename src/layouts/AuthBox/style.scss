@@ -2,6 +2,10 @@
   width: 64rem;
   border-radius: var(--radius-lg);
 
+  @include tablet-lg {
+    width: 100vw;
+  }
+
   &__header {
     display: flex;
     align-items: center;
