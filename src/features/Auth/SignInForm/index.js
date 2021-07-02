@@ -84,6 +84,12 @@ const SignInForm = () => {
         </Button>
       </form>
       {errMessage && <span className="error-message">{errMessage}</span>}
+      <div className="signin-form__bottom">
+        <p className="signin-form__bottom-text">Have already an account?</p>
+        <span className="signin-form__bottom-link">
+          Create account
+        </span>
+      </div>
       <Link
         className="signin-form__link"
         to="/forgotten"

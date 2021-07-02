@@ -76,12 +76,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: calc(2 * var(--spacing-xxl));
+
+    @include tablet-lg {
+      height: auto;
+    }
   }
 
   &__bottom {
     display: flex;
     align-items: center;
+
+    @include tablet-lg {
+      margin-top: calc(2 * var(--spacing-xl));
+    }
   }
 
   &__user {

@@ -96,6 +96,7 @@ const Header = () => {
           <form
             className="header__search-form"
             onSubmit={handleSubmit(onSubmit)}
+            autoComplete="off"
           >
             <input
               className="header__search-input"
@@ -113,6 +114,8 @@ const Header = () => {
             </button>
           )}
         </div>
+          {
+            isAuth && (
         <div className="header__user-mobile">
           <div className="header__info">
             <img
@@ -146,6 +149,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        )}
         {isAuth ? (
           <div className="header__user">
             <div

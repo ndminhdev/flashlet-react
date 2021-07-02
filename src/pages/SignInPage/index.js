@@ -15,12 +15,6 @@ const SignInPage = () => (
     </Link>
     <h1 className="signin__title">Sign in</h1>
     <SignInForm />
-    <div className="signin__bottom">
-      <p className="signin__bottom-text">Have not an account yet?</p>
-      <Link to="/signup" className="signin__bottom-link">
-        Create account
-      </Link>
-    </div>
   </div>
 );
 
