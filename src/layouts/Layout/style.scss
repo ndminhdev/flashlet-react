@@ -11,6 +11,7 @@
 
   @include tablet-lg {
     width: 100%;
+    padding: var(--spacing-md) 0;
     padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);
   }

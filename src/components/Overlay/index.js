@@ -13,7 +13,7 @@ const portalOverlay = document.getElementById('portal-overlay');
 const Overlay = ({
   component: OverlayComponent,
   overlayShown,
-  showSignInOverlay
+  swapOverlay
 }) => {
   const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ const Overlay = ({
         <div className="overlay__box">
           <OverlayComponent
             hideOverlay={() => hideOverlays(dispatch)}
-            showSignInOverlay={showSignInOverlay}
+            swap={swapOverlay}
           />
         </div>
       </React.Fragment>,
@@ -49,7 +49,8 @@ const Overlay = ({
 
 Overlay.propTypes = {
   component: PropTypes.func.isRequired,
-  overlayShown: PropTypes.bool.isRequired
+  overlayShown: PropTypes.bool.isRequired,
+  swapOverlay: PropTypes.func.isRequired
 };
 
 export default Overlay;

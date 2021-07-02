@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSpring, a } from '@react-spring/web';
-import { GiHamburgerMenu } from 'react-icons/gi';
 
 import './style.scss';
 import { Button } from '@/components';
@@ -223,11 +222,11 @@ const Header = () => {
         )}
       </div>
       </div>
-      <Overlay component={SignInBox} overlayShown={signInOverlayShown} />
+      <Overlay component={SignInBox} overlayShown={signInOverlayShown} swapOverlay={() => showSignUpOverlay(dispatch)} />
       <Overlay
         component={SignUpBox}
         overlayShown={signUpOverlayShown}
-        showSignInOverlay={() => showSignInOverlay(dispatch)}
+        swapOverlay={() => showSignInOverlay(dispatch)}
       />
     </React.Fragment>
   );

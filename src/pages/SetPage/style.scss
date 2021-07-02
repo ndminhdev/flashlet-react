@@ -17,7 +17,7 @@
     display: flex;
 
     @include tablet-lg {
-      margin-top: var(--spacing-md);
+      margin-top: var(--spacing-sm);
       flex-direction: column;
     }
   }
@@ -32,7 +32,7 @@
 
     @include tablet-lg {
       width: 100%;
-      margin-bottom: var(--spacing-xl);
+      margin-bottom: var(--spacing-sm);
       padding-right: 0;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -85,10 +85,7 @@
   &__bottom {
     display: flex;
     align-items: center;
-
-    @include tablet-lg {
-      margin-top: calc(2 * var(--spacing-xl));
-    }
+    margin-top: calc(2.5 * var(--spacing-xl));
   }
 
   &__user {

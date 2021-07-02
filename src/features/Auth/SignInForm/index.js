@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -25,7 +26,7 @@ const schema = Yup.object().shape({
     .required('Password is required')
 });
 
-const SignInForm = () => {
+const SignInForm = ({ swap }) => {
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
@@ -86,7 +87,7 @@ const SignInForm = () => {
       {errMessage && <span className="error-message">{errMessage}</span>}
       <div className="signin-form__bottom">
         <p className="signin-form__bottom-text">Have already an account?</p>
-        <span className="signin-form__bottom-link">
+        <span className="signin-form__bottom-link" onClick={swap}>
           Create account
         </span>
       </div>
@@ -100,5 +101,9 @@ const SignInForm = () => {
     </div>
   );
 };
+
+SignInForm.propTypes = {
+  swap: PropTypes.func.isRequired
+}
 
 export default SignInForm;

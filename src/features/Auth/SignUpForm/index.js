@@ -24,7 +24,7 @@ const schema = Yup.object().shape({
     .required('Password is required')
 });
 
-const SignUpForm = ({ swapSignIn }) => {
+const SignUpForm = ({ swap }) => {
   const { register, errors, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
@@ -91,7 +91,7 @@ const SignUpForm = ({ swapSignIn }) => {
       {errMessage && <span className="error-message">{errMessage}</span>}
       <div className="signup-form__bottom">
         <p className="signup-form__bottom-text">Already have account?</p>
-        <span className="signup-form__bottom-link" onClick={swapSignIn}>
+        <span className="signup-form__bottom-link" onClick={swap}>
           Sign in
         </span>
       </div>
@@ -100,7 +100,7 @@ const SignUpForm = ({ swapSignIn }) => {
 };
 
 SignUpForm.propTypes = {
-  swapSignIn: PropTypes.func.isRequired
+  swap: PropTypes.func.isRequired
 };
 
 export default SignUpForm;
