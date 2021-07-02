@@ -113,6 +113,39 @@ const Header = () => {
             </button>
           )}
         </div>
+        <div className="header__user-mobile">
+          <div className="header__info">
+            <img
+              className="header__info-image"
+              src={user.profileImage || user.profileImageDefault}
+              alt="profile-image"
+            />
+            <div className="header__info-text">
+              <span className="header__info-name">{user.name}</span>
+              <span className="header__info-email">{user.email}</span>
+            </div>
+          </div>
+          <div className="header__options">
+            <Link to="/create-set" className="header__link">
+              Create a study set
+            </Link>
+            <Link to="/dashboard" className="header__link">
+              Dashboard
+            </Link>
+            <Link to="/account" className="header__link">
+              Profile
+            </Link>
+            <Link to="/preferences" className="header__link">
+              Preferences
+            </Link>
+            <div
+              className="header__link header__link--coral"
+              onClick={onSignOutClick}
+            >
+              Sign out
+            </div>
+          </div>
+        </div>
         {isAuth ? (
           <div className="header__user">
             <div

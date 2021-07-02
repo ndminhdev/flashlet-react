@@ -63,7 +63,16 @@
       padding: var(--spacing-md) var(--spacing-xxl);
       flex-direction: column;
       align-items: stretch;
-      background-color: var(--color-primary-dark);
+      background-color: var(--color-primary-darker);
+    }
+  }
+
+  &__user-mobile {
+    display: none;
+
+    @include tablet-lg {
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -99,6 +108,19 @@
     @include tablet-lg {
       font-size: var(--size-xl);
     }
+  }
+
+  &__search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1; /* Firefox */
+  }
+
+  &__search-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &__search-input::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgba(255, 255, 255, 0.5);
   }
 
   &__search-input:focus {
@@ -163,6 +185,10 @@
   &__user {
     margin-left: auto;
     position: relative;
+
+    @include tablet-lg {
+      display: none;
+    }
   }
 
   &__profile-image {
@@ -197,12 +223,22 @@
     padding: var(--spacing-sm);
     display: flex;
     align-items: center;
+
+    @include tablet-lg {
+      flex-direction: column;
+    }
   }
 
   &__info-image {
     width: 4.8rem;
     height: 4.8rem;
     border-radius: 50%;
+
+    @include tablet-lg {
+      width: 9.6rem;
+      height: 9.6rem;
+      margin-bottom: var(--spacing-sm);
+    }
   }
 
   &__info-text {
@@ -210,19 +246,38 @@
     display: flex;
     flex-direction: column;
     font-size: var(--size-xs);
+
+    @include tablet-lg {
+      margin-left: 0;
+      align-items: center;
+    }
   }
 
   &__info-name {
     font-weight: var(--weight-medium);
     color: var(--color-text);
+
+    @include tablet-lg {
+      font-size: var(--size-lg);
+    }
   }
 
   &__info-email {
     color: var(--color-text-light);
+
+    @include tablet-lg {
+      font-size: var(--size-md);
+    }
   }
 
   &__options {
     border-top: var(--border-narrow);
+
+    @include tablet-lg {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
 
   &__link,
@@ -236,6 +291,11 @@
     font-weight: var(--weight-medium);
     color: var(--color-text-light);
     transition: all var(--duration-base) ease-out;
+
+    @include tablet-lg {
+      text-align: center;
+      font-size: var(--size-lg);
+    }
   }
 
   &__link:hover {

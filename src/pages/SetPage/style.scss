@@ -1,6 +1,10 @@
 .set {
   &__title {
     color: var(--color-text);
+
+    @include tablet-sm {
+      font-size: var(--size-xl);
+    }
   }
 
   &__description {
@@ -13,6 +17,7 @@
     display: flex;
 
     @include tablet-lg {
+      margin-top: var(--spacing-md);
       flex-direction: column;
     }
   }

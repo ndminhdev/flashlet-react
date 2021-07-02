@@ -21,6 +21,7 @@
   &__form {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
   }
 
   &__forms > * {
@@ -30,15 +31,33 @@
   &__fields {
     padding: var(--spacing-md) 0;
     display: flex;
+
+    @include tablet-sm {
+      flex-direction: column;
+    }
   }
 
   &__fields > *:not(:last-child) {
     margin-right: var(--spacing-md);
+
+    @include tablet-sm {
+      margin-right: 0;
+      margin-bottom: var(--spacing-xl);
+    }
   }
 
   &__buttons {
     align-self: flex-end;
     display: flex;
+
+    @include tablet-sm {
+      margin-top: var(--spacing-xl);
+      align-self: stretch;
+
+      button {
+        flex: 1;
+      }
+    }
   }
 
   &__buttons > *:first-child {
