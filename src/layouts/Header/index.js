@@ -208,13 +208,19 @@ const Header = () => {
           <div className="header__buttons">
             <Button
               variant="primary"
-              onClick={() => showSignInOverlay(dispatch)}
+              onClick={() => {
+                showSignInOverlay(dispatch);
+                toggleMobileNav();
+              }}
             >
               Sign in
             </Button>
             <Button
               variant="secondary"
-              onClick={() => showSignUpOverlay(dispatch)}
+              onClick={() => {
+                showSignUpOverlay(dispatch);
+                toggleMobileNav();
+              }}
             >
               Get started
             </Button>

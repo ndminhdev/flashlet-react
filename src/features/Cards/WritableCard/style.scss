@@ -2,8 +2,7 @@
   user-select: none;
   position: relative;
   width: 100%;
-  min-height: 50rem;
-  height: 100%;
+  min-height: 40vh;
   padding: var(--spacing-xxl);
   display: flex;
   flex-direction: column;
@@ -15,8 +14,11 @@
     padding: var(--spacing-lg);
   }
 
+  @include tablet-sm {
+    padding: var(--spacing-sm);
+  }
+
   &__top {
-    margin-bottom: var(--spacing-xxl);
     padding-bottom: var(--spacing-md);
     border-bottom: var(--border);
   }
@@ -49,6 +51,7 @@
 
     @include mobile-lg {
       font-size: var(--size-md);
+      margin-right: var(--spacing-md);
     }
   }
 

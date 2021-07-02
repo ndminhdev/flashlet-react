@@ -19,6 +19,10 @@
     border-radius: var(--radius-lg);
     background-color: var(--color-background);
     box-shadow: var(--shadow-big);
+
+    @include tablet-sm {
+      padding: var(--spacing-sm);
+    }
   }
 
   &__term {
