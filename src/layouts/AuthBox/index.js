@@ -13,9 +13,9 @@ const AuthBox = ({ children, title, handleClose }) => {
   const isShown = signInOverlayShown || signUpOverlayShown;
 
   const transitions = useTransition(isShown, {
-    from: { transform: 'translateY(-20px)', opacity: 0.6 },
-    enter: { transform: 'translateY(0)', opacity: 1 },
-    leave: { transform: 'translateY(-20px)', opacity: 0.6 },
+    from: { transform: 'translateY(-20px)' },
+    enter: { transform: 'translateY(0)' },
+    leave: { transform: 'translateY(-20px)' },
     reverse: isShown,
     config: { duration: 250 }
   });
