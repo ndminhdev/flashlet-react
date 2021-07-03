@@ -122,16 +122,16 @@
   }
 
   &__search-input::placeholder {
-    color: var(--color-text-light);
+    color: var(--color-search-placeholder);
     opacity: 1; /* Firefox */
   }
 
   &__search-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: var(--color-text-light);
+    color: var(--color-search-placeholder);
   }
 
   &__search-input::-ms-input-placeholder { /* Microsoft Edge */
-    color: var(--color-text-light);
+    color: var(--color-search-placeholder);
   }
 
   &__search-input:focus {
@@ -148,7 +148,7 @@
     top: 50%;
     transform: translateY(-50%);
     left: var(--spacing-xs);
-    fill: var(--color-text);
+    fill: var(--color-search-placeholder);
     width: 2.4rem;
     height: 2.4rem;
   }

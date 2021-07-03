@@ -133,6 +133,7 @@ html {
   --color-progress-outer: var(--neutral-500);
   --color-progress-inner: var(--ink-200);
   --color-landing: var(--teal-400);
+  --color-search-placeholder: var(--neutral-400);
 
   // borders
   --border: 2px solid var(--neutral-300);
@@ -158,6 +159,7 @@ html.dark {
   --color-progress-outer: var(--neutral-500);
   --color-progress-inner: var(--neutral-100);
   --color-landing: var(--ink-500);
+  --color-search-placeholder: var(--ink-100);
 
   // borders
   --border: 2px solid var(--ink-100);
