@@ -1,17 +1,11 @@
-.background {
-  min-height: 100vh;
-  padding-top: 6rem;
-  background-color: var(--color-background-dark);
-}
-
 .main {
   max-width: 1024px;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: var(--spacing-xl) 0;
+  padding-top: 8rem;
 
   @include tablet-lg {
     width: 100%;
-    padding: var(--spacing-md) 0;
     padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);
   }

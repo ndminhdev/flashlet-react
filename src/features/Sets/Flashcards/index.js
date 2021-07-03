@@ -15,13 +15,13 @@ const Flashcards = ({ set }) => {
           display: 'block',
           transform: 'perspective(600px) scale(1) rotateY(0)',
           config: {
-            duration: 250
+            duration: 200
           }
         }
       : {
           display: 'none',
           config: {
-            duration: 250
+            duration: 200
           }
         }
   );
@@ -41,7 +41,7 @@ const Flashcards = ({ set }) => {
           display: 'none',
           transform: 'perspective(600px) scale(0.2) rotateY(60deg)',
           config: {
-            duration: 250
+            duration: 150
           }
         };
       } else if (currentCardId > i) {
@@ -49,7 +49,7 @@ const Flashcards = ({ set }) => {
           display: 'none',
           transform: 'perspective(600px) scale(0.2) rotateY(-60deg)',
           config: {
-            duration: 250
+            duration: 150
           }
         };
       } else {
@@ -57,7 +57,7 @@ const Flashcards = ({ set }) => {
           display: 'block',
           transform: 'perspective(600px) scale(1) rotateY(0)',
           config: {
-            duration: 250
+            duration: 150
           }
         };
       }

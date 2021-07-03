@@ -9,6 +9,7 @@
   align-items: center;
   background-color: var(--color-header-background);
   z-index: var(--z-index-2);
+  border-bottom: 1px solid var(--color-primary);
 
   @include tablet-lg {
     padding: 0 var(--spacing-md);
@@ -26,11 +27,15 @@
 
   &__logo,
   &__logo:active {
-    font-family: 'Recursive', sans-serif;
-    font-size: var(--size-xl);
+    font-family: 'Signika', sans-serif;
+    font-size: calc(1.25 * var(--size-xl));
     font-weight: var(--weight-bold);
     text-decoration: none;
     color: var(--neutral-100);
+
+    @include tablet-sm {
+      font-size: var(--size-xl);
+    }
   }
 
   &__menu-icon {
@@ -46,6 +51,10 @@
       background-color: transparent;
       font-size: var(--size-xxl);
       color: var(--neutral-100);
+    }
+
+    @include tablet-sm {
+      font-size: var(--size-xl);
     }
   }
 
@@ -104,12 +113,10 @@
     border-radius: var(--input-radius-sm);
     outline: none;
     border: none;
-    background-color: var(--color-background);
+    background-color: var(--color-background-dark);
     transition: background-color var(--duration-short) ease-out;
 
     @include tablet-lg {
-      padding: var(--input-padding-v-md) 0;
-      padding-left: calc(1.5 * var(--spacing-xxl));
       font-size: var(--size-lg);
     }
   }
@@ -171,19 +178,19 @@
     display: flex;
 
     @include tablet-lg {
-      flex-direction: column;
       align-items: center;
       margin-left: 0;
     }
   }
 
+  &__buttons > * {
+    @include tablet-lg {
+      flex: 1;
+    }
+  }
+
   &__buttons > *:first-child {
     margin-right: var(--spacing-md);
-
-    @include tablet-lg {
-      margin-right: 0;
-      margin-bottom: var(--spacing-md);
-    }
   }
 
   &__user {
@@ -296,10 +303,10 @@
     transition: all var(--duration-base) ease-out;
 
     @include tablet-lg {
-      padding: var(--spacing-md);
+      padding: var(--spacing-lg);
       text-align: center;
-      font-size: var(--size-xl);
-      font-weight: var(--weight-regular);
+      font-size: var(--size-lg);
+      font-weight: var(--weight-medium);
     }
   }
 

@@ -11,7 +11,7 @@ import {
   BsReverseLayoutSidebarInsetReverse
 } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
-import { ImFacebook2 } from 'react-icons/im';
+import { ImFacebook2, ImTwitter, ImYoutube, ImInstagram } from 'react-icons/im';
 import { IoCloseSharp } from 'react-icons/io5';
 import { SiElasticstack } from 'react-icons/si';
 import {
@@ -24,6 +24,9 @@ import {GiHamburgerMenu} from 'react-icons/gi';
 const icons = {
   Google: FcGoogle,
   Facebook: ImFacebook2,
+  Twitter: ImTwitter,
+  Youtube: ImYoutube,
+  Instagram: ImInstagram,
   Close: IoCloseSharp,
   Search: AiOutlineSearch,
   Image: BsFillImageFill,
