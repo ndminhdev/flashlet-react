@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const paths = require('./paths');
 const { mode, isDev, isProd } = require('./env');
@@ -23,6 +24,12 @@ exports.htmlPlugin = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: true,
   favicon: paths.favicon
+});
+
+// workbox plugin
+exports.workboxPlugin = new WorkboxPlugin.GenerateSW({
+  clientsClaim: true,
+  skipWaiting: true
 });
 
 // copy plugin

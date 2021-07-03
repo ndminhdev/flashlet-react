@@ -15,12 +15,12 @@ RUN apk add --no-cache \
   nasm
 COPY . ./
 RUN npm install --legacy-peer-deps --silent
-# RUN npm run build
+RUN npm run build
 
 RUN chown -R node node_modules
 
 EXPOSE 8080
 
 USER node
-# ENTRYPOINT [ "npm", "run", "start:pwa" ]
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT [ "npm", "run", "start:pwa" ]
+# ENTRYPOINT ["npm", "start"]

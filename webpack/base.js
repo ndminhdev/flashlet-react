@@ -31,6 +31,7 @@ module.exports = {
   },
   plugins: [
     plugins.htmlPlugin,
+    plugins.workboxPlugin,
     plugins.definePlugin,
     plugins.esLintPlugin,
     plugins.dotenvPlugin
