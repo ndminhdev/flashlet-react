@@ -14,6 +14,7 @@ exports.devServer = {
   host,
   port,
   disableHostCheck: true,
+  writeToDisk: true,
   publicPath: '/',
   historyApiFallback: true,
   compress: true,

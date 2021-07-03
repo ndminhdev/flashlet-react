@@ -33,7 +33,11 @@
   }
 
   &__body {
-    padding: var(--spacing-xl) var(--spacing-sm);
+    padding: var(--spacing-xl) var(--spacing-lg);
     background-color: var(--color-background);
+
+    @include mobile-lg {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
   }
 }
